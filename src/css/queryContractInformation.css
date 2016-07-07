@@ -1,0 +1,174 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.qcti{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.qcti_title{
+    width: 1200px;
+    height: 12px;
+    line-height: 12px;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.qcti_title p{
+    float: left;
+    color: #bbbbbb;
+}
+.qcti_body{
+    width: 1200px;
+    height: auto;
+    margin: 0px auto;
+}
+.qcti_body_basicInformation{
+    width: 1200px;
+    float: left;
+}
+.qcti_body_basicInformation_title {
+    width: 1200px;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.qcti_body_basicInformation_title p{
+    font-size: 14px;
+    color: #222222;
+    margin-left: 20px;
+    float: left;
+}
+.qcti_body_basicInformation_title span{
+    font-size: 12px;
+    color: #777777;
+    float: left;
+    margin-left: 20px;
+}
+.qcti_body_basicInformation_content{
+    width: 1200px;
+    float: left;
+}
+.basicInformation_content_company_name,.basicInformation_content_contract_id,.basicInformation_content_purchasing_company{
+    width: 1200px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+.basicInformation_content_company_name label,.basicInformation_content_contract_id label,.basicInformation_content_purchasing_company label{
+    width: 78px;
+    font-size: 12px;
+    float: left;
+    color: #777777;
+    text-align: right;
+}
+.content_company_name,.content_contract_id,.content_purchasing_company{
+    width: 193px;
+    height: 28px;
+    line-height: 30px;
+    border: 1px solid #dddddd;
+    padding-left: 5px;
+    float: left;
+    margin-left: 10px;
+}
+.content_company_name_search{
+    height: 18px;
+    line-height: 20px;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+    color: #777777;
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+.qcti_contractCreat_orderDetails,.qcti_contractCreat_orderDetails_content,.qcti_contractCreat_supplyPlan,.qcti_contractCreat_supplyPlan_content{
+    width: 1200px;
+    float: left;
+}
+.qcti_contractCreat_orderDetails,.qcti_contractCreat_supplyPlan{
+    margin-top: 40px;
+}
+.qcti_contractCreat_orderDetails_title,.qcti_contractCreat_supplyPlan_title{
+    width: 1200px;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.qcti_contractCreat_orderDetails_title p,.qcti_contractCreat_supplyPlan_title p{
+    font-size: 14px;
+    color: #222222;
+    margin-left: 20px;
+    float: left;
+}
+.qcti_contractCreat_orderDetails_content,.qcti_contractCreat_supplyPlan_content{
+    height: auto;
+    max-height: 382px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+}
+
+.qcti_orderDetails_table,.qcti_supplyPlan_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.qcti_orderDetails_thead,.qcti_supplyPlan_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.qcti_orderDetails_thead tr, .qcti_orderDetails_thead td ,.qcti_supplyPlan_thead tr,.qcti_supplyPlan_thead td{
+    border: 1px solid #dddddd;
+    color: black;
+    height: 30px;
+}
+
+.qcti_orderDetails_tbody,.qcti_supplyPlan_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+.qcti_supplyPlan_tbody a{
+    color: #77afea;
+    cursor: pointer;
+}
+.qcti_orderDetails_tbody tr, .qcti_orderDetails_tbody td,.qcti_supplyPlan_tbody tr,.qcti_supplyPlan_tbody td{
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.qcti_orderDetails_tbody td,.qcti_supplyPlan_tbody td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}

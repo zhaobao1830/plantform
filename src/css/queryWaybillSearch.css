@@ -1,0 +1,383 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.qwbs{
+    width: 1200px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.qwbs_title{
+    width: 1200px;
+    height: 12px;
+    line-height: 12px;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.qwbs_title p{
+    float: left;
+    color: #bbbbbb;
+}
+.qwbs_top{
+    width: 1200px;
+    height: auto;
+    float: left;
+}
+.qwbs_top_logistics_id,.qwbs_top_logistics_company,.qwbs_top_logistics_stats,.qwbs_top_car_license{
+    width: 260px;
+    float: left;
+}
+.qwbs_top_good_num{
+    width: 290px;
+    float: left;
+ }
+.qwbs_top_logistics_company,.qwbs_top_car_license,.qwbs_top_good_num{
+    margin-left: 20px;
+}
+.qwbs_top_logistics_stats,.qwbs_top_car_license,.qwbs_top_good_num{
+    margin-top: 20px;
+}
+.qwbs_top_logistics_id label,.qwbs_top_logistics_company label,.qwbs_top_logistics_stats label,.qwbs_top_car_license label{
+    width: 50px;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    color: #777777;
+    text-align: right;
+}
+.top_logistics_id,.top_logistics_company,.top_contract_id,.top_car_license,.top_good_num{
+    width: 193px;
+    height: 23px;
+    line-height: 25px;
+    float: left;
+    margin-left: 10px;
+    padding-left: 5px;
+    border: 1px solid #dddddd;
+    color: #222222;
+}
+.top_logistics_stats{
+    width: 200px;
+    height: 23px;
+    line-height: 25px;
+    float: left;
+    margin-left: 10px;
+    padding-left: 5px;
+    border: 1px solid #dddddd;
+    color: #222222;
+}
+.top_logistics_company{
+    background: url("../images/codeQuery_1.png") no-repeat 188px;
+}
+.qwbs_top_contract_id{
+    width: 600px;
+    float: left;
+    margin-left: 20px;
+}
+.qwbs_top_contract_id label,.qwbs_top_good_num label{
+    width: 78px;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    color: #777777;
+    text-align: right;
+}
+
+
+.qwbs_top_click{
+    width: auto;
+    height: 25px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#form_button{
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#reset_submit {
+    width: auto;
+    float: left;
+    display: block;
+    height: 23px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+}
+#form_button{
+    background-color: #f44848;
+    color: white;
+    margin-left: 10px;
+}
+
+.queryWaybillOz{
+    color: #ffffff;
+    background-color:#77afea;
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 176px;
+}
+
+.qwbs_bottom{
+    min-height: 407px;
+    float: left;
+    margin-top: 20px;
+}
+.qwbs_bottom_table {
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.qwbs_bottom_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.qwbs_bottom_thead tr, .qwbs_bottom_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+    font-size: 14px;
+}
+
+.qwbs_bottom_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.qwbs_bottom_tbody tr, .qwbs_bottom_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.qwbs_bottom_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.qwbs_bottom_tbody td a{
+    width: 12px;
+    height: 12px;
+    display: block;
+    float: left;
+    color:#77afea;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.qwbs_bottom_tbody td p{
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-left: 10px;
+}
+.listperAuth_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_button a{
+    float: left;
+}
+
+/*sendList*/
+.sendList{
+    width:100%;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000
+}
+.showSendList{
+    width: 1200px;
+    height: auto;
+    margin: 0px auto;
+}
+.show_sendList{
+    width: 1200px;
+    height: auto;
+    float: left;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 130px;
+}
+
+.show_sendList_title{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.show_sendList_title p {
+    float: left;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #c8c8c8;
+}
+.sendListe_title{
+    float: right;
+    margin-right: 10px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.sendListe_title img{
+    margin-top: 9px;
+}
+
+
+.show_sendList_content{
+    width: 1100px;
+    float: left;
+    min-height: 407px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.show_sendList_table{
+    width: 1100px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.show_sendList_thead{
+    width: 1100px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.show_sendList_thead tr,.show_sendList_thead td{
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.show_sendList_tbody{
+    width: 1100px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.show_sendList_tbody  tr,.show_sendList_tbody td{
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.show_sendList_tbody td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+
+.listperAuth_send_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_send_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_send_button a{
+    float: left;
+}
+
+.clickCursor{
+    cursor: pointer;
+}
+#stateCss{
+    color: #77afea;
+}
+
+.displayNo{
+    display: none;
+}
+.displayBlock{
+    display: block;
+}
+
+.jq_button_div_close{
+    width: 1200px;
+    margin-top: 40px;
+    height: 30px;
+    float: left;
+    margin-bottom:40px;
+}
+.jq_button_div{
+    width: 90px;
+    float: left;
+    text-align: center;
+    margin-left: 555px;
+}
+.jq_button_div a{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #f44848;
+    color: white;
+    left: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}

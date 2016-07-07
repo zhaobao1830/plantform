@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/css/fakeLoader.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/css/foot.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/images/head_1.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/images/head_2.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/images/head_3.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/images/sts_4.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/images/sts_5.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/WdatePicker.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/calendar.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/fakeLoader.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/jquery-1.11.3.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/lang" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/papaparse.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/js/queryCodeSearch.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/querySerialCreatep.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/skin" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/json/demo_codeQuery.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/json/logistics.json" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

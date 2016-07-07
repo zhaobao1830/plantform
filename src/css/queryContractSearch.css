@@ -1,0 +1,200 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.conser{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.conser_top{
+    width: 1200px;
+    height: auto;
+    float: left;
+}
+.conser_top_contract,.conser_top_purchasing_company,.conser_top_company_name{
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.conser_top_purchasing_company,.conser_top_company_name{
+    margin-left: 20px;
+}
+.conser_top_contract label,.conser_top_purchasing_company label,.conser_top_company_name label{
+    font-size: 12px;
+    color: #777777;
+}
+.top_contract,.top_purchasing_company,.top_company_name{
+    width: 193px;
+    padding-left: 5px;
+    margin-left: 10px;
+    height: 23px;
+    line-height: 25px;
+    border: 1px solid #dddddd;
+    color: #777777;
+}
+
+.conser_top_click{
+    width: auto;
+    height: 25px;
+    float: left;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#form_button{
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#reset_submit {
+    width: auto;
+    float: left;
+    display: block;
+    height: 23px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+}
+#form_button{
+    background-color: #f44848;
+    color: white;
+    margin-left: 10px;
+}
+.contractCreat{
+    color: #ffffff;
+    background-color:#77afea;
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 156px;
+}
+
+
+.conser_bottom{
+    width: 1200px;
+    min-height: 407px;
+    float: left;
+}
+
+.conser_bottom_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.conser_bottom_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.conser_bottom_thead tr, .conser_bottom_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.conser_bottom_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.conser_bottom_tbody tr, .conser_bottom_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.conser_bottom_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.conser_bottom_tbody td a{
+    color:#77afea;
+    cursor: pointer;
+}
+.listperAuth_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_button a{
+    float: left;
+}
+
+#contract_update,#contract_history{
+    width: auto;
+    float: left;
+    font-size: 12px;
+
+    height: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block;
+    border-radius: 4px;
+}
+#contract_update{
+    color: #ffffff;
+    background-color: #77afea;
+    margin-left: 22px;
+}
+#contract_history{
+    color: #ffffff;
+    background-color: #23c164;
+    margin-left: 10px;
+ }

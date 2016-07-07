@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>订单号--信息</title>
+    <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../js/queryContractInformation.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/queryContractInformation.css">
+    <link rel="stylesheet" type="text/css" href="../css/head.css">
+    <link rel="stylesheet" type="text/css" href="../css/foot.css">
+</head>
+<body>
+<div class="head">
+    <div class="head_title">
+        <div class="head_show">
+            <div class="head_left">
+                <p>欢迎来到某某有限公司</p>
+                <p>客服热线-400-698000</p>
+            </div>
+            <div class="head_right">
+                <img src="../images/head_1.png">
+                <a>登陆</a>|
+                <a>注册</a>|
+                <a>我的关注</a>|
+                <a>供应商服务<img src="../images/head_2.png"></a>|
+                <a>网站导航<img src="../images/head_2.png"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_logo_nav">
+        <div class="head_nav">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="../images/head_3.png">
+                </div>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#" class="product_identify colorClick">产品标识代码查询</a></li>
+                    <li><a href="#" class="contract colorNoClick">合同/订单查询</a></li>
+                    <li><a href="#" class="serialNumber colorNoClick">序列号查询</a></li>
+                    <li><a href="#" class="waybill colorNoClick">运单查询</a></li>
+                    <li><a href="#" class="logistics colorNoClick">物流查询</a></li>
+                    <li><a href="#" class="transportVehicle colorNoClick">整车运输</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="qcti">
+    <% String contract_id=request.getParameter("contract_id");%>
+    <input type="hidden" class="pageNo" value="">
+    <input type="hidden" class="contract_id" value="<%=contract_id%>">
+    <div class="qcti_title">
+        <p>当前位置：</p>
+        <p>订单/合同详细信息</p>
+    </div>
+    <div class="qcti_body">
+        <div class="qcti_body_basicInformation">
+            <div class="qcti_body_basicInformation_title">
+                <p>基本信息</p>
+                <span>填写准确、完整信息</span>
+            </div>
+            <div class="qcti_body_basicInformation_content">
+                <div class="basicInformation_content_company_name">
+                    <label>企业名称</label>
+                    <input type="text" class="content_company_name" value="">
+                    <a href="#" class="content_company_name_search">企业查询</a>
+                </div>
+                <div class="basicInformation_content_contract_id">
+                    <label>订单号/合同号</label>
+                    <input type="text" class="content_contract_id" value="">
+                </div>
+                <div class="basicInformation_content_purchasing_company">
+                    <label>采购单位</label>
+                    <input type="text" class="content_purchasing_company" value="">
+                </div>
+            </div>
+            <div class="qcti_contractCreat_orderDetails">
+                <div class="qcti_contractCreat_orderDetails_title">
+                    <p>订货明细表</p>
+                </div>
+                <div class="qcti_contractCreat_orderDetails_content">
+                    <table class="qcti_orderDetails_table">
+                        <thead class="qcti_orderDetails_thead">
+                            <tr>
+                                <td>物资编号</td>
+                                <td>物资名称</td>
+                                <td>规格型号</td>
+                                <td>计量单位</td>
+                                <td>供货数量</td>
+                                <td>单价（元）</td>
+                                <td>总价（元）</td>
+                                <td width="200">生产厂家</td>
+                            </tr>
+                        </thead>
+                        <tbody class="qcti_orderDetails_tbody">
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="qcti_contractCreat_supplyPlan">
+                    <div class="qcti_contractCreat_supplyPlan_title">
+                        <p>供货计划</p>
+                    </div>
+                    <div class="qcti_contractCreat_supplyPlan_content">
+                        <table class="qcti_supplyPlan_table">
+                            <thead class="qcti_supplyPlan_thead">
+                            <tr>
+                                <td>物资编号</td>
+                                <td>物资名称</td>
+                                <td>规格型号</td>
+                                <td>计量单位</td>
+                                <td>供货数量</td>
+                                <td>交货时间</td>
+                                <td>交货地点</td>
+                                <td>收货人</td>
+                                <td width="100">操作</td>
+                            </tr>
+                            </thead>
+                            <tbody class="qcti_supplyPlan_tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="qcti_body_basicInformation"></div>
+    </div>
+</div>
+<div class="foot">
+    <div class="foot1">
+        <a href="javaScript:;">广告服务</a>|
+        <a href="javaScript:;">联系我们</a>|
+        <a href="javaScript:;">合作伙伴</a>|
+        <a href="javaScript:;">法律声明</a>|
+        <a href="javaScript:;">关于我们</a>
+    </div>
+    <div class="foot2">
+        <p>**有限公司版权所有 京ICP备14004333号</p>
+    </div>
+    <div class="foot3">
+        <div class="foot3_p">
+            <p>请使用IE9以上版本浏览页面</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

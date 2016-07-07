@@ -1,0 +1,31 @@
+﻿{
+  "count": 12,
+  "waybillInfo": [
+    {
+      "_id": {
+        "$oid": "wqeewqr32qrf32fq3fg"
+      },
+      "logistics_id": "YDH1212",
+      "logistics_company": "顺丰",
+      "car_license": "CH123456789",
+      "good_num": "HH9876543231",
+      "send_duty": "niyn",
+      "send_company": "中国中铁",
+      "send_phone_num": "13816890022",
+      "send_addr": "北京",
+      "receive_duty": "test",
+      "receive_company": "弗洛伦撒",
+      "receive_phone_num": "13768992341",
+      "receive_addr": "意大利",
+      "logistics_stats": null,
+      "send_time": null,
+      "pre_send_time": null,
+      "add_time": {
+        "$date": 1457923528839
+      },
+      "supply_time": {
+        "$date": 1457923528839
+      }
+    }
+  ]
+}

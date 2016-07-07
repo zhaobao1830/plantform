@@ -1,0 +1,25 @@
+﻿{
+  "count": 1,
+  "codes": [
+    {
+      "_id": {
+        "$oid": "56e0d7c26bc7341420a1f12d"
+      },
+      "code": null,
+      "inner_id": null,
+      "program_time": "2015-09-22",
+      "purchasing_company": "中铁",
+      "contract_id": "1234567890",
+      "product_identify": "CPBSDM123",
+      "product_name": "物资药品",
+      "specification": "中型",
+      "material_code": "wzbm333",
+      "company_name": "北京",
+      "groupId": "56e0d7116bc7341420a1f12b",
+      "branchId": "",
+      "add_time": {
+        "$date": 1457575719615
+      }
+    }
+  ]
+}

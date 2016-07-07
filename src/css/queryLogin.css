@@ -1,0 +1,199 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+
+.qLogin{
+    width: 100%;
+    height: 580px;
+}
+.qLogin_log{
+    width: 1200px;
+    margin: 0px auto;
+}
+.qLogin_content{
+    width: 100%;
+    height: 500px;
+    background: url("../images/login_01.png") repeat;
+}
+.content_login{
+    width: 1200px;
+    height: 500px;
+    margin: 10px auto 0px;
+}
+.qLogin_content_login{
+    width: 348px;
+    height: 258px;
+    float: left;
+    background-color: #fafafa;
+    margin-left: 425px;
+    margin-top: 120px;
+    border-radius: 10px;
+    border: 1px solid #dddddd
+}
+.login_top{
+    width: 348px;
+    height: 48px;
+    background-color: #eeeeee;
+    line-height: 50px;
+    float: left;
+    border: 1px solid #eeeeee;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.login_top span{
+    color: #222222;
+    font-size: 16px;
+    display: block;
+    margin-left: 20px;
+    float: left;
+}
+.login_content{
+    width: 310px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.username,.password{
+    width: 308px;
+    float: left;
+    height: 28px;
+    line-height: 30px;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+}
+.password{
+    margin-top: 10px;
+}
+.username_img,.password_img{
+    float: left;
+    width: 29px;
+    height: 28px;
+    border-right: 1px solid #bebebe;
+    background-color: #eeeeee;
+}
+.username_img img,.password_img img{
+    display: block;
+    margin-left: 5px;
+    margin-top: 3px;
+    float: left;
+}
+.username_input,.password_input{
+    float: left;
+    width: 250px;
+    height: 28px;
+}
+.username_input_value,.password_input_value{
+    float: left;
+    width: 245px;
+    height: 28px;
+    border: none;
+    padding-left: 5px;
+}
+.username_img1,.password_img1{
+    width: 28px;
+    height: 27px;
+    float: left;
+    background-color: #FFFFFF;
+}
+.username_img1 img,.password_img1 img{
+    float: left;
+    margin-top: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.inplist{
+    width: 310px;
+    float: left;
+    margin-top: 10px;
+}
+/*.saveUser{*/
+    /*float: left;*/
+    /*width: 12px;*/
+    /*height: 12px;*/
+    /*/!*background-image: url("../images/login_06.png");*!/*/
+    /*cursor: pointer;*/
+    /*margin-right: 5px;*/
+    /*display: block;*/
+/*}*/
+.saveUsername{
+    float: left;
+    margin-right: 5px;
+}
+/*.saveUsername{*/
+    /*opacity:0;*/
+    /*float: left;*/
+    /*width: 0px;*/
+    /*height: 0px;*/
+/*}*/
+#saveUsernameLabel{
+    float: left;
+    height: 12px;
+    line-height: 12px;
+    color: #222222;
+}
+.login_submit{
+    width: 310px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #77afea;
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.loginSubmit{
+    border-radius: 2px;
+    width: 310px;
+    height: 30px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+.qLogin_ver{
+    clear: both;
+}
+.qLogin_version{
+    float: left;
+    width: 415px;
+    margin-left: 700px;
+}
+.qLogin_version_span{
+    float: left;
+    color: #222222;
+    font-size: 14px;
+    display: block;
+}
+.qLogin_version_prompt{
+    width: 330px;
+    height: 260px;
+    float: left;
+    margin-left: 90px;
+    background-color: #77afea;
+    color: #FFFFFF;
+    position: absolute;
+    margin-top: -260px;
+    overflow: auto;
+    font-size: 14px;
+}
+.displayBlock{
+    display: block;
+}
+.displayNo{
+    display: none;
+}

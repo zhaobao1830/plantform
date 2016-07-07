@@ -1,0 +1,390 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.psl{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.psl_top{
+    width: 1200px;
+    height: auto;
+    float: left;
+}
+.psl_top div{
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+}
+#divFirst{
+    margin-left: 0px;
+}
+.psl_top label{
+    font-size: 12px;
+    color: #777777;
+}
+.psl_top input{
+    width: 193px;
+    padding-left: 5px;
+    margin-left: 10px;
+    height: 23px;
+    line-height: 25px;
+    border: 1px solid #dddddd;
+    color: #777777;
+}
+
+
+.cpl_top_click{
+    width: auto;
+    height: 25px;
+    float: left;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#form_button{
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#reset_submit {
+    width: auto;
+    float: left;
+    display: block;
+    height: 23px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+}
+#form_button{
+    background-color: #f44848;
+    color: white;
+    margin-left: 10px;
+}
+.personCreat{
+    color: #ffffff;
+    background-color:#77afea;
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left:266px;
+}
+
+.psl_bottom{
+    width: 1200px;
+    min-height: 407px;
+    float: left;
+}
+
+.psl_bottom_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.psl_bottom_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+.psl_bottom_thead tr, .psl_bottom_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.psl_bottom_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.psl_bottom_tbody tr, .psl_bottom_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.psl_bottom_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.psl_bottom_tbody td a{
+    color:#77afea;
+    cursor: pointer;
+}
+.listperAuth_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_button a{
+    float: left;
+}
+
+/*cpl_create*/
+.psl_person_create{
+    width:100%;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000
+}
+.pslCreate{
+    width: 380px;
+    height: auto;
+    margin: 0px auto;
+}
+.create_psl{
+    width: 380px;
+    height: 454px;
+    background-color: white;
+    margin: 200px auto;
+}
+
+.create_psl_title,.juris_psl_title{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.create_psl_title p,.juris_psl_title p{
+    float: left;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #222222;
+}
+.create_psl_title_a,.juris_psl_title_a{
+    float: right;
+    margin-right: 10px;
+    height: 35px;
+    cursor: pointer;
+}
+.create_psl_title_a img,.juris_psl_title_a img{
+    margin-top: 9px;
+}
+.create_psl_content{
+    width: 100%;
+    height: 325px;
+    float: left;
+}
+.create_psl_content div{
+    width: 100%;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+    color: #777777;
+}
+.create_psl_content label{
+    width: 110px;
+    font-size: 12px;
+    float: left;
+    text-align: right;
+}
+.create_psl_content input{
+    float: left;
+    width: 213px;
+    margin-left: 10px;
+    height: 28px;
+    line-height: 30px;
+    padding-left: 5px;
+    border: 1px solid #dddddd;
+}
+.creat_psl_button{
+    width: 380px;
+    height: 30px;
+    float: left;
+}
+.creat_psl_button a{
+    width: 90px;
+    display: block;
+    color: white;
+    background-color: #77afea;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    margin-left: 145px;
+    border-radius: 4px;
+}
+.creat_psl_button a:hover{
+    background-color: #6c9ad2;
+}
+
+/*psl_juris 权限分配*/
+.psl_juris{
+    width:100%;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000
+}
+.pslJuris{
+    width: 620px;
+    height: auto;
+    margin: 0px auto;
+}
+.juris_psl{
+    width: 620px;
+    height: 350px;
+    background-color: white;
+    margin: 200px auto;
+}
+
+.juris_psl_content{
+    width: 100%;
+    height: 315px;
+    float: left;
+}
+.juris_psl_person,.juris_psl_company{
+    width: 220px;
+    float: left;
+    height: 240px;
+    margin-left: 40px;
+    overflow: hidden;
+}
+.juris_psl_company{
+    margin-left: 20px;
+}
+.juris_psl_person_title,.juris_psl_company_title{
+    width: 220px;
+    font-size: 12px;
+    color: #777777;
+    float: left;
+    margin-top: 20px;
+}
+.juris_psl_person_content,.juris_psl_company_content{
+    width: 220px;
+    height: 199px;
+    float: left;
+    margin-top: 10px;
+}
+.juris_person_select,.juris_company_select{
+    width: 218px;
+    height: 192px;
+    float: left;
+}
+.juris_person_select option,.juris_company_select option{
+    width: 179px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.juris_psl_person_move{
+    width: 60px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 120px;
+}
+.juris_psl_person_move a{
+    width: 58px;
+    float: left;
+    height: 18px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.jurisAdd span{
+    padding-left: 5px;
+}
+.jurisRemov span{
+    padding-right: 5px;
+}
+.jurisAdd{
+    border: 1px solid #bbbbbb;
+    background-color: #dddddd;
+    border-radius: 4px;
+    color: #222222;
+}
+.jurisRemov{
+    border: 1px solid #dddddd;
+    background-color: #eeeeee;
+    border-radius: 4px;
+    color: #777777;
+    margin-top: 20px;
+}
+
+.juris_psl_save{
+    width: 620px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+}
+.juris_psl_save a{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    color: white;
+    background-color: #77afea;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    margin-left: 265px;
+    border-radius: 4px;
+}
+/*公共类*/
+.clickCursor{
+    cursor: pointer;
+}
+.displayNo{
+    display: none;
+}
+.displayBlock{
+    display: block;
+}

@@ -1,0 +1,139 @@
+﻿   {
+  "count": 3,
+  "productInfos": [
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    }
+  ,
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    }
+  ,
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    }
+  ,
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    }
+  ,
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17",
+      "code":"12132132134234242412",
+      "program_time":"2015-06",
+      "contract_id":"432432423"
+    }
+  ]
+}

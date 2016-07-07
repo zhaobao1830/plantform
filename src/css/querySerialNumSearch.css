@@ -1,0 +1,240 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.qsns{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.qsns_top{
+    width: 1200px;
+    float: left;
+}
+.qsns_top div{
+    margin-top: 20px;
+}
+.qsns_top_contract_id,.qsns_top_state,.qsns_top_purchasing_company,.qsns_top_company_name{
+    width: auto;
+    float: left;
+}
+.qsns_top_program_time{
+    width: 560px;
+    float: left;
+}
+.qsns_top_purchasing_company{
+    margin-left: 28px;
+}
+.qsns_top_company_name{
+    margin-left: 32px;
+}
+.qsns_top_state,.qsns_top_program_time{
+    margin-left: 20px;
+}
+.qsns_top_contract_id label,.qsns_top_state label,.qsns_top_program_time label,.qsns_top_purchasing_company label,.qsns_top_company_name label{
+    width: auto;
+    max-width: 78px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    text-align: right;
+    color: #777777;
+}
+.top_contract_id,.top_state,.top_program_time,.top_purchasing_company,.top_company_name{
+    width: 193px;
+    height: 23px;
+    line-height: 25px;
+    float: left;
+    margin-left: 10px;
+    padding-left: 5px;
+    border: 1px solid #dddddd;
+    color: #222222;
+}
+.top_state,.top_program_time{
+    background: url("../images/codeQuery_1.png") no-repeat 188px;
+}
+
+.qsns_top_click{
+    width: auto;
+    height: 25px;
+    float: left;
+    margin-left: 20px;
+}
+
+#form_button{
+    width: auto;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#reset_submit {
+    width: auto;
+    float: left;
+    display: block;
+    height: 23px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+}
+#form_button{
+    background-color: #f44848;
+    color: white;
+    margin-left: 10px;
+}
+
+.qsns_bottom{
+    min-height: 407px;
+    float: left;
+    margin-top: 20px;
+}
+.qsns_bottom_table {
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.qsns_bottom_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.qsns_bottom_thead tr, .qsns_bottom_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.qsns_bottom_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.qsns_bottom_tbody tr, .qsns_bottom_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.qsns_bottom_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.qsns_bottom_tbody td a{
+    width: 12px;
+    height: 12px;
+    display: block;
+    float: left;
+    color:#77afea;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.qsns_bottom_tbody td p{
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-left: 10px;
+}
+.listperAuth_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_button a{
+    float: left;
+}
+/*生成条形码 二维码*/
+.qsns_create_barCode_qrCode{
+    width: 1200px;
+    float: left;
+}
+.qsns_create_barCode_qrCode a{
+    width: 118px;
+    float: left;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+    text-align: center;
+}
+.create_barCode{
+    margin-left: 470px;
+}
+.create_qrCode{
+    margin-left: 20px;
+}
+
+.noclickCodes{
+    background: url("../images/click_1.png") no-repeat;
+}
+.clickCodes{
+    background: url("../images/click_2.png") no-repeat;
+}
+
+.qrcode,.barcode{
+    width: 100%;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+.qrcodeContent{
+    width: 256px;
+    text-align: center;
+    margin: 300px auto;
+}
+.barcodeContent{
+    width: 256px;
+    text-align: center;
+    margin: 450px auto;
+}
+.displayNo{display: none}
+.displayBlock{display: block}

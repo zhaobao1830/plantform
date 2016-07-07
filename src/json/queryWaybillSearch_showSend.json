@@ -1,0 +1,21 @@
+﻿{
+  "count": 12,
+  "goodsList": [
+    {
+      "_id": {
+        "$oid": "56e625c9b07ff11e98277eb3"
+      },
+      "p_id": {
+        "$oid": "56e625c8b07ff11e98277eb2"
+      },
+      "code": "XLH123",
+      "contract_id": "DDHT123",
+      "product_code": "CPBSDM1212",
+      "materials_name": "文化",
+      "specifications_model": "重型",
+      "materials_code": "WZBM12134",
+      "measurement": "方",
+      "remarks": "好"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公司列表</title>
+    <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../js/companyList.js"></script>
+    <script type="text/javascript" src="../js/transTime.js"></script>
+    <script type="text/javascript" src="../js/jquery-form.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/companyList.css">
+    <link rel="stylesheet" type="text/css" href="../css/head.css">
+    <link rel="stylesheet" type="text/css" href="../css/foot.css">
+</head>
+<body>
+<div class="head">
+    <div class="head_title">
+        <div class="head_show">
+            <div class="head_left">
+                <p>欢迎来到某某有限公司</p>
+                <p>客服热线-400-698000</p>
+            </div>
+            <div class="head_right">
+                <img src="../images/head_1.png">
+                <a>登陆</a>|
+                <a>注册</a>|
+                <a>我的关注</a>|
+                <a>供应商服务<img src="../images/head_2.png"></a>|
+                <a>网站导航<img src="../images/head_2.png"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_logo_nav">
+        <div class="head_nav">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="../images/head_3.png">
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="codeUl displayNo">
+                    <li><a href="queryCodeSearch.html" target="_self" class="product_identify colorClick">产品标识代码查询</a></li>
+                    <li><a href="queryContractSearch.html" target="_self" class="contract colorNoClick">合同/订单查询</a></li>
+                    <li><a href="#" class="serialNumber colorNoClick">序列号查询</a></li>
+                    <li><a href="#" class="waybill colorNoClick">运单查询</a></li>
+                </ul>
+                <ul class="guanliUl">
+                    <li><a href="companyList.html" target="_self" class="companyList colorClick">供应商管理</a></li>
+                    <li><a href="personList.html" target="_self" class="personList colorNoClick">用户管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cpl">
+    <input type="hidden" class="pageNo" value="">
+  <div class="cpl_top">
+    <form class="cpl_top_form" id="cpl_top_form">
+        <div class="cpl_top_com_name">
+            <label>公司名称</label>
+            <input type="text" class="top_com_name" value="">
+        </div>
+        <div class="cpl_top_org_code">
+            <label>组织机构代码</label>
+            <input type="text" class="top_org_code" value="">
+        </div>
+        <div class="cpl_top_click">
+            <a type="reset" id="reset_submit" onclick="resetSubmit()">清除</a>
+            <a type="button" id="form_button" onclick="formButton()">查询</a>
+            <a href="javaScript:;"  class="companyCreat" onclick="companyCreat()">新增</a>
+        </div>
+    </form>
+  </div>
+  <div class="cpl_bottom">
+      <table class="cpl_bottom_table">
+          <thead class="cpl_bottom_thead">
+          <tr>
+              <td width="73"></td>
+              <td width="200">公司名称</td>
+              <td>组织机构代码</td>
+              <td>注册时间</td>
+              <td width="300">公司地址</td>
+              <td>联系人</td>
+              <td>联系方式</td>
+          </tr>
+          </thead>
+          <tbody class="cpl_bottom_tbody">
+
+          </tbody>
+      </table>
+  </div>
+    <div class="listperAuth_button">
+
+    </div>
+</div>
+<div class="cpl_create displayNo" id="cpl_create">
+    <div class="cplCreate">
+        <div class="create_cpl">
+            <div class="create_cpl_title">
+                <p>新增公司</p>
+                <a href="javaScript:;" class="create_cpl_title_a" onclick="closeCreate()"><img src="../images/qws_1.png" ></a>
+            </div>
+            <form id="create_cpl_form" >
+                <div class="create_cpl_content">
+                    <div>
+                        <label>公司名称</label>
+                        <input type="text" class="com_name" name="com_name" value="">
+                    </div>
+                    <div>
+                        <label>组织机构代码</label>
+                        <input type="text" class="org_code" name="org_code" value="">
+                    </div>
+                    <div>
+                        <label>公司地址</label>
+                        <input type="text" class="com_addr" name="com_addr" value="">
+                    </div>
+                    <div>
+                        <label>联系人</label>
+                        <input type="text" class="con_person" name="con_person" value="">
+                    </div>
+                    <div>
+                        <label>联系方式</label>
+                        <input type="text" class="con_method" name="con_method" value="">
+                    </div>
+                    <div class="creat_button">
+                      <a href="javascript:;" onclick="creat_button()">保存</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <div class="foot1">
+        <a href="javaScript:;">广告服务</a>|
+        <a href="javaScript:;">联系我们</a>|
+        <a href="javaScript:;">合作伙伴</a>|
+        <a href="javaScript:;">法律声明</a>|
+        <a href="javaScript:;">关于我们</a>
+    </div>
+    <div class="foot2">
+        <p>**有限公司版权所有 京ICP备14004333号</p>
+    </div>
+    <div class="foot3">
+        <div class="foot3_p">
+            <p>请使用IE9以上版本浏览页面</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

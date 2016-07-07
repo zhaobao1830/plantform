@@ -1,0 +1,54 @@
+﻿{
+  "assignedList": [
+    {
+      "com_filed": "3",
+      "com_name": "2"
+    },
+    {
+      "com_filed": "1",
+      "com_name": "zhongguo"
+    },
+    {
+      "com_filed": "2",
+      "com_name": "q"
+    }
+  ],
+  "unassignedList": [
+    {
+      "com_filed": "4",
+      "com_name": "q"
+    },
+    {
+      "com_filed": "5",
+      "com_name": "as"
+    },
+    {
+      "com_filed": "6",
+      "com_name": "as"
+    },
+    {
+      "com_filed": "7",
+      "com_name": "1"
+    },
+    {
+      "com_filed": "8",
+      "com_name": "ww"
+    },
+    {
+      "com_filed": "9",
+      "com_name": "tttt"
+    },
+    {
+      "com_filed": "10",
+      "com_name": "yyy"
+    },
+    {
+      "com_filed": "11",
+      "com_name": ""
+    },
+    {
+      "com_filed": "12",
+      "com_name": "ccc"
+    }
+  ]
+}

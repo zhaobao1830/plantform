@@ -1,0 +1,148 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+
+.materManageAdd{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+
+.materManageAdd_top{
+    width: 1200px;
+    height: auto;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.materManageAdd_top a{
+    width: auto;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #ffffff;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #77afea;
+    position: absolute;
+    cursor: pointer;
+}
+#files{
+    float: left;
+    opacity: 0;
+    width: 100px;
+    position: relative
+}
+/*897*/
+.materManageAdd_bottom{
+    width: 1200px;
+    height: auto;
+    min-height: 467px;
+    max-height: 897px;
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.materManageAdd_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.materManageAdd_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+.materManageAdd_thead tr, .materManageAdd_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.materManageAdd_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+.materManageAdd_tbody tr, .materManageAdd_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.materManageAdd_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.materManageAdd_tbody td a {
+    color: #77afea;
+    cursor: pointer;
+}
+.materManageAdd_tbody input{
+    border: none;
+    height: 39px;
+    text-align: center;
+}
+.material_code{
+    width: 200px;
+}
+.material_name,.specification{
+    width: 346px;
+}
+.measurement{
+    width: 100px;
+}
+
+.materManageAdd_add{
+    width: 1200px;
+    float: left;
+    margin-top: 10px;
+}
+.materManageAdd_add a{
+    display: block;
+    color: #222222;
+    background-color: #eeeeee;
+    width: 90px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+}
+
+.materManageAdd_save{
+    width: 1200px;
+    float: left;
+    margin-top: 40px;
+}
+.materManageAdd_save a{
+    display: block;
+    width: 100px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #77afea;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 550px;
+}

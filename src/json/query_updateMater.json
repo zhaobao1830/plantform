@@ -1,0 +1,12 @@
+{
+  "data": {
+    "_id": {
+      "$oid": "570f41c7cf50a818288d294a"
+    },
+    "material_code": "800000215002",
+    "material_name": "格构式支柱",
+    "specification": "G150-/8",
+    "measurement": "根",
+    "isPrecious":"1"
+  }
+}

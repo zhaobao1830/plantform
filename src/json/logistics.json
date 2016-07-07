@@ -1,0 +1,38 @@
+//运单
+db.logistics{
+	"logistics_id":"",//运单号
+	"logistics_company":"",//承运公司
+	"car_license":"",//车牌号
+	"good_num":"",//货号
+	"send_duty":"",//发货人
+    "send_time":"",//发货时间
+	"send_company":"",//企业公司
+	"send_phone_num":"",//手机号
+	"send_addr":"",//发货地址
+	"receive_duty":"",//收货人
+	"receive_company":"",//采购单位
+	"receive_phone_num":"",//手机号
+	"receive_addr":"",//收货地址
+    "pre_receive_time":"" //预计到货时间
+	"logistics_stats":""//物流状态
+	"goods":[
+		"code":"",//序列号
+		"contract_id":"",//订单合同编号
+		"product_code":"",//产品标示代码
+		"materials_name":"",//产品名称
+		"specifications_model":"",//规格型号
+		"materials_code":"",//物资编码
+		"remarks":"" //备注 我自己加的
+	]
+	"send_location":"",//始发地
+	"receive_location":"",//目的地
+	"logistics":[
+		{
+			"op_time":ISODate(),//处理时间
+			"op_situation":"",	//处理情况
+			"point_situation":"",//站点情况
+			"op_person":""//操作人
+		}
+	]
+	
+}

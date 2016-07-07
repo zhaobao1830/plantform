@@ -1,0 +1,347 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.qcc{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.qcc_title{
+    width: 1200px;
+    height: 12px;
+    line-height: 12px;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.qcc_title p{
+    float: left;
+    color: #bbbbbb;
+}
+.qcc_body{
+    width: 1200px;
+    height: auto;
+    margin: 0px auto;
+}
+.qcti_contractCreat{
+    width: 1200px;
+    float: left;
+}
+
+.qcti_contractCreat_title {
+    width: 1200px;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.qcti_contractCreat_title p{
+    font-size: 14px;
+    color: #222222;
+    margin-left: 20px;
+    float: left;
+}
+.qcti_contractCreat_title span{
+    font-size: 12px;
+    color: #777777;
+    float: left;
+    margin-left: 20px;
+}
+.qcti_contractCreat_content{
+    width: 1200px;
+    float: left;
+}
+.contractCreat_content_company_name,.contractCreat_content_contract_id,.contractCreat_content_purchasing_company{
+    width: 1200px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+.contractCreat_content_company_name{
+    position: relative;
+}
+.contractCreat_content_company_name label,.contractCreat_content_contract_id label,.contractCreat_content_purchasing_company label{
+    width: 78px;
+    font-size: 12px;
+    float: left;
+    color: #777777;
+    text-align: right;
+}
+.content_company_name,.content_contract_id,.content_purchasing_company{
+    width: 193px;
+    height: 28px;
+    line-height: 30px;
+    border: 1px solid #dddddd;
+    padding-left: 5px;
+    float: left;
+    margin-left: 10px;
+}
+.content_company_name{
+    background: url("../images/codeQuery_1.png") no-repeat 188px;
+}
+.checkProduct{
+    background: url("../images/codeQuery_1.png") no-repeat 113px;
+}
+.companySearch{
+    height: 18px;
+    line-height: 20px;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+    color: #777777;
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+.qcti_contractCreat_orderDetails,.qcti_contractCreat_orderDetails_content,.qcti_contractCreat_supplyPlan,.qcti_contractCreat_supplyPlan_content{
+    width: 1200px;
+    float: left;
+}
+.qcti_contractCreat_orderDetails,.qcti_contractCreat_supplyPlan{
+    margin-top: 40px;
+}
+.qcti_contractCreat_orderDetails_title,.qcti_contractCreat_supplyPlan_title{
+    width: 1200px;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+.qcti_contractCreat_orderDetails_title p,.qcti_contractCreat_supplyPlan_title p{
+    font-size: 14px;
+    color: #222222;
+    margin-left: 20px;
+    float: left;
+}
+.qcti_contractCreat_orderDetails_content,.qcti_contractCreat_supplyPlan_content{
+    height: 382px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+    position: relative;
+}
+
+.qcti_orderDetails_table,.qcti_supplyPlan_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.qcti_orderDetails_thead,.qcti_supplyPlan_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.qcti_orderDetails_thead tr, .qcti_orderDetails_thead td ,.qcti_supplyPlan_thead tr,.qcti_supplyPlan_thead td{
+    border: 1px solid #dddddd;
+    color: black;
+    height: 30px;
+}
+
+
+.qcti_orderDetails_tbody tr, .qcti_orderDetails_tbody td,.qcti_supplyPlan_tbody tr,.qcti_supplyPlan_tbody td{
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.qcti_orderDetails_tbody td,.qcti_supplyPlan_tbody td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.qcti_orderDetails_tbody tr input{
+    width: 114px;
+    margin:0px;
+    border: none;
+    padding: 10px 5px;
+    text-align: center;
+}
+.qcti_supplyPlan_tbody tr input{
+    width: 114px;
+    margin:0px;
+    border: none;
+    padding: 10px 5px;
+}
+.qcti_orderDetails_tbody td a,.qcti_supplyPlan_tbody td a{
+    font-size: 12px;
+    cursor: pointer;
+    float: left;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+.qcti_orderDetails_delete,.qcti_supplyPlan_delete{
+    background-color: #f44848;
+    color: white;
+    margin-left: 20px;
+}
+.qcti_orderDetails_add,.qcti_supplyPlan_add{
+    width: 1200px;
+    float: left;
+    margin-top: 10px;
+}
+.qcti_orderDetails_add a,.qcti_supplyPlan_add a{
+    display: block;
+    color: #222222;
+    background-color: #eeeeee;
+    width: 90px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+}
+.qcti_preservation{
+    width: 1200px;
+    float: left;
+    margin-top: 40px;
+}
+.qcti_preservation a{
+    display: block;
+    width: 100px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #77afea;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 550px;
+}
+
+.company_name_search{
+    position: absolute;
+    z-index: 100010;
+    top: 31px;
+    left: 87px;
+    width: 348px;
+    height: 344px;
+    border: 1px solid #bbbbbb;
+    background: #FFFFFF;
+}
+
+.company_name_search div,.product_name_search div{
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.company_name_search input,.product_name_search input{
+    height: 18px;
+    line-height: 20px;
+    border: 1px solid #dddddd;
+    padding-left: 5px;
+}
+.com_name,.com_name_pro{
+    width: 153px;
+}
+.org_code,.org_code_pro{
+    width: 102px;
+}
+.name_search_a{
+    display: block;
+    font-size: 14px;
+    color: #FFFFFF;
+    background: #f44848;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 6px;
+}
+.name_search_list{
+    width: 340px;
+    height: 268px;
+    border-bottom: 1px solid #dddddd;
+}
+.name_search_list li{
+    margin-top: 10px;
+    line-height: 15px; !important;
+    overflow: hidden;
+    cursor: pointer;
+}
+.name_search_list li:hover{
+    color: #77afea
+}
+.name_searchAuth_button{
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 3px !important;
+}
+.name_searchAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.name_searchAuth_button a{
+    float: left;
+    cursor: pointer;
+}
+
+.name_searchAuth_close{
+    height: 20px;
+    float: right !important;
+    line-height: 20px;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 3px !important;
+}
+.name_searchAuth_close a{
+    color: #bbbbbb;
+    cursor: pointer;
+}
+.product_name_search{
+    position: absolute;
+    z-index: 100010;
+    width: 348px;
+    height: 344px;
+    left: 650px;
+    border: 1px solid #bbbbbb;
+    background: #FFFFFF;
+}
+/*公共*/
+.nameLiClick{
+    color: #77afea;
+ }
+.nameLiNoClick{
+    color: #777777;
+}
+.displayNo{
+    display: none;
+}
+.displayBlcok{
+    display: block;
+}

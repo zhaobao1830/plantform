@@ -1,0 +1,234 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+.qscc{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+
+.qscc_title{
+    width: 1200px;
+    height: 12px;
+    line-height: 12px;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.qscc_title p{
+    float: left;
+    color: #bbbbbb;
+}
+.qscc_body_title{
+    width: 1200px;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eeeeee;
+    padding-left: 20px;
+}
+.qscc_body_information{
+    width: 1200px;
+    height: auto;
+    float: left;
+    background-color: #fafafa;
+}
+.qscc_body_information p{
+    margin-left: 20px;
+    font-size: 14px;
+    color: #222222;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    float: left;
+}
+
+
+.qscc_body_information div,.qscc_body_createCode div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    margin-left: 20px;
+}
+.qscc_body_material_code,.body_createCode_company_name,.body_createCode_date{
+    margin-left: 10px !important;
+}
+.qscc_body_information label,.qscc_body_createCode label{
+    font-size: 12px;
+    color: #777777;
+}
+.qscc_body_information input,.qscc_body_createCode input{
+    width: 193px;
+    padding-left: 5px;
+    margin-left: 10px;
+    height: 23px;
+    line-height: 25px;
+    border: 1px solid #dddddd;
+    color: #777777;
+}
+.qscc_body_createCode{
+    width: 1200px;
+    float: left;
+}
+
+.body_createCode_creatCode{
+    width: 1200px;
+    height: 30px !important;
+    line-height: 30px !important;
+    float: left;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-left: 0px !important;
+}
+.createCode_date{
+    background: url("../images/codeQuery_1.png") no-repeat 188px;
+}
+.body_createCode_mode select{
+    width: 200px;
+    height: 25px;
+    margin-left: 10px;
+    border: 1px solid #dddddd;
+}
+.createCode_creatCode{
+    width: auto;
+    float: left;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #77afea;
+    color: white;
+    margin-left: 72px;
+}
+.qscc_body_codeList_button{
+    width: 1200px;
+    float: left;
+    margin-top: 40px;
+}
+.qscc_body_codeList{
+    width: 1200px;
+    float: left;
+    min-height: 207px
+}
+
+.body_codeList_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.body_codeList_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+.body_codeList_thead tr, .body_codeList_thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+    font-size: 14px;
+}
+
+.body_codeList_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.body_codeList_tbody tr, .body_codeList_tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.body_codeList_tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.body_codeList_tbody td a{
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-top: 1px;
+    margin-left: 15px;
+}
+.body_codeList_tbody td p{
+    float: left;
+    margin-left: 10px;
+}
+.listperAuth_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.listperAuth_button p{
+    float: left;
+    padding: 0 10px;
+}
+.listperAuth_button a{
+    float: left;
+}
+.qscc_body_delete{
+    width: 1200px;
+    float: left;
+}
+.qscc_body_delete a{
+    width: 118px;
+    float: left;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+    text-align: center;
+}
+.body_generateCode{
+    margin-left: 470px;
+}
+.body_empty{
+    margin-left: 540px;
+}
+/*/!*公共类*!/*/
+.displayBlock{
+    display: block;
+}
+.displayNo{
+    display: none;
+}

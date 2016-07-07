@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>新增物资</title>
+    <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../js/queryMaterManageAdd.js"></script>
+    <script type="text/javascript" src="../js/papaparse.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/queryMaterManageAdd.css">
+    <link rel="stylesheet" type="text/css" href="../css/head.css">
+    <link rel="stylesheet" type="text/css" href="../css/foot.css">
+</head>
+<body>
+<div class="head">
+    <div class="head_title">
+        <div class="head_show">
+            <div class="head_left">
+                <p>欢迎来到鲁班科技有限公司</p>
+                <p>客服热线-400-698000</p>
+            </div>
+            <div class="head_right">
+                <img src="../images/head_1.png">
+                <span>admin</span>
+                <a href="queryCodeSearch.html" target="_self">供应商服务</a>
+                |
+                <a href="companyList.html" target="_self">系统管理</a>
+                |
+                <a href="login.html" target="_self">退出</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="head_logo_nav">
+        <div class="head_nav">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="../images/head_3.png">
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="codeUl displayNo">
+                    <li><a href="queryCodeSearch.html" target="_self" class="product_identify colorClick">产品标识代码查询</a></li>
+                    <li><a href="queryContractSearch.html" target="_self" class="contract colorNoClick">合同/订单查询</a></li>
+                    <li><a href="#" class="serialNumber colorNoClick">序列号查询</a></li>
+                    <li><a href="#" class="waybill colorNoClick">运单查询</a></li>
+                </ul>
+                <ul class="guanliUl">
+                    <li><a href="companyList.html" target="_self" class="companyList colorClick">供应商管理</a></li>
+                    <li><a href="personList.html" target="_self" class="personList colorNoClick">用户管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="materManageAdd">
+   <div class="materManageAdd_top">
+       <!--<a class="addMater">新增</a>-->
+       <!--<a class="inportMater">导入物资明细</a>-->
+       <input type="file" id="files" onchange="filesCheange()">
+       <a class="inportMater" onclick="inportMater()">导入物资明细</a>
+       <!--<button id="submit-parse">Parse</button>-->
+   </div>
+    <div class="materManageAdd_bottom">
+       <table class="materManageAdd_table">
+           <thead class="materManageAdd_thead">
+              <tr>
+                  <td width="200">物资编码</td>
+                  <td>物资名称</td>
+                  <td>规格型号</td>
+                  <td width="100">计量单位</td>
+                  <td width="100">重要物质</td>
+                  <td width="100">操作</td>
+              </tr>
+           </thead>
+           <tbody class="materManageAdd_tbody">
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+               <tr>
+                   <td><input class="material_code" type="text" value=""></td>
+                   <td><input class="material_name" type="text" value=""></td>
+                   <td><input class="specification" type="text" value=""></td>
+                   <td><input class="measurement" type="text" value=""></td>
+                   <td><input class="isPrecious" type="checkbox"></td>
+                   <td><a onclick="materManageAdd_delete(this)">删除</a></td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+    <div class="materManageAdd_add">
+        <a href="javascript:;" class="materManage_Add_add" onclick="materManage_Add_add()">新增物资明细</a>
+    </div>
+    <div class="materManageAdd_save">
+        <a href="javascript:;" class="materManage_add_save" onclick="materManage_add_save()">保存</a>
+    </div>
+</div>
+<div class="foot">
+    <div class="foot1">
+        <a href="javaScript:;">广告服务</a>|
+        <a href="javaScript:;">联系我们</a>|
+        <a href="javaScript:;">合作伙伴</a>|
+        <a href="javaScript:;">法律声明</a>|
+        <a href="javaScript:;">关于我们</a>
+    </div>
+    <div class="foot2">
+        <p>**有限公司版权所有 京ICP备14004333号</p>
+    </div>
+    <div class="foot3">
+        <div class="foot3_p">
+            <p>请使用IE9以上版本浏览页面</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+.head{
+    width: 100%;
+    height: auto;
+}
+.head_title{
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #777777;
+}
+.head_show{
+    width: 1200px;
+    height: 40px;
+    line-height: 40px;
+    margin:0 auto;
+}
+.head_left{
+    float: left;
+}
+.head_left p{
+    color: white;
+    float: left;
+    padding-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+.head_right{
+    float: right;
+    color: white;
+}
+.head_right span{
+    font-size: 14px;
+    color: white;
+    margin-left: 10px;
+}
+.head_right a{
+    font-size: 14px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.head_right img{
+    margin-left: 3px;
+}
+.head_logo_nav{
+    width: 100%;
+    float: left;
+    height: auto;
+    background-color: #eeeeee;
+}
+.head_nav{
+    width: 1200px;
+    height: 99px;
+    margin:0px auto;
+}
+
+.logo{
+    width: 200px;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo_img{
+    width: 200px;
+}
+
+.nav{
+    /*width: 500px;*/
+    float: right;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+}
+.nav ul li{
+    font-size: 14px;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+    /*margin-top: 10px;*/
+}
+.nav ul li a{
+    font-size: 14px;
+    font-weight: bold;
+}
+/*公用类*/
+.colorClick{
+    color: #f44848;
+    border-bottom: 1px solid #f44848;
+}
+.colorNoClick{
+    color: #777777;
+}

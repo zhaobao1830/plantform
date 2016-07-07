@@ -1,0 +1,206 @@
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+}
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+.qwbo{
+    width: 1200px;
+    height: auto;
+    min-height: 570px;
+    overflow: hidden;
+    margin: 0 auto 80px;
+}
+.qwbo_waybill_information{
+    width: 1200px;
+    float: left;
+    margin-top: 20px;
+}
+.qwbo_send_duty_information{
+    width: 1200px;
+    float: left;
+    margin-top: 50px;
+}
+.qwbo_receive_duty_information,.qwbo_goods_information,.qwbo_logistics_information{
+    width: 1200px;
+    float: left;
+    margin-top: 40px;
+}
+.qwbo_waybill_information_title,.qwbo_send_duty_information_title,.qwbo_receive_duty_information_title,.qwbo_goods_information_title,.qwbo_logistics_information_title{
+    width: 1200px;
+    float: left;
+    background-color: #eeeeee;
+}
+.qwbo_waybill_information_title p,.qwbo_send_duty_information_title p,.qwbo_receive_duty_information_title p,.qwbo_goods_information_title p,.qwbo_logistics_information_title p{
+    font-size: 14px;
+    color: #222222;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.qwbo_waybill_information_content,.qwbo_send_duty_information_content,.qwbo_receive_duty_information_content,.qwbo_goods_information_content,.qwbo_logistics_information_content{
+    width: 1200px;
+    float: left;
+}
+.qwbo_waybill_information_content div,.qwbo_send_duty_information_content div,.qwbo_receive_duty_information_content div,.logistics_content_send_location,.logistics_content_receive_location{
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+.information_content_logistics_company,.information_content_car_license,.information_content_good_num,.information_content_send_phone_num,.information_content_send_addr,.information_content_send_company,.information_content_receive_phone_num,.information_content_receive_addr,.information_content_receive_company,.logistics_content_receive_location{
+    margin-left: 20px;
+}
+.qwbo_waybill_information_content label,.qwbo_send_duty_information_content label,.qwbo_receive_duty_information_content label,.contract_id_select label,.logistics_content_send_location label,.logistics_content_receive_location label{
+    color: #777777;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+.qwbo_waybill_information_content input,.qwbo_send_duty_information_content input,.qwbo_receive_duty_information_content input,.contract_id_select input,.logistics_content_send_location input,.logistics_content_receive_location input{
+    width: 193px;
+    height: 28px;
+    line-height: 30px;
+    float: left;
+    margin-left: 10px;
+    padding-left: 5px;
+    border: 1px solid #dddddd;
+    color: #222222;
+}
+.contract_id_select{
+    width: 1200px;
+    float: left;
+    margin-top:20px;
+}
+.contract_id_select a{
+    width: auto;
+    float: left;
+    display: block;
+    height: 23px;
+    line-height: 25px;
+    margin-top: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #777777;
+    margin-left: 24px;
+    border: 1px solid #bbbbbb;
+}
+.goods_information_show,.logistics_content_table{
+    width: 1200px;
+    float: left;
+    margin-top: 20px;
+}
+
+.goods_information_show_table,.logistics_table{
+    width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.goods_information_show_thead,.logistics_thead{
+    width: 1200px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.goods_information_show_thead tr, .goods_information_show_thead td,.logistics_thead tr,.logistics_thead td{
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+
+.cq_tbody,.logistics_tbody,.goods_information_show_tbody{
+    width: 1200px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.goods_information_show_tbody tr, .goods_information_show_tbody td,.logistics_tbody  tr,.logistics_tbody td{
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+.goods_information_show_tbody td.logistics_tbody td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+.goods_information_show_tbody tr input {
+    width: 149px;
+    margin: 0px;
+    border: none;
+    padding: 10px 5px;
+}
+
+.goods_information_show_tbody td a{
+    font-size: 12px;
+    cursor: pointer;
+    float: left;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+.goods_information_delete{
+    background-color: #f44848;
+    color: white;
+    margin-left: 20px;
+}
+.qwbo_submit{
+    width: 1200px;
+    float: left;
+    margin-top: 40px;
+    text-align: center;
+}
+.qwbo_submit a{
+    display: block;
+    float: left;
+    color: white;
+    background-color: #77afea;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 555px;
+}
+
+
+.goods_information_add{
+    width: 1200px;
+    float: left;
+    margin-top: 10px;
+}
+.goods_information_add a{
+    display: block;
+    color: #222222;
+    background-color: #eeeeee;
+    width: 90px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+}

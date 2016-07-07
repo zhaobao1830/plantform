@@ -1,0 +1,165 @@
+{
+  "count": 12,
+  "data": [
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d2919"
+      },
+      "material_code": "800000100000",
+      "material_name": "格构式钢柱",
+      "specification": "Gs-200/13",
+      "measurement": "根",
+      "isPrecious":"1",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291a"
+      },
+      "material_code": "800000115000",
+      "material_name": "格构式支柱",
+      "specification": "Gs150/13",
+      "measurement": "根",
+      "isPrecious":"1",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291b"
+      },
+      "material_code": "800000120000",
+      "material_name": "格构式支柱",
+      "specification": "Gs200/13",
+      "measurement": "根",
+      "isPrecious":"1",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291c"
+      },
+      "material_code": "800000120001",
+      "material_name": "格构式支柱",
+      "specification": "Gs200-250/13",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291d"
+      },
+      "material_code": "800000120002",
+      "material_name": "格构式支柱",
+      "specification": "Gs200-250/12",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291e"
+      },
+      "material_code": "800000135000",
+      "material_name": "格构式支柱",
+      "specification": "Gs350-/15",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d291f"
+      },
+      "material_code": "800000200000",
+      "material_name": "格构式支柱",
+      "specification": "G-150/8",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d2920"
+      },
+      "material_code": "800000200001",
+      "material_name": "格构式钢柱",
+      "specification": "G-250/13",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d2921"
+      },
+      "material_code": "800000200002",
+      "material_name": "格构式钢柱",
+      "specification": "G-500/15",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    },
+    {
+      "_id": {
+        "$oid": "570f41c7cf50a818288d2922"
+      },
+      "material_code": "800000205000",
+      "material_name": "格构式支柱",
+      "specification": "G50/8",
+      "measurement": "根",
+      "isPrecious":"0",
+      "add_time": {
+        "$date": 1457575719615
+      },
+      "update_time": {
+        "$date": 1457575719615
+      }
+    }
+  ]
+}

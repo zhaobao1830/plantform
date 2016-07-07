@@ -1,0 +1,57 @@
+﻿{
+  "bzxx": [
+    {
+      "_id": {
+        "$oid": "56dfe69d53f7201d982357b0"
+      },
+      "contract_id": "DDHTH123",
+      "company_name": "中国中铁",
+      "purchasing_company": "鲁班电子商务",
+      "user_id": null,
+      "add_time": {
+        "$date": 1457514141499
+      },
+      "edit_time": {
+        "$date": 1457514141499
+      }
+    }
+  ],
+  "purchasing": [
+    {
+      "_id": {
+        "$oid": "56dfe69d53f7201d982357b1"
+      },
+      "p_id": {
+        "$oid": "56dfe69d53f7201d982357b0"
+      },
+      "material_code": "wzbm_code1",
+      "material_name": "物资编码1",
+      "specification": "ghxh798",
+      "measurement": "立方",
+      "num": "5",
+      "price": "1.5",
+      "total_price": "7.5",
+      "company": "中铁局"
+    }
+  ],
+  "supply": [
+    {
+      "_id": {
+        "$oid": "56dfe69e53f7201d982357b2"
+      },
+      "p_id": {
+        "$oid": "56dfe69d53f7201d982357b0"
+      },
+      "material_code": "wzbm_code2",
+      "material_name": "物资编码2",
+      "specification": "ghxh799",
+      "measurement": "平方",
+      "num": "123",
+      "supply_time": "2015-09-22T10:50:00.000Z",
+      "address": "北京西站",
+      "person": "niyn",
+      "product_identify": "CPBSDM999",
+      "code_num": 0
+    }
+  ]
+}

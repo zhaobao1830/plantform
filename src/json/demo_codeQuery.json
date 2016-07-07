@@ -1,0 +1,35 @@
+﻿{
+  "count": 3,
+  "productInfos": [
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29251"},
+      "company_name": "111111111111111111",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29252"},
+      "company_name": "2222222222222222",
+      "product_identify": "4011",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17"
+    },
+    {
+      "_id": {"$oid": "56d3e76a4443ee5b1cb29253"},
+      "company_name": "3333333333333333",
+      "product_identify": "4012",
+      "product_name": "17",
+      "specification": "17",
+      "measurement": "17",
+      "material_code": "17",
+      "business": "17"
+    }
+  ]
+}
