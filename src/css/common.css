@@ -1,0 +1,1265 @@
+/* ----------------------------------
+
+Main CSS file for Discuz! X
+(C) Comsenz Inc.
+http://www.comsenz.com
+Created & Modified by Lushnis, Pony, Alice, Dfox & DragonLee.
+
+----------------------------------
+
+结构目录：
+	1. 重定义浏览器默认样式
+	2. 全局常用 CSS 样式
+	3. 表单及表单元素
+	4. 页面布局以及通用的区块样式
+	5. 列表样式vwmy
+	6. 其他特定功能块
+		1. 个人中心面板
+		2. 简易编辑器
+		3. 弹出菜单、弹出层及弹出窗口
+		4. 联系人列表、短消息窗口
+		5. 登录和注册
+		6. 其他
+	7. 拖拽及页面 DIY
+
+	*  其他页面专用样式参见 module.css
+
+----------------------------------
+
+常用变量说明：
+
+	通用边框颜色：		{COMMONBORDER}		#CDCDCD
+	通用背景填充色：		{COMMONBG}			#F2F2F2
+	特殊边框颜色：		{SPECIALBORDER}		#D1D9DF
+	特殊背景填充色：		{SPECIALBG}			#E9F2F9
+
+----------------------------------
+
+CSS 样式模块的格式示例：
+
+	Name:			模块名称
+	Level:			级别（Global, Channel, Function）
+	Dependent:		依赖关系，该模块必须依赖于何种模块
+	Sample:			用法示例，或指出改模块所作用的直接页面
+	Explain:		附加说明
+	Author:			创建者 日期(两位数年月日时)
+	Last Modify:	最终修改者 日期(两位数年月日时)
+
+----------------------------------
+
+CSS 写作注意事项：
+	1. 属性写在一行内，属性之间、属性名和值之间以及属性与“{}”之间须有空格，例如：.class { width: 400px; height: 300px; }
+	2. 属性的书写顺序：
+		2.1. 按照元素模型由外及内，由整体到细节书写，大致分为五组：
+			位置：position,left,right,float
+			盒模型属性：display,margin,padding,width,height
+			边框与背景：border,background
+			段落与文本：line-height,text-indent,font,color,text-decoration,...
+			其他属性：overflow,cursor,visibility,...
+		2.2. 针对特殊浏览器的属性，应写在标准属性之前，例如：-webkit-box-shadow:; -moz-box-shadow:; box-shaow:;
+	3. 谨慎添加新的选择符规则，尤其不可滥用 id，尽可能继承和复用已有样式
+	4. 选择符、属性、值均用小写（格式的颜色值除外），缩写的选择符名称须说明缩写前的全称，例如 .cl -> Clearfix
+	5. 避免使用各种 CSS Hack，如需对 IE 进行特殊定义，请参阅下节“关于 CSS Hack 的说明”
+	6. 勿使用冗余低效的 CSS 写法，例如：
+		ul li a span { ... }
+	7. 慎用 !important
+	8. 建议使用在 class/id 名称中的词语
+		6.1. 表示状态：a->active
+		6.2. 表示结构：h->header,c->content,f->footer
+		6.3. 表示区域：mn->main,sd->side,nv-navigation,mu->menu
+		6.4. 表示样式：l-list,tab,p_pop
+	9. 开发过程中的未定事项，须用 [!] 标出，以便于后续讨论整理
+
+----------------------------------
+
+关于 CSS Hack 的说明：
+
+	所有 IE浏览器适用：	.ie_all .foo { ... }
+	IE6 专用：			.ie6 .foo { ... }
+	IE7 专用：			.ie7 .foo { ... }
+	IE8 专用：			.ie8 .foo { ... }
+
+---------------------------------- */
+
+/*
+	Name:			mod_reset
+	Level:			Global
+	Explain:		重定义浏览器默认样式
+	Last Modify:	Pony
+*/
+	* { word-wrap: break-word; }
+	body {
+    	margin: 0px; 
+        padding:0px;
+        font-family: Tahoma,Microsoft YaHei,Verdana, Arial, Helvetica, sans-serif; 
+        font-size:12px;
+        list-style: none;
+    }
+	
+	a{color:#333;text-decoration:none;}a:hover{text-decoration:underline;}a img{border:none;}
+    
+    *{  
+        padding:0px;
+        margin:0px;
+        list-style: none;
+        text-decoration: none;
+        font-family: 'Arial','Microsoft Yahei',Tahoma,'Simsun';
+    }
+    
+    em{
+        font-style: normal;
+    }
+    
+    strong{
+        font-weight: normal;
+    }
+    img{
+        border: 0px;
+    }
+
+		textarea { resize: none; }
+	body, ul, ol, li, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, .pr, .pc { margin: 0; padding: 0; }
+	table { empty-cells: show; border-collapse: collapse; }
+		caption, th { text-align: left; font-weight: 400; }
+	ul li, .xl li { list-style: none; }
+	h1, h2, h3, h4, h5, h6 { font-size: 1em; }
+	em, cite, i { font-style: normal; }
+	a { text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		a img { border: none; }
+	label { cursor: pointer; }
+/*
+	Name:			mod_float
+	Level:			Global
+	Sample:			class="z/y"
+	Explain:		.z/.y 浮动 left/right
+	Last Modify:	lushnis
+*/
+
+/*
+	Name:			mod_clearfix
+	Level:			Global
+	Sample:			class="cl"
+	Explain:		Clearfix,避免因子元素浮动而导致的父元素高度缺失能问题
+	Last Modify:	lushnis
+*/
+	.cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .cl { zoom: 1; }
+/*
+	元素获取焦点时隐藏外边框
+*/
+	.hidefocus { outline: none; }
+
+/*
+	Name:			mod_hr
+	Level:			Global
+	Sample:			<hr />
+	Explain:		重定义 <hr /> 元素的样式，去除默认边距
+	Last Modify:	lushnis
+*/
+	hr { display: block; clear: both; *margin-top: -8px !important; *margin-bottom: -8px !important; }
+		.mn hr, .sd hr { margin: 0 10px; }
+		.area hr { margin-left: 0 !important; margin-right: 0 !important; }
+/*
+	Name:			mod_hr_solid
+	Level:			Global
+	Dependent:		mod_hr
+	Sample:			<hr class="l" />
+	Explain:		定义 1px 高度实线样式的 <hr /> 元素，具有两个个扩展样式，.l2 和 .l3，分别实现 2px 和 3px 的实线分割线
+	Last Modify:	lushnis
+*/
+	hr.l { height: 1px; border: none; }
+		hr.l2 { height: 2px; }
+		hr.l3 { height: 3px; }
+/*
+	Name:			mod_hr_dashed
+	Level:			Global
+	Dependent:		mod_hr
+	Sample:			<hr class="da" />
+	Explain:		定义 1px 高度虚线样式的 <hr /> 元素
+	Last Modify:	lushnis
+*/
+	hr.da { height: 0; border: none;  }
+
+	/* [!]使用注意 */
+	hr.bk { margin-bottom: 10px !important; *margin-bottom: 2px !important; height: 0; border: none;  }
+		.n .sd hr.bk { border-top-color: #F9F9F9; }
+	/* 清除Margin */
+	hr.m0 { margin-left: 0; margin-right: 0; }
+
+/*
+	Name:			mod_page_header
+	Level:			Global
+	Sample:			<h1 class="ph">Text</h1>
+	Explain:		页面中标题级别的文字 [!]此处须整合为一个单独 class
+	Last Modify:	lushnis
+*/
+	/* .wx --> weight text 粗体字，通常用于大标题 */
+	.wx, .ph { font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'STHeiti', Tahoma, 'SimHei', sans-serif; font-weight: 100; }
+	/* Page header */ .ph { font-size: 20px; }
+	/* Main title */ .mt { padding: 10px 0; font-size: 16px; }
+
+/* 行内分割竖线 */ .pipe { margin: 0 5px; color: #CCC; }
+
+/* 文本属性：字号、颜色、粗细 */
+/*
+	Name:			mod_text_size
+	Level:			Global
+	Sample:			class="xs*"
+	Explain:		文字字号，分为四个级别
+	Last Modify:	lushnis
+*/
+	.xs1 { font-size: 12px !important; }
+	.xs2 { font-size: 14px !important; }
+	.xs3 { font-size: 16px !important; }
+
+/*
+	Name:			mod_text_weight_level
+	Level:			Global
+	Sample:			class="xs[*]"
+	Explain:		文字字号，分为四个级别
+	Last Modify:	lushnis
+*/
+	.xw0 { font-weight: 400; }
+	.xw1 { font-weight: 700; }
+
+
+/*
+	Name:			mod_border_reset
+	Level:			Global
+	Sample:			class="bw0/bw0_all"
+	Explain:		去除边框
+	Last Modify:	lushnis
+*/
+	.bw0 { border: none !important; }
+	.bw0_all, .bw0_all th, .bw0_all td { border: none !important; }
+/*
+	Name:			mod_background_reset
+	Level:			Global
+	Sample:			class="bg0_c/bg0_i/bg0_all"
+	Explain:		去除背景，bg0_c、bg0_i 和 bg0_all 分别为去除背景颜色、去除背景图片和去除所有背景元素
+	Last Modify:	Pony
+*/
+	.bg0_c { background-color: transparent !important; }
+	.bg0_i { background-image: none !important; }
+	.bg0_all { background: none !important; }
+
+/*
+	Name:			mod_notice_line
+	Level:			Global
+	Sample:			<div class="ntc_l">
+	Explain:		黄色背景的提示条，一般用在单行醒目提示，不可用于多行块级区域
+	Last Modify:	lushnis
+*/
+	.ntc_l { padding: 5px 10px; background: #FEFEE9; }
+		.ntc_l .d { width: 20px; height: 20px;  line-height: 9999px; overflow: hidden; }
+			.ntc_l .d:hover { background-position: 0 -20px; }
+
+/* 圆角 [!]此处考虑弃用 */
+	.brs, .avt img, .oshr { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+	.brm { -moz-border-radius: 10px; -webkit-border-radius: 10px;  border-radius: 10px; }
+	.brw { -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px;  }
+/*
+	Name:			mod_margin
+	Level:			Global
+	Sample:			class="mtn/mtm/mtw/..."
+	Explain:		外边距样式，作用于元素的上下外边距，上下各具有 n, m, w 三个级别
+	Last Modify:	lushnis
+*/
+	.mtn { margin-top: 5px !important; }
+	.mbn { margin-bottom: 5px !important; }
+	.mtm { margin-top: 10px !important; }
+	.mbm { margin-bottom: 10px !important; }
+	.mtw { margin-top: 20px !important; }
+	.mbw { margin-bottom: 20px !important; }
+/*
+	Name:			mod_padding
+	Level:			Global
+	Sample:			class="ptn/ptm/ptw/..."
+	Explain:		内边距样式，作用于元素的上下内边距，上下各具有 n, m, w 三个级别
+	Last Modify:	lushnis
+*/
+	.ptn { padding-top: 5px !important; }
+	.pbn { padding-bottom: 5px !important;
+background: none repeat scroll 0 0 #e6e6e6;
+margin: 10px 0; }
+	.ptm { padding-top: 10px !important; }
+	.pbm { padding-bottom: 10px !important; }
+	.ptw { padding-top: 20px !important; }
+	.pbw { padding-bottom: 20px !important; }
+/*
+	Name:			mod_avatar
+	Level:			Global
+	Sample:			<div class="avt"><img src="avatar source" alt="username" /></div>
+	Explain:		标准尺寸头像样式，默认为 48px*48px，带边框
+	Last Modify:	lushnis
+*/
+	.avt img { padding: 2px; width: 48px; height: 48px; border: 1px solid; }
+/*
+	Name:			mod_avatar_middle, mod_avatar_small
+	Level:			Global
+	Sample:			<div class="avtm/avts"><img src="avatar source" alt="username" /></div>
+	Explain:		中等尺寸和小尺寸头像样式，中等尺寸为宽度 120px，高度按比例；小尺寸为 24px*24px
+	Last Modify:	lushnis
+*/
+	.avtm img { width: 120px; height: auto; }
+	.avts img { width: 24px; height: 24px; vertical-align: middle; }
+/*
+	Name:			mod_emp
+	Level:			Global
+	Sample:			<p class="emp">暂无数据</p>
+	Explain:		页面中无数据输出时，用此样式显示相关提示，如无特殊必要，建议使用 <p> 而不是 <div>
+	Last Modify:	lushnis
+*/
+	.emp { padding: 20px 10px; }
+		.emp a { text-decoration: underline !important; }
+/*
+	Name:			mod_align
+	Level:			Global
+	Sample:			class="vm/hm"
+	Explain:		纵向及横向对齐方式
+	Last Modify:	lushnis
+*/
+	.vm { vertical-align: middle; }
+		.vm * { vertical-align: middle; }
+	.hm { text-align: center; }
+/*
+	Name:			mod_alt
+	Level:			Global
+	Sample:			class="{echo swapclass('alt');}"
+	Explain:		隔行换色时深色背景
+	Last Modify:	lushnis
+*/
+
+/*
+	Name:			mod_notice
+	Level:			Global
+	Sample:			class="notice"
+	Explain:		类似统计中需注意的文字样式 [!]此处须考虑名称简写为 ntc
+	Last Modify:	lushnis
+*/
+	.notice { clear: both; margin: 5px 0; padding: 3px 5px 3px 20px;  }
+/*
+	Name:			mod_ajax_wait_info
+	Level:			Global
+	Sample:			id="ajaxwaitid"
+	Explain:		相应页面中 AJAX 请求时的状态显示
+	Last Modify:	lushnis
+*/
+	#ajaxwaitid { display: none; position: absolute; right: 0; top: 0; z-index: 1; padding: 0 5px;  }
+/*
+	Name:			mod_showmenu
+	Level:			Global
+	Sample:			class="showmenu"
+	Explain:		下拉菜单
+	Last Modify:	lushnis
+*/
+	.showmenu { padding-right: 16px;  cursor: pointer; white-space: nowrap; }
+		#um .showmenu { margin-right: -5px; }
+
+/*
+	Name:			mod_cursor
+	Level:			Global
+	Sample:			class="cur1"
+	Explain:		鼠标样式，可以根据需要按序添加
+	Last Modify:	Pony
+*/
+	.cur1 { cursor: pointer; }
+
+
+
+
+/* ------------------------------------------------------------------------ 表单及表单元素 */
+		/*
+		.pn				button
+			.pnc		button with light color
+			.pnp		post button
+		.px				input[text]
+		.pt				textarea
+		.pf				input[file]
+		.pc				input[checkbox]
+		.pr				input[radio]
+		.ps				select
+		.oshr			share button
+		.ofav			fav button with oshr
+		.oivt			invite button with oshr
+		*/
+
+/* 必填项 */ .rq { color: red; }
+
+/*
+	Name:			mod_input[text]_textarea_select
+	Level:			Global
+	Sample:			class="px/pt/ps"
+	Explain:		单行输入框（px）、多行文本框（pt）和选择框(ps/select)
+	Last Modify:	Pony
+*/
+	.px, .pt, .ps, select { border: 1px solid;}
+		.px, .pt { padding: 2px 4px; line-height: 17px; }
+		.px { height: 17px; }
+			.pxs { width: 30px !important; }
+			.fdiy .tfm .px, .fdiy .tfm .pt { width: auto; }
+			.p_fre { width: auto !important; }
+			.er { border-color: #F66 #FFBDB9 #FFBDB9 #F66; background-color: #FDF4F4;  }
+		.pt { overflow-y: auto; }
+			div.pt { height: 100px; line-height: 100px; }
+		.ps, select { padding: 2px 2px 2px 1px; }
+		/* 自动调整高度的 textarea by Pony */
+		.pts { vertical-align: top; overflow: hidden; }
+		.cmt .pts { width: 60%; }
+
+/*
+	Name:			mod_button
+	Level:			Global
+	Sample:			<button class="pn">Submit</button>
+	Explain:		按钮样式
+	Last Modify:	Pony
+*/
+	button::-moz-focus-inner { border: 0; padding: 0; }
+	.pn { vertical-align: middle; overflow: hidden; margin-right: 3px; padding: 0; height: 23px; border: 1px solid #999;  cursor: pointer; -moz-box-shadow: 0 1px 0 #E5E5E5; -webkit-box-shadow: 0 1px 0 #E5E5E5; box-shadow: 0 1px 0 #E5E5E5; }
+		.pn:active { background-position: 0 -23px; }
+		.ie6 .pn { overflow-x: visible; width: 0; }
+
+		.pn em, .pn span, .pn strong { padding: 0 10px; line-height: 21px; }
+			.pn em, .pn strong  { font-weight: 700; }
+		.ie7 .pn em, .ie7 .pn span, .ie7 .pn strong { padding: 0 5px; line-height: 18px; }
+
+	a.pn { height: 21px; line-height: 21px;}
+		a.pn:hover { text-decoration: none; }
+		.ie6 a.pn { width: auto; }
+		.ie6 a.pn em, .ie6 a.pn span, .ie6 a.pn strong { display: block; }
+		.ie7 a.pn em, .ie7 a.pn span, .ie7 a.pn strong { line-height: 21px; }
+
+	.pnc, a.pnc { border-color: #235994; background-color: #06C; background-position: 0 -48px; color: #FFF !important; }
+		.pnc:active { background-position: 0 -71px; }
+
+	.pnpost .pn { height: 26px; }
+
+/*
+	Name:			mod_input[radio]_input[checkbox]_label
+	Level:			Global
+	Sample:			class="pr/pc/lb"
+	Explain:		单选按钮(pr)、多选框(pc)和<label>(lb)
+	Last Modify:	Pony
+*/
+	.pr, .pc { vertical-align: middle; margin: 0 5px 1px 0; padding: 0; }
+		.ie6 .pr, .ie6 .pc, .ie7 .pr, .ie7 .pc { margin-right: 2px; }
+	.lb { margin-right: 20px; }
+
+
+/*
+	Name:			mod_narrow_input
+	Level:			Global
+	Sample:			<div class="pns"></div>
+	Explain:		小尺寸的输入框和按钮样式。该样式在模板中保留，目前样式为空。
+	Last Modify:	Pony
+*/
+	.pns .px {}
+	.pns .pn {}
+
+/*
+	Name:			mod_float_typeid
+	Level:			Global
+	Sample:			<div class="ftid">
+						<select>
+							<option>Option</option>
+						</select>
+					</div>
+	Explain:		模拟下拉菜单样式
+	Last Modify:	Pony
+*/
+.ftid { float: left; margin-right: 6px; }
+	.ftid select { float: left; height: 23px; }
+	.ftid a { display: block; overflow: hidden; padding: 0 17px 0 4px; height: 21px; line-height: 21px; text-decoration: none !important; font-size: 12px; font-weight: 400; border: 1px solid; }
+		.ftid a:hover, .ftid a:focus { background-position: 100% -23px; }
+	/* ctrl 'select' width */
+	.ftid select { width: 94px; }
+	.sslt a { width: 54px; }
+	.sslt select { width: 60px; }
+
+.sltm { padding: 5px 11px 5px 10px; text-align: left; }
+	.sltm li { padding: 2px 0; ; cursor: pointer; }
+
+
+/* 分享按钮 */ .oshr { float: right; margin-left: 5px; padding: 0 5px 0 22px; border: 1px solid; border-color: #CCC #A9A9A9 #A9A9A9 #CCC; }
+				.oshr:hover { text-decoration: none; }
+/*/!* 收藏按钮 with oshr *!/ .ofav { background-image: url({IMGDIR}/fav.gif); }*/
+/*/!* 邀请按钮 with oshr *!/ .oivt { background-image: url({IMGDIR}/activitysmall.gif); }*/
+
+
+/*
+	Name:			mod_form
+	Level:			Global
+	Sample:			<form>
+						<table cellspacing="0" cellpadding="0" class="tfm">
+							<tr>
+								<th>Label</th>
+								<td><input type="text" name="" id="" class="" /></td>
+							</tr>
+						</table>
+					</form>
+	Explain:		表单样式
+	Last Modify:	Pony
+*/
+	.tfm { width: 100%; }
+		.tfm caption, .tfm th, .tfm td { vertical-align: top; padding: 7px 0; }
+			.tfm caption h2 { font-size: 16px; }
+			.vt th, .vt td { vertical-align: top; }
+		.tfm th { padding-top: 9px; padding-right: 5px; width: 130px; }
+			.tfm th .rq { float: right; font-size: 14px; }
+			.tfm .pt, .tfm .px { margin-right: 3px; width: 330px; }
+		.tfm .c, .tfm .tedt, .m_c .tfm .tedt { width: 338px; }
+		.tfm .d { clear: both; margin: 5px 0; }
+			.tfm .d em { margin-left: 5px; color: red; }
+			.tfm .d strong { margin-left: 5px; }
+		.tfm .p { text-align: right; }
+		.tfm .pcl label { display: block; padding: 0 2px 5px; }
+			.tfm .pcl .pc { margin-right: 5px; padding: 0; }
+		.tfm .l th, .tfm .l td { padding-top: 0; padding-bottom: 0; }
+	.bn .tfm caption, .bn .tfm th, .bn .tfm td { padding-top: 5px; padding-bottom: 5px; }
+
+/*
+	Name:			mod_postboxtitle
+	Level:			Function
+	Explain:		发帖页面、弹窗等的标题栏
+	Last Modify:	Pony
+*/
+.pbt { margin-bottom: 10px; }
+	.ie6 .pbt .ftid a, .ie7 .pbt .ftid a { margin-top: 1px; }
+	#custominfo.mtn { margin-bottom: -5px; }
+
+/* 提示信息 alert_win － altw*/
+.altw { width: 350px; }
+	.altw .fltc { margin-bottom: 0; padding: 8px; }
+		.alert_right, .alert_error, .alert_info { padding: 6px 0 6px 58px; min-height: 40px; height: auto !important; height: 40px; line-height: 160%;  font-size: 14px; }
+
+		.alert_btnleft { margin-top: 8px; }
+		.alert_btn { margin-top: 20px; text-align: center; }
+		.alert_act { margin-top: 20px; padding-left: 58px; }
+
+/* 发帖导航 by lushnis */
+.pbnv { float: left; white-space: nowrap; overflow: hidden; width: 400px; padding: 7px 0; }
+.pbl { overflow: hidden; margin: 9px 0; width: 621px; border-width: 1px 0 1px 1px; border-style: solid; border-color: #CCC; }
+	.pbl li { float: left; overflow-x: hidden; overflow-y: auto; padding: 5px; width: 196px; height: 300px; border-right: 1px solid #CCC; }
+	.pbl p { height: 25px; line-height: 25px; }
+		.pbl a { display: block; white-space: nowrap; overflow: hidden; padding: 0 4px; text-decoration: none; border-width: 1px 0; }
+			.pbl a:hover { text-decoration: none; background-color: #F3F3F3; }
+		.pbl .highlightlink { color: #08C; }
+	.pbls a, .pbls a:hover { background-color: #EEE;font-weight: 700; }
+
+
+/* ------------------------------------------------------------------------ 页面布局 */
+		/*
+		#hd				Header
+			#nv			Navigation
+			#mu			Customer menu
+		.wp				Wrap
+		#ct				Container
+			.mn			Main area
+			.sd			Side area
+		#ft				Footer
+		----------------
+		.bm				Block in main area
+		.bn				Block in nerrow area
+		.bw				Block in full width
+
+		#pp				Personal Panel
+		.pm				Personal Message (Window)
+		.pmfl			PM friend list (Window)
+		*/
+
+/* 通用容器，定义页面宽度 */ .wp { margin: 0 auto; } #wp .wp { width: auto; }
+
+/* 页头 */
+    #wp{width:1160px;}
+
+		#hd .wp {  }
+    
+			.hdc { min-height: 70px; width:1160px;margin:0 auto;}
+				.ie6 .hdc { height: 70px; }
+			#hd h2 { padding: 0 20px 8px 0; float: left; }
+				#space #hd h2 { margin-top: 0; }
+			#hd .fastlg { padding-top: 10px; }
+
+				#scbar .light_form {height: 35px; line-height: 35px;}
+				.scbar_icon_td { width: 21px;  }
+				.scbar_txt_td, .scbar_type_td { height: 35px; line-height: 35px; }
+					.scbar_narrow #scbar_txt { width: 260px; }
+				.scbar_btn_td { width: 28px;}
+					#scbar_btn {  border: none;  box-shadow: none;height: 35px; }
+
+					
+						#scbar_btn strong { line-height: 84px; }
+				.scbar_type_td { width: 35px;  }
+					#scbar_type { display: block;  text-align: left; text-decoration: none; }
+						#scbar_type_menu { padding-left: 6px; background-color:white;width:80px;}
+				#scbar_hot { padding-left: 8px; height: 45px; overflow: hidden; }
+					#scbar_hot strong, #scbar_hot a { float: left; margin-right: 8px; white-space: nowrap; }
+
+			    #nv .light_nv{ width:1160px;margin:0 auto;overflow:hidden;}
+				#nv li { float: left;  height: 30px; line-height: 30px; font-size: 15px;border:none; }
+					.ie_all #nv li { line-height: 30px; }
+					.ie6 #nv li { line-height: 30px; }
+					#nv li a { float: left;/*width: 70px*/;text-align: center;height: 30px; }
+						.in-word-top li a { color: #fff; }
+						#nv li span { display: none; }
+					#nv li.a {background: #ff3600;}
+					.ie_all #nv li.a{ background: #ff3600;}
+						#nv li.a a { text-shadow: 0 2px 0 #000; }
+						#nv li a:hover { text-decoration: none; }
+						#nv li.hover a:hover, #nv li.hover a {  }
+			#mu { }
+				.ie6 #mu, .ie7 #mu { line-height: 0; font-size: 0; }
+				#mu ul { line-height: 22px; z-index: 2; font-size: 12px; }
+					#mu li { float: left; height: 32px }
+						#mu a { float: left; display: inline; margin: 5px 6px; padding: 0 10px; white-space: nowrap; }
+							#mu a:hover { margin: 4px 5px;  text-decoration: none; }
+				.floatmu { position: absolute; left: 0; top: 0; }
+			#um { line-height: 34px; zoom: 1; }
+				#um p { text-align: right; }
+				#um .avt { display: inline; margin-right: -60px; overflow:hidden;}
+				.vwmy { padding-left: 16px; }
+				.vwmy span{color:#444;}
+					.vwmy.qq {  padding-left: 20px; }
+				/* .topnav .new, .sch .new 分别为为个人中心和搜索页面头部新消息样式 */
+				#um .new, .topnav .new, .sch .new, #toptb .new { padding-left: 20px; background-repeat: no-repeat; background-position: 0 50%; font-weight: 700; }
+
+				#um .pipe { margin: 0 5px 0 0; }
+
+				#extcreditmenu, #g_upmine { margin-right: 2px !important; padding-top: 3px; padding-bottom: 3px; padding-left: 10px; }
+					#g_upmine { margin-right: 1px !important; border: 1px solid transparent; }
+						.ie6 #g_upmine { border: 0; }
+					#extcreditmenu.a, #g_upmine.a { position: relative; z-index: 302; margin-right: 1px !important; border: 1px solid;  }
+					#extcreditmenu_menu, #g_upmine_menu { margin-top: -1px; width: auto; }
+						#extcreditmenu_menu li { float: none; display: block; padding-left: 5px !important; padding-right: 1em !important; }
+					#g_upmine_menu li { float: none; display: block; padding-left: 5px !important; }
+					#g_upmine_menu ul.extg li { padding-left: 0px !important; }
+
+				#qmenu { float: left; display: inline; margin:12px 8px 0px 0px;width: 30px; height: 30px line-height: 999999px; text-align: center; font-weight: 700; overflow: hidden; }
+					#qmenu:hover { text-decoration: none; }
+					#qmenu.a { position: relative; z-index: 302; background-position: 0 -30px; }
+				#qmenu_menu { margin-top: 0px; padding: 20px 5px 10px; width: 610px; border-color: #DCE4EB; }
+					#qmenu_menu ul.nav li { float: left; }
+						.ie6 #qmenu_menu ul.nav li { clear: none !important; width: auto !important; }
+					#qmenu_menu ul.nav a { margin-bottom: 10px; padding: 47px 0 0; width: 60px; border: none; border-radius: 4px; text-align: center; }
+						#qmenu_menu ul.nav a:hover {text-shadow: none; }
+				#shortcut { position: relative; display: none; height: 30px; line-height: 30px; background-color: #3A83F1; color: white; text-align: center; }
+					#shortcuttip { padding: 2px 8px; border-radius: 3px; color: #3A83F1; font-weight: 700; }
+					#shortcutcloseid { position: absolute; right: 8px; top: 8px; display: block; width: 12px; height: 12px; text-indent: -999em; }
+
+.p_pop, .p_pof, .sllt {padding: 4px;
+border: 1px solid;
+min-width: 60px;
+border-color: #DDD;
+background: #FEFEFE;
+box-shadow: 1px 2px 2px rgba(0,0,0,0.3);}
+	.h_pop { min-width: 90px; border-top: none;padding-left: 10px; }
+	.p_pop a:hover, .p_pop a.a, #sctype_menu .sca {background-color: #EBEBEB;color: #369;text-decoration: none;float: left;text-align: center;height: 30px;}			
+.p_pop a {
+display: block;
+padding: 0px 5px;
+}
+.in-wpcon ul .hover a {
+color: #ff3c3c;
+font-weight: bold;
+border-radius: 5px 5px 0 0;
+background-color: #fff;
+}
+
+
+
+
+
+.in_header .user .vwmy a{margin:0px;}
+.in_header .title{
+    border:0px;
+    background:none;
+}
+/*头部样式 2014 TOP*/
+.y{
+    overflow:hidden;float:right;
+}
+.in_header {
+    position:relative;
+}
+
+.in_header .title{
+    height: 34px;
+    border-bottom: 1px #dfdfdf solid;
+    background-color: #f6f6f6;
+}
+
+.in_header .headt_con .y{
+/* 
+    height: 34px;
+    line-height: 34px;
+*/
+}
+
+.in_header .headt_con{
+    width:1160px;
+    margin:0 auto;
+    height: 34px;
+}
+
+.in_header .collect{
+    float: left;
+    width:620px;
+    height: 20px;
+    line-height: 18px;
+    margin-top: 7px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    
+}
+
+
+.in_header .collect a{
+    float: left;
+    padding-left: 22px;
+    width:120px;
+    height:20px;
+}
+
+.in_header .collect span{
+    float: left;
+    padding-left: 5px;
+}
+
+.in_header .user{
+    float: right;
+    min-width:535px;
+}
+
+
+.in_header .user a{
+    margin:0px 3px;
+    font-size:12px;
+    float:right;
+    height:34px;
+    line-height:34px;
+}
+
+.in_header .user .vwmy span{
+    float:right;
+}
+.in_header .user form{
+    float:right;    
+}
+
+.in_header .user .pipe{
+    float:right;
+    height:34px;
+    line-height:34px;
+}
+
+
+.in_header .user em{
+    color: #a1a1a1;
+    font-style: normal;
+}
+
+.in_header .user strong{
+    color: #a1a1a1;
+    font-weight: normal;
+    float:right;
+}
+/*头部样式 2014 BTM*/
+
+
+/*搜索部分 2014 TOP*/
+.in_search{
+    width: 1160px;
+    margin: 0 auto;
+    padding: 0px 0px 20px 0px;
+    overflow:hidden;
+}
+
+.search_con{
+    overflow: hidden;
+    float: left;
+}
+
+.search_con .logo{
+    float: left;
+}
+
+.search_con .logo a{
+    overflow:hidden;    
+}
+
+.search_con .logo img{
+    margin-top:10px;
+    width:380px;
+    height:60px;
+}
+
+.search_in{
+    margin-top:0px;
+    float: right;
+    padding-top:30px;
+}
+
+.sch_input{
+    width: 230px;
+    height: 20px;
+    margin:1px 0 0 10px;
+    border:none;
+    outline:none;
+}
+
+.sch_put{
+    float: left;
+    border: 2px #1661b9 solid;
+}
+
+.sch_fenlei{
+    float:left;
+    padding-left:5px;
+}
+
+.sch_fenlei a:hover{
+    color: #FF6600;
+    text-decoration: underline;
+}
+
+.sch_fenlei a{
+    color:#999;
+    text-decoration:none;
+}
+
+.search_in .select_js {
+    float: left;
+    height: 23px;
+    position: relative;
+    width: 85px;
+    z-index: 10;
+    cursor:pointer;
+}
+.search_in .select_js a {
+    
+    padding: 0 0 0 6px;
+    height:23px;
+    line-height:23px;
+    cursor:pointer;
+}
+.search_in .select_js .ico {
+    border-right: 1px solid #C9D6DE;
+    cursor: pointer;
+    float: right;
+    height: 14px;
+    margin-top: 5px;
+    padding-right: 12px;
+    width: 7px;
+}
+.search_in .select_js ul {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #F7DBC6;
+    display: none;
+    left: -1px;
+    position: absolute;
+    top: 27px;
+    width: 84px;
+    z-index: 1000;
+}
+.search_in .select_js ul li {
+    cursor: pointer;
+    line-height: 22px;
+    padding-left: 5px;
+}
+
+.search_in .btn{
+    width: 68px;
+    height: 29px;
+	background: url(../images/bk.png) 0px -28px no-repeat;
+    float: left;
+    cursor:pointer;
+    outline:none;
+    border:none;
+    margin-left: 2px;
+}
+
+.sch_btn{
+    float: left;
+}
+
+#hotwords {
+    line-height: 20px;
+    padding-left: 10px;
+}
+
+#hotwords strong{
+    font-weight: normal;
+    color: #8c8c8c;
+}
+
+#hotwords span{
+    color: #a79596;
+}
+
+#hotwords a{
+    padding:0 1px;
+    color: #8c8c8c;
+}
+/*搜索部分 2014 BTM*/   
+        
+        
+
+/*分类列表 2014 BTM*/
+.in-word-top{
+    background-color: #bf0000;
+    line-height: 36px;
+    height: 36px;
+    color: #fff;
+    min-width:1160px;
+}
+
+.in-word-top .in-wpcon{
+    width: 1160px;
+    margin: 0 auto;
+}
+
+.inter_fast{
+    background-color: #414042;
+    width: 240px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+
+
+
+
+.in-word-top .inter_list{
+    position: absolute;
+    border: 1px #414042 solid;
+    border-top: none;
+    min-height: 20px;
+    z-index: 99;
+    background-color: white;
+    width: 238px;
+    top: 36px;
+    left: 0px;
+    overflow: hidden;
+    display:none;
+}
+
+.in-word-top .inter_list ul{
+    padding: 0px;
+    float: none;
+}
+
+#nv .in-word-top .inter_list ul li{
+    padding:0px;
+    float:none;
+    margin-bottom:5px;
+    /*padding-left:30px;
+*/
+}
+
+#nv .in-word-top .inter_list li a{
+    padding: 0px;
+    color: black;
+    float: none;
+    font-size: 13px;
+    padding:0px 10px 0 10px;
+    display: block;
+    width: inherit;
+}
+
+#nv .in-word-top .inter_list .login_l {
+    display:none;
+}
+
+#nv .in-word-top .inter_list .login_l li a:hover{
+    color: grey;
+}
+
+#nv .in-word-top .inter_list .login_l li a:hover img{
+
+}
+
+
+.in-word-top .inter_list .login_l{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#nv .in-word-top .inter_list .login_l span{
+    height: 30px;
+    width: 30px;
+    float: left;
+    display:block;
+}
+
+
+.in-word-top .inter_list .login_l img{
+    height: 30px;
+}
+.in-word-top .inter_list .login_l em{
+    float: left;
+    margin-left: 5px;
+    line-height: 30px;
+}
+
+#nv .in-word-top .inter_list .logout_l {
+    display:none;
+}
+
+#nv .in-word-top .inter_list .logout_l li a:hover{
+    color: grey;
+}
+
+#nv .in-word-top .inter_list .logout_l li a:hover img{
+
+}
+#nv .in-word-top .inter_list .logout_l{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#nv .in-word-top .inter_list .logout_l span{
+    height: 30px;
+    width: 30px;
+    float: left;
+    display:block;
+}
+#nv .in-word-top .inter_list .logout_l img{
+    height: 30px;
+}
+#nv .in-word-top .inter_list .logout_l em{
+    float: left;
+    margin-left: 5px;
+    line-height: 30px;
+    width:160px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-align:left;
+}
+.inter_fast .huiyuan_in{
+    height: 36px;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.inter_fast  span{
+    color:white;
+}
+
+
+.in-word-top ul{
+    float: left;
+    width: auto;
+    padding-top: 6px
+}
+
+.in-word-top ul li{
+    float: left;
+    padding: 0 10px;
+    font-size: 14px;
+    margin-left:10px;
+}
+
+
+.in-wpcon ul .select a{
+    color:#ff3c3c;
+    font-weight:bold;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+}
+
+.in-word-top ul li a{
+    color:white;
+    display:block;
+    height: 30px;
+    line-height: 30px;
+    min-width:70px;
+    text-align: center;
+    padding:0 5px;
+}
+
+.in-big-img{
+    height: 144px;
+    background-color: #ffa173;
+    cursor: pointer;
+    margin-bottom: 32px;
+}
+
+.in-big-img div{
+    width: 980px;
+    height: 144px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.in-big-img img{
+    width: 980px;
+
+}
+/*分类列表 2014 BTM*/
+
+/* footer 底部 TOP */
+.foot_bt{
+    height: 218px;
+    border-top: 1px #e7e7e7 solid;
+    border-bottom: 1px #e7e7e7 solid;
+    background-color: #f4f4f4;
+    margin-top: 60px;
+}
+
+.foot_bt a{
+    color:black;
+}
+
+.foot_bt .foot_cont{
+    width: 1160px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.foot_bt .bt_bk{
+    width: 235px;
+    text-align: center;
+    margin-top: 90px;
+    float: left;
+}
+
+.foot_bt .bt_bk img{
+    width:235px;    
+}
+
+.foot_bt .lj_title{
+    font-size: 18px;
+    color: black;
+}
+
+.foot_bt .lianjie_list1.line1{
+    margin-left: 85px;
+}
+
+.foot_bt .lianjie_list1.line2 , .foot_bt .lianjie_list1.line3 {
+    margin-left: 47px;
+}
+
+.foot_bt .lianjie_list1.line4{
+    margin-left: 10px;
+}
+
+
+
+.foot_bt .lianjie_list1{
+    width: 150px;
+    padding-top: 52px;
+    float: left;
+    text-align:left;
+}
+
+.foot_bt .lianjie_list1 li{
+    font-size: 12px;
+    color: #666;
+    margin-top: 13px;
+}
+
+
+
+.foot_bt .lianjie_list2{
+    width: 180px;
+    padding-top: 52px;
+    float: left;
+    text-align:left;
+}
+
+.foot_bt .lianjie_list2 li{
+    font-size: 12px;
+    color: #666;
+    margin-top: 13px;
+    width: 90px;
+    float: left;
+}
+
+.foot_bt .ewm_weixin{
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+.foot_bt .weixin_title{
+    margin-top: 45px;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 9px;
+}
+
+
+
+
+
+
+/* footer 底部 BRM */
+
+/* 所有权部分 TOP */
+
+.syq_sm{
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.syq_sm .syq_cont{
+    width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.syq_sm .syq_fuwu{
+    overflow:hidden;
+    margin:0 auto;
+    width:450px;
+    color:#333;
+}
+
+.syq_sm .syq_fuwu a{
+    padding: 0px 12px;
+    font-size: 12px;
+    color: #333;
+    float:left;
+}
+
+.syq_sm .syq_fuwu em{
+    float:left;
+}
+
+.syq_sm .syq_fuwu span{
+    float:left;
+    padding: 0px 12px;
+    font-size: 12px;
+    color: #333;
+}
+
+.syq_sm .syq_zs{
+    font-size: 12px;
+    color: #999;
+    margin-top: 18px;
+}
+
+.syq_sm .liulanqi{
+    margin-top:18px;
+    text-align:center;
+    color:#333;
+}
+
+
+.syq_sm .liulanqi a{
+    color:blue;
+}
+
+/* 所有权部分 BTM */
+
+
+
+
+
+
+
+
