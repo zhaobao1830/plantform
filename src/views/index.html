@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<head>
+    <title>滚动条距离底部</title>
+    <script src="../js/jquery-1.11.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            alert($(window).scrollTop())
+//            alert(document.body.clientHeight)
+//            alert($(window).height())
+//            alert($(document).height())
+            var i = 4;
+            $(window).bind("scroll", function (event) {
+//滚动条到网页头部的 高度，兼容ie,ff,chrome 
+                var top = document.documentElement.scrollTop + document.body.scrollTop;
+//网页的高度 
+                var textheight = $(document).height();
+// 网页高度-top-当前窗口高度  
+                if (textheight - top - $(window).height() <= 100) {
+                    if (i >= 100) {
+                        return; //控制最大只能加载到100
+                    }
+                    $('#div1').css("height", $(document).height() + 100);
+                    i++;
+//可以根据实际情况，获取动态数据加载 到 div1中 
+                    $('<div>' + i + '</div>').appendTo($('#div1'));
+                }
+            });
+        })
+    </script>
+    <style>
+        #div1 div{ font-size:100px; background:#ccc;margin-top:5px}
+    </style>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div style="height: 1000px;" id="div1">
+        <div>
+            1</div>
+        <div>
+            2</div>
+        <div>
+            3</div>
+        <div>
+            4</div>
+    </div>
+</form>
+</body>
+</html> 

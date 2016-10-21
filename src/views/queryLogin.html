@@ -24,36 +24,25 @@
                         </div>
                         <div class="login_content">
                             <div class="username">
-                              <div class="username_img">
-                                  <img src="../images/login_03.png">
-                              </div>
-                              <div class="username_input">
-                                  <input type="text" name="username" class="username_input_value" value="">
-                              </div>
-
-                              <div class="username_img1">
-                                  <img src="../images/login_04.png" onclick="deleteUsername()">
-                              </div>
+                               <label>
+                                   <img src="../images/login_03.png">
+                                   <span>账号</span>
+                               </label>
+                                <input class="username_input">
                             </div>
                             <div class="password">
-                                <div class="password_img">
-                                    <img src="../images/login_05.png">
-                                </div>
-                                <div class="password_input">
-                                    <input type="password" name="password" class="password_input_value" value="">
-                                </div>
-                                <div class="password_img1">
-                                    <img src="../images/login_04.png" onclick="deletePassword()">
-                                </div>
+                                <label>
+                                   <img src="../images/login_05.png">
+                                   <span>密码</span>
+                                </label>
+                                <input class="password_input">
                             </div>
                             <div class="inplist">
-                                <label for="saveUsername" id="saveUsernameLabel">
-                                    <input id="saveUsername" class="saveUsername" type="checkbox" checked>下次自动登录
-                                </label>
-                                <!--<label for="saveUsername" id="saveUsernameLabel">-->
-                                    <!--<span class="saveUser"></span>-->
-                                    <!--<input id="saveUsername" class="saveUsername" type="checkbox" checked>下次自动登录-->
-                                <!--</label>-->
+                                <div id="saveUsernameLabel" onclick="saveUsernameClick()">
+                                    <p class="sulpClick"></p>
+                                    <input id="saveUsername" class="saveUsername" type="checkbox" checked>
+                                    下次自动登录
+                                </div>
                             </div>
                         </div>
                         <div class="login_submit">
@@ -81,15 +70,15 @@
     </div>
 <script src="../js/fakeLoader.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $(".fakeloader").fakeLoader({
-            timeToHide:5000,
-//            bgColor:"rgb(222,222,25)",
-            bgColor:"rgb(200,200,200)",
-            spinner:"spinner1",
-            imagePath:"../images/loading.gif"
-        });
-    });
+//    $(document).ready(function(){
+//        $(".fakeloader").fakeLoader({
+//            timeToHide:5000,
+////            bgColor:"rgb(222,222,25)",
+//            bgColor:"rgb(200,200,200)",
+//            spinner:"spinner1",
+//            imagePath:"../images/loading.gif"
+//        });
+//    });
 </script>
 </body>
 </html>

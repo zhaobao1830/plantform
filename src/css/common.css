@@ -915,7 +915,7 @@ background-color: #fff;
 }
 
 .in-word-top .in-wpcon{
-    width: 1160px;
+    width: 1260px;
     margin: 0 auto;
 }
 
@@ -1256,7 +1256,11 @@ background-color: #fff;
 
 /* 所有权部分 BTM */
 
-
+/*.in-wpcon ul .select a {*/
+	/*color: #a5130e;*/
+	/*border-radius: 5px 5px 0 0;*/
+	/*background-color: #fff;*/
+/*}*/
 
 
 
