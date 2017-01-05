@@ -1,0 +1,252 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
+}
+a{
+    text-decoration: none !important;
+}
+
+.container{
+    width: 1200px;
+    min-height:500px ;
+    margin: 0 auto;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+}
+.nm-l{
+    width: 170px;
+    float: left;
+    border: 1px solid #eeeeee;
+}
+.nm-l a{
+    width: 170px;
+    height: 46px;
+    line-height: 46px;
+    display: block;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eeeeee;
+    padding-left: 30px;
+}
+.aClick{
+     color: #4ea0ea;
+ }
+.aNoClick{
+    color: #464646;
+}
+
+.nm-r {
+    float: left;
+    width: 1008px;
+    margin-left: 20px;
+}
+.searchBu,.deleteAll{
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+    padding: 3px 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.searchBu{
+    background-color: #77afea;
+}
+.deleteAll{
+    background-color: #3cd44a;
+}
+.omaSearch{
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+    padding: 3px 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #77afea;
+}
+.displayNo{
+    display: none;
+}
+.displayBlock{
+    display: block;
+}
+
+/*提示框*/
+.popup{
+    width: 300px;
+    height: 160px;
+    position: absolute;
+    margin: 0px auto;
+    top: 100px;
+    left: 450px;
+    border: 1px solid #77afea;
+    background-color: white;
+}
+.popup span,.popup a{
+    display: block;
+}
+.popup_title{
+    width: 280px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding-left: 20px;
+    background-color: #eeeeee;
+}
+.popup_con{
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    margin:20px 0 20px 0;
+}
+.popup_sure,.popup_cancel{
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    float: left;
+    text-decoration: none;
+}
+.popup_sure{
+    background-color: #77afea;
+    color: white;
+    margin-left: 100px;
+}
+.popup_cancel{
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+    margin-left: 20px;
+}
+.r_search{
+    width: 1008px;
+    float: left;
+    margin-top: 10px;
+}
+.r_search span{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 14px;
+}
+.r_search input[type=text]{
+    width: 90px;
+    font-size: 14px;
+    line-height: 25px;
+    border: 1px solid #dddddd;
+    padding-left: 2px;
+    outline: none;
+    color: #222222;
+}
+
+/*table*/
+table{
+    width: 1008px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+thead{
+    width: 1008px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+thead tr, thead td {
+    border: 1px solid #dddddd;
+    color: black;
+    height: 35px;
+}
+tbody{
+    width: 1008px;
+    font-size: 12px;
+    text-align: center;
+}
+tbody tr,tbody td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    color: #222222;
+}
+tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+
+.list_button{
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+.list_button p{
+    float: left;
+    padding: 0 10px;
+}
+.list_button a{
+    float: left;
+}
+/*分页*/
+.list_button{
+    position: relative;
+    text-align: center;
+    zoom: 1;
+}
+.list_button a{
+    float: left;
+    margin: 0 5px;
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+.list_button a:hover{
+    color:#fff;
+    background: #77afea;
+}
+.list_button .active{
+    float: left;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #77afea;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #77afea;
+}
+.list_button input {
+    float: left;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    outline: none;
+    color: #bdbdbd;
+    font-size: 14px;
+}

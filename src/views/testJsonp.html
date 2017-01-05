@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>测试jsonp</title>
+    <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+    <script>
+        function showJsonp() {
+          var url="http://36.110.19.170:8080/Query-Platform/find"
+     //   var url="http://192.168.1.122/Query-Platform/query_word_detail";
+           var word=encodeURI('H型支柱');
+//            var size=
+            $.ajax({
+                url:url,
+                type:'post',
+                data:{word:word,size:20},
+                dataType:'jsonp',
+                jsonp:'callback',
+                jsonpCallback:"callback",
+                success:function (data) {
+                    console.log(data)
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+     <a href="javascript:;" onclick="showJsonp()">点击</a>
+     <div class="show"></div>
+</body>
+</html>

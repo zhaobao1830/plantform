@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>非标准名称管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/queryNoMa.css">
+</head>
+<body>
+     <div class="container">
+         <div class="nm-l">
+             <a href="javascript:;" class="a_n aClick"  onclick="jumpPage('n')">非物资管理界面</a>
+             <a href="javascript:;" class="a_m aNoClick" onclick="jumpPage('m')">物资管理界面</a>
+             <a href="javascript:;" class="a_nm aNoClick" onclick="jumpPage('nm')">数据关联界面</a>
+         </div>
+         <div class="nm-r">
+             <input type="file" id="files" style="display:none" onchange="importNoMa();"/>
+             <a href="javascript:;" type="button" id="import" class="searchBu">导入</a>
+             <div class="popup displayNo">
+                 <span class="popup_title">提示</span>
+                 <span class="popup_con">将名称放入一列并保存为txt</span>
+                 <a href="javascript:;" type="button" class="popup_sure" onclick="popupSure()">确定</a>
+                 <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
+             </div>
+             <a href="javascript:;" type="button" class="deleteAll" onclick="deleteAll()">删除</a>
+             <div class="r_search">
+                 <span>导入人</span>
+                 <input type="text" class="importPerson" value="">
+                 <span>名称</span>
+                 <input type="text" class="nomaName" value="">
+                 <span>时间</span>
+                 <input  name="nomaName_date" class="createCode_date" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
+                 <span>批次</span>
+                 <input type="text" class="nomaBatch" value="">
+                 <a href="javascript:;" type="button" class="omaSearch" onclick="omaSearch()">搜索</a>
+             </div>
+             <table>
+                 <thead>
+                     <tr>
+                         <td>ID</td>
+                         <td>批次</td>
+                         <td>导入人</td>
+                         <td>时间</td>
+                         <td>名称</td>
+                         <td>关联状态</td>
+                     </tr>
+                 </thead>
+                 <tbody class="noman_body">
+
+                 </tbody>
+             </table>
+             <div class="list_button">
+
+             </div>
+         </div>
+     </div>
+
+     <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+     <script type="text/javascript" src="../js/queryNoMa.js"></script>
+     <script type="text/javascript" src="../js/WdatePicker.js"></script>
+     <script src="../js/jquery.pagination.js"></script>
+</body>
+</html>

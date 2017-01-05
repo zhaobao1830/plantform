@@ -1,0 +1,38 @@
+﻿{
+  "count": 3,
+  "nonstandard": [
+    {
+      "id":1,
+      "batch_id":1,
+      "importer":"张三",
+      "imp_time":"ISODate('2015-09-22T10:50:00.000Z')",
+      "value":"龙门吊",
+      "mean":[
+        "塔式起重机",
+        "自走式起重机"
+      ]
+    },
+    {
+      "id":1,
+      "batch_id":1,
+      "importer":"张三",
+      "imp_time":"ISODate('2015-09-22T10:50:00.000Z')",
+      "value":"龙门吊",
+      "mean":[
+        "塔式起重机",
+        "自走式起重机"
+      ]
+    },
+    {
+      "id":1,
+      "batch_id":1,
+      "importer":"张三",
+      "imp_time":"ISODate('2015-09-22T10:50:00.000Z')",
+      "value":"龙门吊",
+      "mean":[
+        "塔式起重机",
+        "自走式起重机"
+      ]
+    }
+  ]
+}
