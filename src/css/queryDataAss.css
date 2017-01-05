@@ -16,12 +16,12 @@ a{
     overflow: hidden;
     position: relative;
 }
-.nm-l{
+.da-l{
     width: 170px;
     float: left;
     border: 1px solid #eeeeee;
 }
-.nm-l a{
+.da-l a{
     width: 170px;
     height: 46px;
     line-height: 46px;
@@ -32,36 +32,41 @@ a{
     padding-left: 30px;
 }
 .aClick{
-     color: #4ea0ea;
- }
+    color: #4ea0ea;
+}
 .aNoClick{
     color: #464646;
 }
-
-.nm-r {
+.da-r{
     float: left;
     width: 1008px;
     margin-left: 20px;
 }
-.searchBu,.deleteAll{
+.da_search{
+    width: 1008px;
+    float: left;
+    margin-top: 10px;
+}
+.da_search span{
     width: auto;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 14px;
+}
+.da_search input[type=text]{
+    width: 90px;
+    font-size: 14px;
     height: 25px;
     line-height: 25px;
-    margin-left: 10px;
-    cursor: pointer;
-    color: white;
-    padding: 3px 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    text-decoration: none;
+    border: 1px solid #dddddd;
+    padding-left: 2px;
+    outline: none;
+    color: #222222;
 }
-.searchBu{
-    background-color: #77afea;
+.da_search input[type=radio]{
+    line-height: 25px;
 }
-.deleteAll{
-    background-color: #3cd44a;
-}
-.omaSearch{
+.daSearch{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -73,85 +78,6 @@ a{
     border-radius: 4px;
     text-decoration: none;
     background-color: #77afea;
-}
-.displayNo{
-    display: none;
-}
-.displayBlock{
-    display: block;
-}
-
-/*提示框*/
-.popup{
-    width: 300px;
-    height: 160px;
-    position: absolute;
-    margin: 0px auto;
-    top: 100px;
-    left: 450px;
-    border: 1px solid #77afea;
-    background-color: white;
-}
-.popup span,.popup a{
-    display: block;
-}
-.popup_title{
-    width: 280px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-    padding-left: 20px;
-    background-color: #eeeeee;
-}
-.popup_con{
-    width: 300px;
-    text-align: center;
-    font-size: 14px;
-    margin:20px 0 20px 0;
-}
-.popup_sure,.popup_cancel{
-    width: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
-    float: left;
-    text-decoration: none;
-}
-.popup_sure{
-    background-color: #77afea;
-    color: white;
-    margin-left: 100px;
-}
-.popup_cancel{
-    background-color: #f0f0f0;
-    color: #777777;
-    border: 1px solid #bbbbbb;
-    margin-left: 20px;
-}
-.r_search{
-    width: 1008px;
-    float: left;
-    margin-top: 10px;
-}
-.r_search span{
-    width: auto;
-    padding-left: 10px;
-    padding-right: 5px;
-    font-size: 14px;
-}
-.r_search input[type=text]{
-    width: 90px;
-    font-size: 14px;
-    height: 25px;
-    line-height: 25px;
-    border: 1px solid #dddddd;
-    padding-left: 2px;
-    outline: none;
-    color: #222222;
 }
 
 /*table*/
@@ -205,7 +131,6 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
-
 /*分页*/
 .list_button{
     position: relative;
@@ -265,4 +190,3 @@ tbody td span {
 .clickId{
     background: url("../images/click_2.png") no-repeat;
 }
-

@@ -1,0 +1,32 @@
+﻿{
+  "count": 3,
+  "mean": [
+    {
+      "id":1,
+      "standard_v":"门式起重机",
+      "nonstandard_v":"龙门吊",
+      "type":0,
+      "check":0,
+      "operator":"张三",
+      "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
+    },
+    {
+      "id":1,
+      "standard_v":"门式起重机",
+      "nonstandard_v":"龙门吊",
+      "type":0,
+      "check":0,
+      "operator":"张三",
+      "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
+    },
+    {
+      "id":1,
+      "standard_v":"门式起重机",
+      "nonstandard_v":"龙门吊",
+      "type":0,
+      "check":0,
+      "operator":"张三",
+      "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
+    }
+  ]
+}

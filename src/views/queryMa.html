@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>非标准名称管理</title>
-    <link rel="stylesheet" type="text/css" href="../css/queryNoMa.css">
+    <title>标准名称管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/queryMa.css">
 </head>
 <body>
      <div class="container">
          <div class="nm-l">
-             <a href="javascript:;" class="a_n aClick"  onclick="jumpPage('n')">非物资管理界面</a>
-             <a href="javascript:;" class="a_m aNoClick" onclick="jumpPage('m')">物资管理界面</a>
+             <a href="javascript:;" class="a_n aNoClick"  onclick="jumpPage('n')">非物资管理界面</a>
+             <a href="javascript:;" class="a_m aClick" onclick="jumpPage('m')">物资管理界面</a>
              <a href="javascript:;" class="a_nm aNoClick" onclick="jumpPage('nm')">数据关联界面</a>
          </div>
          <div class="nm-r">
-             <input type="file" id="files" style="display:none" onchange="importNoMa();"/>
+             <input type="file" id="files" style="display:none" onchange="importMa();"/>
              <a href="javascript:;" type="button" id="import" class="searchBu">导入</a>
              <div class="popup displayNo">
                  <span class="popup_title">提示</span>
@@ -26,12 +26,12 @@
                  <span>导入人</span>
                  <input type="text" class="importPerson" value="">
                  <span>名称</span>
-                 <input type="text" class="nomaName" value="">
+                 <input type="text" class="maName" value="">
                  <span>时间</span>
-                 <input  name="nomaName_date" class="createCode_date" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
+                 <input  name="maName_date" class="createCode_date" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
                  <span>批次</span>
-                 <input type="text" class="nomaBatch" value="">
-                 <a href="javascript:;" type="button" class="omaSearch" onclick="nomaSearch()">搜索</a>
+                 <input type="text" class="maBatch" value="">
+                 <a href="javascript:;" type="button" class="maSearch" onclick="maSearch()">搜索</a>
              </div>
              <table>
                  <thead>
@@ -44,7 +44,7 @@
                          <td>关联状态</td>
                      </tr>
                  </thead>
-                 <tbody class="noman_body">
+                 <tbody class="man_body">
 
                  </tbody>
              </table>
@@ -55,7 +55,7 @@
      </div>
 
      <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
-     <script type="text/javascript" src="../js/queryNoMa.js"></script>
+     <script type="text/javascript" src="../js/queryMa.js"></script>
      <script type="text/javascript" src="../js/WdatePicker.js"></script>
      <script src="../js/jquery.pagination.js"></script>
 </body>

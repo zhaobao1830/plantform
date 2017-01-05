@@ -1,5 +1,5 @@
 /**
- * Created by zb on 2017/1/5.
+ * Created by Administrator on 2017/1/5.
  */
 $(function () {
     $("#import").click(function(){//点击导入按钮，使files触发点击事件，然后完成读取文件的操作。
@@ -11,18 +11,17 @@ $(function () {
 function jumpPage(str) {
     $(".nm-l a").removeClass("aClick").addClass("aNoClick")
     if(str=='n'){
-         $(".a_n").removeClass("aNoClick").addClass("aClick")
+        $(".a_n").removeClass("aNoClick").addClass("aClick")
     }else if(str=='m'){
-         $(".a_m").removeClass("aNoClick").addClass("aClick")
+        $(".a_m").removeClass("aNoClick").addClass("aClick")
     }else if(str=='nm'){
-         $(".a_nm").removeClass("aNoClick").addClass("aClick")
+        $(".a_nm").removeClass("aNoClick").addClass("aClick")
     }else{
 
     }
 }
-
-//导入非标准名称
-function importNoMa() {
+//导入标准名称
+function importMa() {
 
 }
 
@@ -59,8 +58,8 @@ function deleteAll() {
     })
 }
 
-//通过条件搜索非标准名称
-function nomaSearch() {
+//通过条件搜索标准名称
+function maSearch() {
     var startValue=0 //初始值
     var limitValue=10 //一次取出多少条数据
     var importer=$(".importPerson").val() //导入人
@@ -68,31 +67,30 @@ function nomaSearch() {
     var imp_time=$(".createCode_date").val() //日期
     var batch_id=$(".nomaBatch").val() //批次
     var count="" //总数
-    var nonstandard="" //保存data信息
+    var standard="" //保存data信息
     var tbodyList=""
     var bzNum
     $.ajax({
-        url:'../json/demo_noma.json',
+        url:'../json/demo_ma.json',
         data:{importer:importer,value:value,imp_time:imp_time,batch_id:batch_id,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (data) {
             count=data.count
-            nonstandard=data.nonstandard
-            for(var i=0;i<nonstandard.length;i++){
+            standard=data.standard
+            for(var i=0;i<standard.length;i++){
                 bzNum=Number(startValue)+i+1
                 tbodyList+="<tr>"
-                tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+nonstandard[i].id+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                tbodyList+="<td>"+nonstandard[i].batch_id+"</td>"
-                tbodyList+="<td>"+nonstandard[i].importer+"</td>"
-                tbodyList+="<td>"+nonstandard[i].imp_time+"</td>"
-                tbodyList+="<td>"+nonstandard[i].value+"</td>"
-                tbodyList+="<td>"+nonstandard[i].mean.length+"</td>"
+                tbodyList+="<td><a class='noclickId' href='javascript:;' onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
+                tbodyList+="<td>"+standard[i].batch_id+"</td>"
+                tbodyList+="<td>"+standard[i].importer+"</td>"
+                tbodyList+="<td>"+standard[i].imp_time+"</td>"
+                tbodyList+="<td>"+standard[i].value+"</td>"
+                tbodyList+="<td>"+standard[i].mean.length+"</td>"
             }
-            $(".noman_body").html("")
-            $(".noman_body").append(tbodyList)
+            $(".man_body").html("")
+            $(".man_body").append(tbodyList)
 
             $('.list_button').pagination({
-                callback: PageCallback,  //PageCallback() 为翻页调用次函数。
                 pageCount:count,
                 jump:true,
                 coping:true,
@@ -105,12 +103,11 @@ function nomaSearch() {
         }
     })
 }
-function PageCallback(pageCount,jq) {
-    console.log(pageCount)
-}
+
 /*点击序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
 function clickCodes(str){
     if($(str).hasClass("noclickId")){
+        $(".noman_body a").removeClass("clickId").addClass("noclickId")
         $(str).removeClass("noclickId").addClass("clickId")
     }else{
         $(str).removeClass("clickId").addClass("noclickId")

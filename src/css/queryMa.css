@@ -32,8 +32,8 @@ a{
     padding-left: 30px;
 }
 .aClick{
-     color: #4ea0ea;
- }
+    color: #4ea0ea;
+}
 .aNoClick{
     color: #464646;
 }
@@ -61,7 +61,7 @@ a{
 .deleteAll{
     background-color: #3cd44a;
 }
-.omaSearch{
+.maSearch{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -205,7 +205,6 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
-
 /*分页*/
 .list_button{
     position: relative;
