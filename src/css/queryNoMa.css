@@ -187,7 +187,23 @@ tbody td {
     white-space: nowrap;
     padding: 10px 5px;
 }
-
+tbody td a {
+    width: 12px;
+    height: 12px;
+    display: block;
+    float: left;
+    color: #77afea;
+    cursor: pointer;
+    margin-left: 20px;
+}
+tbody td span {
+    width: 12px;
+    height: 12px;
+    float: left;
+    color: #222222;
+    margin-left: 20px;
+    margin-top: -2px;
+}
 .list_button{
     height: 20px;
     float: right;
@@ -250,3 +266,11 @@ tbody td {
     color: #bdbdbd;
     font-size: 14px;
 }
+
+.noclickId{
+    background: url("../images/click_1.png") no-repeat;
+}
+.clickId{
+    background: url("../images/click_2.png") no-repeat;
+}
+

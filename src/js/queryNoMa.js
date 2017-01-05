@@ -52,6 +52,7 @@ function omaSearch() {
     var count="" //总数
     var nonstandard="" //保存data信息
     var tbodyList=""
+    var bzNum
     $.ajax({
         url:'../json/demo_noma.json',
         data:{importer:importer,value:value,imp_time:imp_time,batch_id:batch_id,start:startValue,limit:limitValue},
@@ -60,8 +61,9 @@ function omaSearch() {
             count=data.count
             nonstandard=data.nonstandard
             for(var i=0;i<nonstandard.length;i++){
+                bzNum=Number(startValue)+i+1
                 tbodyList+="<tr>"
-                tbodyList+="<td>"+nonstandard[i].id+"</td>"
+                tbodyList+="<td><a class='noclickId' href='javascript:;' onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
                 tbodyList+="<td>"+nonstandard[i].batch_id+"</td>"
                 tbodyList+="<td>"+nonstandard[i].importer+"</td>"
                 tbodyList+="<td>"+nonstandard[i].imp_time+"</td>"
@@ -83,4 +85,14 @@ function omaSearch() {
             });
         }
     })
+}
+
+/*点击序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
+function clickCodes(str){
+    if($(str).hasClass("noclickId")){
+        $(".noman_body a").removeClass("clickId").addClass("noclickId")
+        $(str).removeClass("noclickId").addClass("clickId")
+    }else{
+        $(str).removeClass("clickId").addClass("noclickId")
+    }
 }
