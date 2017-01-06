@@ -20,11 +20,37 @@ function jumpPage(str) {
 
     }
 }
-//导入标准名称
-function importMa() {
 
+//导入按钮，用html5的FileReader方法 导入标准名称
+function importMa(){
+    var selectedFile = document.getElementById("files").files[0];//获取读取的File对象
+    var name = selectedFile.name;//读取选中文件的文件名
+    var size = selectedFile.size;//读取选中文件的大小
+    var reader = new FileReader();//这里是核心！！！读取操作就是由它完成的。
+    reader.readAsText(selectedFile);//读取文件的内容
+
+    var list=[] //txt文件里面的列表
+    var liList=[] //保存txt文件
+    var dataJson="" //把参数拼装成json样子，为string格式
+    reader.onload = function(){
+        list=this.result.split("\n")
+        for(var i=0;i<list.length;i++){
+            liList.push(list[i].trim())
+        }
+        dataJson={"importer":'admin',"value":""+liList+""}
+        var dj="" //转换成json
+        dj=JSON.stringify(dataJson)
+        $.ajax({
+            url:'',
+            type:"post",
+            data:dj,
+            contentType:"application/json",
+            success:function () {
+                alert('导入成功')
+            }
+        })
+    };
 }
-
 //提示框 确定按钮
 function popupSure(){
     $(".popup").removeClass("displayBlock").addClass("displayNo")
@@ -64,15 +90,18 @@ function maSearch() {
     var limitValue=10 //一次取出多少条数据
     var importer=$(".importPerson").val() //导入人
     var value=$(".nomaName").val() //名称
-    var imp_time=$(".createCode_date").val() //日期
+    var imp_time_start=$(".createCode_date_start").val() //开始日期
+    var imp_time_end=$(".createCode_date_end").val() //结束日期
     var batch_id=$(".nomaBatch").val() //批次
+    var source=$(".source option:selected").val() //数据来源
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
     var bzNum
     $.ajax({
         url:'../json/demo_ma.json',
-        data:{importer:importer,value:value,imp_time:imp_time,batch_id:batch_id,start:startValue,limit:limitValue},
+        type:"post",
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (data) {
             count=data.count
@@ -85,7 +114,9 @@ function maSearch() {
                 tbodyList+="<td>"+standard[i].importer+"</td>"
                 tbodyList+="<td>"+standard[i].imp_time+"</td>"
                 tbodyList+="<td>"+standard[i].value+"</td>"
-                tbodyList+="<td>"+standard[i].mean.length+"</td>"
+                //"source"数据来源:0人工导入1数据服务平台
+                tbodyList+="<td>"+(standard[i].source==0?'人工导入':'数据服务平台')+"</td>"
+                tbodyList+="<td><a href='javascript:;' class='showMean' onclick='showMean()'>"+standard[i].mean.length+"</a></td>"
             }
             $(".man_body").html("")
             $(".man_body").append(tbodyList)
@@ -112,4 +143,9 @@ function clickCodes(str){
     }else{
         $(str).removeClass("clickId").addClass("noclickId")
     }
+}
+
+//显示关联信息
+function showMean() {
+    window.location.href="../views/queryWordSelect.html"
 }

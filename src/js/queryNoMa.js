@@ -21,9 +21,35 @@ function jumpPage(str) {
     }
 }
 
-//导入非标准名称
-function importNoMa() {
+//导入按钮，用html5的FileReader方法
+function importNoMa(){
+    var selectedFile = document.getElementById("files").files[0];//获取读取的File对象
+    var name = selectedFile.name;//读取选中文件的文件名
+    var size = selectedFile.size;//读取选中文件的大小
+    var reader = new FileReader();//这里是核心！！！读取操作就是由它完成的。
+    reader.readAsText(selectedFile);//读取文件的内容
 
+    var list=[] //txt文件里面的列表
+    var liList=[] //保存txt文件
+    var dataJson="" //把参数拼装成json样子，为string格式
+    reader.onload = function(){
+        list=this.result.split("\n")
+        for(var i=0;i<list.length;i++){
+            liList.push(list[i].trim())
+        }
+        dataJson={"importer":'admin',"value":""+liList+""}
+        var dj="" //转换成json
+        dj=JSON.stringify(dataJson)
+        $.ajax({
+            url:'',
+            type:"post",
+            data:dj,
+            contentType:"application/json",
+            success:function () {
+                alert('导入成功')
+            }
+        })
+    };
 }
 
 //提示框 确定按钮
@@ -39,16 +65,23 @@ function popupCancel(){
 //删除
 function deleteAll() {
     var clickList=[], //点击的列表组合
-        idLIst="" //id组合
+        idLIst=[], //id组合
+        batchList=[], //批次组合
+        batchIdList=[] //批次ID租个
     clickList=$(".clickId")
-    console.log(clickList)
     if(clickList.length>0){
         for(var i=0;i<clickList.length;i++){
-            idLIst+=clickList.eq(i).attr('nid')
+            idLIst.push(clickList.eq(i).attr('nid'))
         }
-    }else{
-        alert("请选择要删除的列表")
     }
+    batchList=$(".batchId")
+    if(batchList.length>0){
+        for(var i=0;i<batchList.length;i++){
+            batchIdList.push(batchList.eq(i).attr('bid'))
+        }
+    }
+    console.log("idLIst:"+idLIst)
+    console.log("batchList:"+batchIdList)
     $.ajax({
         url:"",
         data:{},
@@ -65,7 +98,8 @@ function nomaSearch() {
     var limitValue=10 //一次取出多少条数据
     var importer=$(".importPerson").val() //导入人
     var value=$(".nomaName").val() //名称
-    var imp_time=$(".createCode_date").val() //日期
+    var imp_time_start=$(".createCode_date_start").val() //开始日期
+    var imp_time_end=$(".createCode_date_end").val() //结束时间日期
     var batch_id=$(".nomaBatch").val() //批次
     var count="" //总数
     var nonstandard="" //保存data信息
@@ -73,7 +107,7 @@ function nomaSearch() {
     var bzNum
     $.ajax({
         url:'../json/demo_noma.json',
-        data:{importer:importer,value:value,imp_time:imp_time,batch_id:batch_id,start:startValue,limit:limitValue},
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (data) {
             count=data.count
@@ -82,11 +116,13 @@ function nomaSearch() {
                 bzNum=Number(startValue)+i+1
                 tbodyList+="<tr>"
                 tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+nonstandard[i].id+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                tbodyList+="<td>"+nonstandard[i].batch_id+"</td>"
+                tbodyList+="<td><a class='noBatchId' href='javascript:;' bid="+nonstandard[i].batch_id+" onclick='clicknoBatchId(this)'><span>"+nonstandard[i].batch_id+"</span></td>"
                 tbodyList+="<td>"+nonstandard[i].importer+"</td>"
                 tbodyList+="<td>"+nonstandard[i].imp_time+"</td>"
                 tbodyList+="<td>"+nonstandard[i].value+"</td>"
-                tbodyList+="<td>"+nonstandard[i].mean.length+"</td>"
+                //"source"数据来源:0人工导入1数据服务平台
+                tbodyList+="<td>"+(nonstandard[i].source==0?'人工导入':'数据服务平台')+"</td>"
+                tbodyList+="<td><a href='javascript:;' class='showMean' onclick='showMean()'>"+nonstandard[i].mean.length+"</a></td>"
             }
             $(".noman_body").html("")
             $(".noman_body").append(tbodyList)
@@ -105,8 +141,8 @@ function nomaSearch() {
         }
     })
 }
-function PageCallback(pageCount,jq) {
-    console.log(pageCount)
+function PageCallback() {
+    console.log($(".active").text())
 }
 /*点击序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
 function clickCodes(str){
@@ -115,4 +151,21 @@ function clickCodes(str){
     }else{
         $(str).removeClass("clickId").addClass("noclickId")
     }
+}
+/*点击批次序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
+function clicknoBatchId(str) {
+    if($(str).hasClass("noBatchId")){
+        $(str).removeClass("noBatchId").addClass("batchId")
+    }else{
+        $(str).removeClass("batchId").addClass("noBatchId")
+    }
+}
+//显示关联信息
+function showMean() {
+   window.location.href="../views/queryWordSelect1.html?target='_blank'"
+}
+
+//智能关联
+function assOic() {
+    alert("功能正在开发")
 }

@@ -22,26 +22,34 @@
                  <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
              </div>
              <a href="javascript:;" type="button" class="deleteAll" onclick="deleteAll()">删除</a>
+             <a href="javascript:;" type="button" class="assoic" onclick="assOic()">智能关联</a>
              <div class="r_search">
                  <span>导入人</span>
                  <input type="text" class="importPerson" value="">
                  <span>名称</span>
                  <input type="text" class="nomaName" value="">
                  <span>时间</span>
-                 <input  name="nomaName_date" class="createCode_date" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
+                 <input  name="nomaName_date" class="createCode_date_start" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>--
+                 <input  name="nomaName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
                  <span>批次</span>
                  <input type="text" class="nomaBatch" value="">
+                 <span>数据来源</span>
+                 <select class="source">
+                     <option value="0">人工导入</option>
+                     <option value="1">数据服务平台</option>
+                 </select>
                  <a href="javascript:;" type="button" class="omaSearch" onclick="nomaSearch()">搜索</a>
              </div>
              <table>
                  <thead>
                      <tr>
                          <td width="75"></td>
-                         <td>批次</td>
+                         <td width="75">批次</td>
                          <td>导入人</td>
                          <td>时间</td>
-                         <td>名称</td>
-                         <td>关联状态</td>
+                         <td width="250">名称</td>
+                         <td>数据来源</td>
+                         <td width="75">关联状态</td>
                      </tr>
                  </thead>
                  <tbody class="noman_body">

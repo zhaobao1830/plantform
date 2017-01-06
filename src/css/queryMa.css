@@ -153,7 +153,13 @@ a{
     outline: none;
     color: #222222;
 }
-
+.r_search  select{
+    /*width: 100px;*/
+    height: 29px;
+    line-height: 29px;
+    font-size: 14px;
+    color: #222;
+}
 /*table*/
 table{
     width: 1008px;
@@ -204,6 +210,9 @@ tbody td span {
     color: #222222;
     margin-left: 20px;
     margin-top: -2px;
+}
+.showMean{
+    margin-left: 28px !important;
 }
 /*分页*/
 .list_button{

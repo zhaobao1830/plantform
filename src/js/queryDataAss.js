@@ -17,6 +17,7 @@ function daSearch() {
     var bzNum
     $.ajax({
         url:'../json/demo_da.json',
+        type:"post",
         data:{standard_v:standard_v,nonstandard_v:nonstandard_v,type:type,check:check,operator:operator,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (data) {
@@ -28,7 +29,9 @@ function daSearch() {
                 tbodyList+="<td><a class='noclickId' href='javascript:;' onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
                 tbodyList+="<td>"+means[i].standard_v+"</td>"
                 tbodyList+="<td>"+means[i].nonstandard_v+"</td>"
+                //type关联方式:0手动1自动
                 tbodyList+="<td>"+(means[i].type=='0'?'手动':'自动')+"</td>"
+                //check准确性:0未判别1准确2不准确
                 if(means[i].check==0){
                     tbodyList+="<td>"+'未判别'+"</td>"
                 }else if(means[i].check==1){
