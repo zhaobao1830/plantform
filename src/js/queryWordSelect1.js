@@ -1,4 +1,21 @@
 $(function(){
+    //获取url里面的noMan值，并且加载到catalogList ul 里面
+    var url=window.location.href
+    //判断url里面有没有noMan和=，有，表示非标准名称页面跳转的
+    //判断url里面有没有ma和=，有，表示标准名称页面跳转的
+    if(url.indexOf("noMan")>-1 && url.indexOf("=")>-1){
+        var noMan=decodeURI(url.split("=")[1])
+        var noManLi="<li><p>"+noMan+"</p><input type='text' class='displayNo' value=''><span  class='displayNo' onclick='catEdit(this)'>编辑</span></li>"
+        $(".catalogList ul").append(noManLi)
+    }else if(url.indexOf("ma")>-1 && url.indexOf("=")>-1){
+        var ma=decodeURI(url.split("=")[1])
+
+        //通过标准名称，查询非标准名称
+        searchNoByMa(ma)
+    }
+
+
+
     //JS加载后，给catalog下的Li绑定事件
     catalogAdd()
     //导入事件
@@ -411,4 +428,18 @@ function popupSure(){
 //提示框 取消按钮
 function popupCancel(){
     $(".popup").removeClass("displayBlock").addClass("displayNo")
+}
+
+//通过标准名称，查询非标准名称
+function searchNoByMa(str) {
+    var ma=str
+    $.ajax({
+        url:'',
+        data:{},
+        type:'post',
+        dataType:"json",
+        success:function (data) {
+            
+        }
+    })
 }

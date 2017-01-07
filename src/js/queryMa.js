@@ -112,11 +112,11 @@ function maSearch() {
                 tbodyList+="<td><a class='noclickId' href='javascript:;' onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
                 tbodyList+="<td>"+standard[i].batch_id+"</td>"
                 tbodyList+="<td>"+standard[i].importer+"</td>"
-                tbodyList+="<td>"+standard[i].imp_time+"</td>"
+                tbodyList+="<td>"+timeStamp2String(standard[i].imp_time.$date)+"</td>"
                 tbodyList+="<td>"+standard[i].value+"</td>"
                 //"source"数据来源:0人工导入1数据服务平台
                 tbodyList+="<td>"+(standard[i].source==0?'人工导入':'数据服务平台')+"</td>"
-                tbodyList+="<td><a href='javascript:;' class='showMean' onclick='showMean()'>"+standard[i].mean.length+"</a></td>"
+                tbodyList+="<td><a href='javascript:;' class='showMean' value='"+standard[i].value+"' onclick='showMean(this)'>"+standard[i].mean.length+"</a></td>"
             }
             $(".man_body").html("")
             $(".man_body").append(tbodyList)
@@ -146,6 +146,17 @@ function clickCodes(str){
 }
 
 //显示关联信息
-function showMean() {
-    window.location.href="../views/queryWordSelect.html"
+function showMean(str) {
+    var ma=encodeURI($(str).attr('value'))
+    window.open("../views/queryWordSelect1.html?ma="+ma)
+}
+
+//时间格式化
+function timeStamp2String(time){
+    var datetime = new Date();
+    datetime.setTime(time);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+    return year + "-" + month + "-" + date;
 }
