@@ -22,14 +22,14 @@ a{
     border: 1px solid #eeeeee;
 }
 .nm-l a{
-    width: 170px;
+    width: 155px;
     height: 46px;
     line-height: 46px;
     display: block;
     float: left;
     font-size: 16px;
     border-bottom: 1px solid #eeeeee;
-    padding-left: 30px;
+    padding-left: 15px;
 }
 .aClick{
     color: #4ea0ea;
@@ -146,12 +146,15 @@ a{
 .r_search input[type=text]{
     width: 90px;
     font-size: 14px;
-    height: 25px;
-    line-height: 25px;
+    height: 29px;
+    line-height: 29px;
     border: 1px solid #dddddd;
     padding-left: 2px;
     outline: none;
     color: #222222;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .r_search  select{
     /*width: 100px;*/
