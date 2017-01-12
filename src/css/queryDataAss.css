@@ -1,13 +1,24 @@
-body{
-    margin: 0;
-    padding: 0;
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
     font-size: 12px;
-    font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
-}
-a{
-    text-decoration: none !important;
+    font-family:'Microsoft Yahei','Arial',Tahoma,'Simsun';
 }
 
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+ul,ol,p{
+    margin: 0px;
+}
 .container{
     width: 1200px;
     min-height:500px ;
@@ -43,7 +54,7 @@ a{
     margin-left: 20px;
 }
 .da_search{
-    width: 1008px;
+    width: 870px;
     float: left;
     margin-top: 10px;
 }
@@ -62,11 +73,22 @@ a{
     padding-left: 2px;
     outline: none;
     color: #222222;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-.da_search input[type=radio]{
-    line-height: 25px;
+.da_search select {
+    height: 29px;
+    line-height: 29px;
+    font-size: 14px;
+    color: #222;
 }
-.daSearch{
+.oper{
+    margin-left:13px;
+    display:inline-block;
+    margin-top:10px
+}
+.daSearch,.daEx{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -77,7 +99,12 @@ a{
     font-size: 14px;
     border-radius: 4px;
     text-decoration: none;
+}
+.daSearch{
     background-color: #77afea;
+}
+.daEx{
+    background-color: #3cd44a;
 }
 
 /*table*/
@@ -85,7 +112,7 @@ table{
     width: 1008px;
     table-layout: fixed;
     border-collapse: collapse;
-    margin-top: 50px;
+    margin-top: 90px;
 }
 thead{
     width: 1008px;
@@ -130,6 +157,54 @@ tbody td span {
     color: #222222;
     margin-left: 20px;
     margin-top: -2px;
+}
+.de{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    margin: 0px auto;
+    top: 100px;
+    left: 500px;
+    border: 1px solid #77afea;
+    background-color: white;
+}
+.de span,.de a{
+    display: block;
+}
+.de_title{
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding-left: 10px;
+    background-color: #77afea;
+    color: white;
+}
+
+.de_sure,.de_cancel{
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    float: left;
+    text-decoration: none;
+}
+.de_sure{
+    background-color: #77afea;
+    color: white;
+    margin-left: 45px;
+    margin-top: 15px;
+}
+.de_cancel{
+    background-color: #f0f0f0;
+    color: #777777;
+    border: 1px solid #bbbbbb;
+    margin-left: 20px;
+    margin-top: 15px;
 }
 /*分页*/
 .list_button{
@@ -183,10 +258,27 @@ tbody td span {
     color: #bdbdbd;
     font-size: 14px;
 }
-
+.da_body p {
+    font-size: 18px;
+    width: 1007px;
+    text-align: center;
+    margin-top: 20px;
+}
+.de_delete{
+    position: absolute;
+    right: 5px;
+    top: 8px;
+}
 .noclickId{
     background: url("../images/click_1.png") no-repeat;
 }
 .clickId{
     background: url("../images/click_2.png") no-repeat;
+}
+
+.displayNo{
+    display: none;
+}
+.displayBlock{
+    display: block;
 }

@@ -11,20 +11,20 @@
       "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
     },
     {
-      "id":1,
+      "id":2,
       "standard_v":"门式起重机",
       "nonstandard_v":"龙门吊",
       "type":0,
-      "check":0,
+      "check":1,
       "operator":"张三",
       "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
     },
     {
-      "id":1,
+      "id":3,
       "standard_v":"门式起重机",
       "nonstandard_v":"龙门吊",
       "type":0,
-      "check":0,
+      "check":2,
       "operator":"张三",
       "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
     }

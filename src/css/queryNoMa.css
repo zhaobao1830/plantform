@@ -1,11 +1,23 @@
-body{
-    margin: 0;
-    padding: 0;
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
     font-size: 12px;
-    font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
+    font-family:'Microsoft Yahei','Arial',Tahoma,'Simsun';
 }
-a{
-    text-decoration: none !important;
+
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+ul,ol,p{
+    margin: 0px;
 }
 
 .container{
@@ -22,18 +34,18 @@ a{
     border: 1px solid #eeeeee;
 }
 .nm-l a{
-    width: 170px;
+    width: 155px;
     height: 46px;
     line-height: 46px;
     display: block;
     float: left;
     font-size: 16px;
     border-bottom: 1px solid #eeeeee;
-    padding-left: 30px;
+    padding-left: 15px;
 }
 .aClick{
-     color: #4ea0ea;
- }
+    color: #4ea0ea;
+}
 .aNoClick{
     color: #464646;
 }
@@ -81,8 +93,8 @@ a{
     display: block;
 }
 
-/*提示框*/
-.popup{
+/*提示�*/
+.popup,.imSh{
     width: 300px;
     height: 160px;
     position: absolute;
@@ -92,10 +104,10 @@ a{
     border: 1px solid #77afea;
     background-color: white;
 }
-.popup span,.popup a{
+.popup span,.popup a,.imSh span,.imSh a{
     display: block;
 }
-.popup_title{
+.popup_title,.imSh_title{
     width: 280px;
     height: 35px;
     line-height: 35px;
@@ -103,13 +115,13 @@ a{
     padding-left: 20px;
     background-color: #eeeeee;
 }
-.popup_con{
+.popup_con,.imSh_con{
     width: 300px;
     text-align: center;
     font-size: 14px;
-    margin:20px 0 20px 0;
+    margin:25px 0 25px 0;
 }
-.popup_sure,.popup_cancel{
+.popup_sure,.popup_cancel,.imSh_sure{
     width: auto;
     padding-left: 5px;
     padding-right: 5px;
@@ -132,6 +144,11 @@ a{
     border: 1px solid #bbbbbb;
     margin-left: 20px;
 }
+.imSh_sure{
+    background-color: #77afea;
+    color: white;
+    margin-left: 130px;
+}
 .r_search{
     width: 1008px;
     float: left;
@@ -146,15 +163,17 @@ a{
 .r_search input[type=text]{
     width: 90px;
     font-size: 14px;
-    height: 25px;
-    line-height: 25px;
+    height: 29px;
+    line-height: 29px;
     border: 1px solid #dddddd;
     padding-left: 2px;
     outline: none;
     color: #222222;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .r_search  select{
-    /*width: 100px;*/
     height: 29px;
     line-height: 29px;
     font-size: 14px;
@@ -211,6 +230,12 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
+.noman_body p{
+    font-size: 18px;
+    width: 1007px;
+    text-align: center;
+    margin-top:20px
+}
 .showMean{
     margin-left: 28px !important;
 }
@@ -265,6 +290,10 @@ tbody td span {
     outline: none;
     color: #bdbdbd;
     font-size: 14px;
+}
+.list_button span{
+    display: inline-block;
+    float: left;
 }
 
 .noclickId,.noBatchId{

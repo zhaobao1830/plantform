@@ -1,13 +1,24 @@
-body{
-    margin: 0;
-    padding: 0;
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
     font-size: 12px;
-    font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
-}
-a{
-    text-decoration: none !important;
+    font-family:'Microsoft Yahei','Arial',Tahoma,'Simsun';
 }
 
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+ul,ol,p{
+    margin: 0px;
+}
 .container{
     width: 1200px;
     min-height:500px ;
@@ -43,7 +54,7 @@ a{
     width: 1008px;
     margin-left: 20px;
 }
-.searchBu,.deleteAll{
+.searchBu,.deleteAll,.assoic{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -55,7 +66,7 @@ a{
     border-radius: 4px;
     text-decoration: none;
 }
-.searchBu{
+.searchBu,.assoic{
     background-color: #77afea;
 }
 .deleteAll{
@@ -80,8 +91,13 @@ a{
 .displayBlock{
     display: block;
 }
-
-/*提示框*/
+.da_body p {
+    font-size: 18px;
+    width: 1007px;
+    text-align: center;
+    margin-top: 20px;
+}
+/*閹绘劗銇氬*/
 .popup{
     width: 300px;
     height: 160px;
@@ -155,9 +171,9 @@ a{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    float: none !important;
 }
 .r_search  select{
-    /*width: 100px;*/
     height: 29px;
     line-height: 29px;
     font-size: 14px;
@@ -214,10 +230,16 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
+.man_body p{
+    font-size: 18px;
+    width: 1007px;
+    text-align: center;
+    margin-top:20px
+}
 .showMean{
     margin-left: 28px !important;
 }
-/*分页*/
+
 .list_button{
     position: relative;
     text-align: center;
@@ -269,11 +291,76 @@ tbody td span {
     color: #bdbdbd;
     font-size: 14px;
 }
+.list_button span{
+    display: inline-block;
+    float: left;
+}
 
-.noclickId{
+.noclickId,.noBatchId{
     background: url("../images/click_1.png") no-repeat;
 }
-.clickId{
+.clickId,.batchId{
     background: url("../images/click_2.png") no-repeat;
 }
 
+
+.showMa{
+    width: 100%;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+.sm{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+}
+.sm .smTitle{
+    width: 300px;
+    height: 32px;
+    line-height: 32px;
+    background-color: #77afea;
+}
+.smTitle p {
+    color: white;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.smTitle a {
+    display: block;
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.smCon{
+    width:300px;
+    height:300px;
+    overflow:hidden
+}
+.smCon ul li{
+    width: 280px;
+    list-style: none;
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

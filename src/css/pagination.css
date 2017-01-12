@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+.wrapper{
+    margin:0 auto;
+    width:960px;
+    height:100%;
+}
+.M-box,.list_button,.M-box2,.M-box3{
+	position: relative;
+    text-align: center;
+  	zoom: 1;
+    float: right;
+    margin-right: -5px;
+    margin-top: 20px;
+}
+.M-box:before,.M-box:after,.list_button:before,.list_button:after ,.M-box2:before,.M-box2:after ,.M-box3:before,.M-box3:after{
+    content:"";
+    display:table;
+}
+.M-box:after,.list_button:after,.M-box2:after,.M-box3:after{
+	clear:both;
+	overflow:hidden;
+}
+.M-box span,.list_button span,.M-box2 span,.M-box3 span{
+	float: left;
+	margin:0 5px;
+	width: 35px;
+    height: 30px;
+    line-height: 30px;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+.M-box .active,.list_button .active,.M-box2 .active,.M-box3 .active{
+	float: left;
+	margin:0 5px;
+	width: 35px;
+    height: 30px;
+    line-height: 30px;
+    background: #77afea;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #77afea;
+}
+.M-box a,.list_button a,.M-box2 a,.M-box3 a{
+	float: left;
+	margin:0 5px;
+	width: 35px;
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+.M-box a:hover,.list_button a:hover,.M-box2 a:hover,.M-box3 a:hover{
+	color:#fff;
+    background: #77afea;
+}
+.M-box .next,.M-box .prev,.list_button .next,.list_button .prev{
+	font-family: "Simsun";
+    font-size: 14px;
+    font-weight: bold;
+}
+.now,.count{
+	padding:0 5px;
+	color:#f00;
+}
+
+input{
+    float: left;
+    margin:0 5px;
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    outline: none;
+    color: #bdbdbd;
+    font-size: 14px;
+}

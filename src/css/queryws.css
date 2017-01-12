@@ -1,22 +1,68 @@
-body{
-    margin: 0;
-    padding: 0;
+*{
+    padding:0px;
+    margin:0px;
+    list-style: none;
     font-size: 12px;
-    font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
+    font-family:'Microsoft Yahei','Arial',Tahoma,'Simsun';
 }
-.container{
-    width: 1200px;
+
+em{
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+img{border: none;margin: 0px;padding: 0px;}
+ul,ol,p{
+    margin: 0px;
+}
+.con{
+    width: 100%;
+    height: 600px;
+    background-color: rgba(200, 200, 200, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+.con-no-ma{
+    width: 998px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 100px;
     overflow: hidden;
-    position: relative;
+    background-color: white;
+    position:relative
+}
+.nor_title{
+    width: 998px;
+    height: 32px;
+    line-height: 32px;
+    background-color: #77afea;
+}
+.nor_title p{
+    color: white;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.nor_title a{
+    display: block;
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+    cursor: pointer;
 }
 .catalog{
-    width: 352px;
+    width: 252px;
     float: left;
 }
 .catalogTile{
-    width: 340px;
+    width: 240px;
     border: 1px solid #dddddd;
     border-bottom: none;
     color: #77afea;
@@ -24,7 +70,7 @@ body{
     padding-left: 10px;
 }
 .catalogButton{
-    width: 350px;
+    width: 250px;
     height: 55px;
     border: 1px solid #dddddd;
     border-top: none;
@@ -32,11 +78,11 @@ body{
 }
 
 .searchInput{
-    width: 230px;
+    width: 130px;
     height: 23px;
     line-height: 25px;
     border: 1px solid #dddddd;
-    margin-left: 12px;
+    margin-left: 10px;
     margin-top: 15px;
     padding-left: 2px;
     outline: none;
@@ -46,7 +92,7 @@ body{
 .searchInput:hover{
     border: 1px solid #77afea;
 }
-.searchButton,.searchBu{
+.searchButton,.searchBus{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -64,8 +110,8 @@ body{
     text-decoration: none;
 }
 .catalogList{
-    width: 350px;
-    height: 409px;
+    width: 250px;
+    height: 367px;
     border: 1px solid #dddddd;
     overflow: auto;
 }
@@ -89,7 +135,7 @@ body{
 }
 
 .searchResult{
-    width: 824px;
+    width: 724px;
     height: auto;
     min-height: 406px;
     float: left;
@@ -108,7 +154,7 @@ body{
     padding-bottom: 10px;
 }
 .sr_nm{
-    width: 764px;
+    width: 664px;
     margin-left: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -146,12 +192,12 @@ body{
 }
 .firstSelect{
     width:300px;
-    margin-left: 55px !important;
+    margin-left: 20px !important;
     margin-bottom: 20px;
 }
 .secondSelect{
     width:300px;
-    margin-left: 35px !important;
+    margin-left: 20px !important;
     margin-bottom: 20px;
 }
 .sr_con .selectLeft,.sr_con .selectRight{
@@ -197,7 +243,7 @@ body{
 
 .sr_con_input{
     width: 40px;
-    margin-left: 35px;
+    margin-left: 20px;
     margin-top: 110px;
 }
 .sr_con_input a{
@@ -229,12 +275,12 @@ body{
 }
 
 .catalogList ul li p{
-    width: 300px;
+    width: 200px;
     margin: 0px !important;
     float: left;
 }
 .catalogList ul li input{
-    width: 296px;
+    width: 196px;
     height: 14px;
     margin-left: -2px;
     float: left;
@@ -301,7 +347,7 @@ body{
     height: 210px;
     overflow: auto;
 }
-/*提示框*/
+/*鎻愮ず妗*/
 .popup{
     width: 300px;
     height: 160px;
@@ -351,4 +397,10 @@ body{
     color: #777777;
     border: 1px solid #bbbbbb;
     margin-left: 20px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
 }

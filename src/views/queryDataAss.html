@@ -18,14 +18,29 @@
                 <input type="text" class="standard_v" value="">
                 <span>非标准名称</span>
                 <input type="text" class="nonstandard_v" value="">
+                <span>时间</span>
+                <input  name="nomaName_date" class="createCode_date_start" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>--
+                <input  name="nomaName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
                 <span>关联方式</span>
-                <input type="radio" name="assoic" value="0" checked>手动
-                <input type="radio" name="assoic" value="1">自动
+                <select class="assoic">
+                    <option value="0">手动</option>
+                    <option value="1">自动</option>
+                </select>
                 <span>准确性</span>
-                <input type="text" class="check" value="">
-                <span>关联人</span>
+                <select class="check">
+                    <option value="0">未判别</option>
+                    <option value="1">准确</option>
+                    <option value="2">不准确</option>
+                </select>
+                <span class="oper">关联人</span>
                 <input type="text" class="operator" value="">
                 <a href="javascript:;" type="button" class="daSearch" onclick="daSearch()">搜索</a>
+                <a href="javascript:;" type="button" class="daEx" onclick="daEx()">审核</a>
+            </div>
+            <div class="de">
+                <span class="de_title">审核</span>
+                <a href="javascript:;" type="button" class="de_sure" onclick="popupSure()">合格</a>
+                <a href="javascript:;" type="button" class="de_cancel" onclick="popupCancel()">不合格</a>
             </div>
             <table>
                 <thead>
