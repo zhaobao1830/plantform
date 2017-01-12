@@ -10,6 +10,11 @@ $(function () {
     $(".con").removeClass("show").addClass("hide")
 
     nomaSearch()
+
+    //使用下拉框插件
+    $('#noMean').editableSelect({
+        effects: 'slide'
+    });
 })
 
 
@@ -116,16 +121,18 @@ function nomaSearch() {
     var imp_time_end=$(".createCode_date_end").val() //结束时间日期
     var batch_id=0  //批次
     batch_id=Number($(".nomaBatch").val())
-
     var source=0 //数据来源
     source=Number($(".source option:selected").val()) //数据来源
+    var mean=0 //关联数
+    mean=Number($(".noMean").val())
     var count="" //总数
     var nonstandard="" //保存data信息
     var tbodyList=""
     var bzNum
     $.ajax({
         url:"../json/demo_noma.json",
-        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,start:startValue,limit:limitValue},
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,mean:mean,start:startValue,limit:limitValue},
+        type:"post",
         dataType:"json",
         success:function (datas) {
             count = datas.count
@@ -134,14 +141,15 @@ function nomaSearch() {
                 for (var i = 0; i < nonstandard.length; i++) {
                     bzNum = Number(startValue) + i + 1
                     tbodyList += "<tr>"
-                    tbodyList += "<td><a class='noclickId' href='javascript:;' nid=" + nonstandard[i].id + " onclick='clickCodes(this)'><span>" + bzNum + "</span></td>"
-                    tbodyList += "<td><a class='noBatchId' href='javascript:;' bid=" + nonstandard[i].batch_id + " onclick='clicknoBatchId(this)'><span>" + nonstandard[i].batch_id + "</span></td>"
+                    tbodyList += "<td><p class='noclickId' href='javascript:;' nid=" + nonstandard[i].id + " onclick='clickCodes(this)'><span>" + bzNum + "</span></p></td>"
+                    tbodyList += "<td><p class='noBatchId' href='javascript:;' bid=" + nonstandard[i].batch_id + " onclick='clicknoBatchId(this)'><span>" + nonstandard[i].batch_id + "</span></p></td>"
                     tbodyList += "<td>" + nonstandard[i].importer + "</td>"
                     tbodyList += "<td>" + timeStamp2String(nonstandard[i].imp_time.$date) + "</td>"
-                    tbodyList += "<td>" + nonstandard[i].value + "</td>"
+                    tbodyList += "<td><a  title='"+nonstandard[i].value+"'>" + nonstandard[i].value + "</a></td>"
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList += "<td>" + (nonstandard[i].source == 0 ? '人工导入' : '数据服务平台') + "</td>"
-                    tbodyList += "<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>" + nonstandard[i].mean + "</a></td>"
+                    tbodyList += "<td>"+(nonstandard[i].mean==0 ? '未关联' : nonstandard[i].mean)+"</td>"
+                    tbodyList += "<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>显示</a></td>"
                 }
                 $(".noman_body").html("")
                 $(".noman_body").append(tbodyList)
@@ -187,13 +195,16 @@ function pageCallback(api) {
     batch_id=Number($(".nomaBatch").val())
     var source=0 //数据来源
     source=Number($(".source option:selected").val()) //数据来源
+    var mean=0 //关联数
+    mean=Number($(".noMean").val())
     var count="" //总数
     var nonstandard="" //保存data信息
     var tbodyList=""
     var bzNum
     $.ajax({
         url:"../json/demo_noma.json",
-        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,start:startValue,limit:limitValue},
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,mean:mean,start:startValue,limit:limitValue},
+        type:"post",
         dataType:"json",
         success:function (datas) {
             count=datas.count
@@ -202,14 +213,15 @@ function pageCallback(api) {
                 for (var i = 0; i < nonstandard.length; i++) {
                     bzNum = Number(startValue) + i + 1
                     tbodyList += "<tr>"
-                    tbodyList += "<td><a class='noclickId' href='javascript:;' nid=" + nonstandard[i].id + " onclick='clickCodes(this)'><span>" + bzNum + "</span></td>"
-                    tbodyList += "<td><a class='noBatchId' href='javascript:;' bid=" + nonstandard[i].batch_id + " onclick='clicknoBatchId(this)'><span>" + nonstandard[i].batch_id + "</span></td>"
+                    tbodyList += "<td><p class='noclickId' nid=" + nonstandard[i].id + " onclick='clickCodes(this)'><span>" + bzNum + "</span></p></td>"
+                    tbodyList += "<td><p class='noBatchId' href='javascript:;' bid=" + nonstandard[i].batch_id + " onclick='clicknoBatchId(this)'><span>" + nonstandard[i].batch_id + "</span></p></td>"
                     tbodyList += "<td>" + nonstandard[i].importer + "</td>"
                     tbodyList += "<td>" + timeStamp2String(nonstandard[i].imp_time.$date) + "</td>"
-                    tbodyList += "<td>" + nonstandard[i].value + "</td>"
+                    tbodyList += "<td><a title='"+nonstandard[i].value+"'>" + nonstandard[i].value + "</a></td>"
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList += "<td>" + (nonstandard[i].source == 0 ? '人工导入' : '数据服务平台') + "</td>"
-                    tbodyList += "<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>" + nonstandard[i].mean + "</a></td>"
+                    tbodyList += "<td>"+(nonstandard[i].mean==0 ? '未关联' : nonstandard[i].mean)+"</td>"
+                    tbodyList +="<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>显示</a></td>"
                 }
                 $(".noman_body").html("")
                 $(".noman_body").append(tbodyList)

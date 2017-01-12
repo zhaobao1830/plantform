@@ -55,7 +55,7 @@ ul,ol,p{
     width: 1008px;
     margin-left: 20px;
 }
-.searchBu,.deleteAll,.assoic{
+.searchBu,.deleteAll,.assoic,.omaSearch{
     width: auto;
     height: 25px;
     line-height: 25px;
@@ -74,17 +74,7 @@ ul,ol,p{
     background-color: #3cd44a;
 }
 .omaSearch{
-    width: auto;
-    height: 25px;
-    line-height: 25px;
-    margin-left: 10px;
-    cursor: pointer;
-    color: white;
-    padding: 5px 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    text-decoration: none;
-    background-color: #77afea;
+    background-color: #f44848;
 }
 .displayNo{
     display: none;
@@ -151,14 +141,13 @@ ul,ol,p{
 }
 .r_search{
     width: 1008px;
-    float: left;
-    margin-top: 10px;
 }
 .r_search span{
     width: auto;
     padding-left: 10px;
     padding-right: 5px;
     font-size: 14px;
+    margin-top: 10px;
 }
 .r_search input[type=text]{
     width: 90px;
@@ -166,12 +155,24 @@ ul,ol,p{
     height: 29px;
     line-height: 29px;
     border: 1px solid #dddddd;
-    padding-left: 2px;
+    padding:0 5px;
     outline: none;
     color: #222222;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin-top: 10px;
+}
+.nomaName{
+    width: 140px !important;
+}
+.nomaBatch{
+    width: 40px !important;
+    text-align: center;
+}
+.noMean{
+    width: 50px !important;
+    text-align: center;
 }
 .r_search  select{
     height: 29px;
@@ -184,7 +185,7 @@ table{
     width: 1008px;
     table-layout: fixed;
     border-collapse: collapse;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 thead{
     width: 1008px;
@@ -213,7 +214,7 @@ tbody td {
     white-space: nowrap;
     padding: 10px 5px;
 }
-tbody td a {
+tbody td p {
     width: 12px;
     height: 12px;
     display: block;
@@ -230,14 +231,15 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
-.noman_body p{
-    font-size: 18px;
-    width: 1007px;
-    text-align: center;
-    margin-top:20px
-}
+
 .showMean{
-    margin-left: 28px !important;
+    width: 65px;
+    height: 12px;
+    display: block;
+    float: left;
+    color: #77afea;
+    cursor: pointer;
+
 }
 /*分页*/
 .list_button{
@@ -247,7 +249,7 @@ tbody td span {
     height: 20px;
     float: right;
     line-height: 20px;
-    margin-right: 6px;
+    margin-right: -5px;
     margin-bottom: 20px;
     margin-top: 20px;
     font-size: 14px;

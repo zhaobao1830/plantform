@@ -1,6 +1,6 @@
 ﻿{
   "count": 3,
-  "nonstandard": [
+  "data": [
     {
       "id":1,
       "batch_id":1,
@@ -8,7 +8,7 @@
       "imp_time": {"$date": 1457923528839},
       "value":"龙门吊",
       "source":0,
-      "mean":1
+      "mean":0
     },
     {
       "id":2,

@@ -5,6 +5,7 @@
     <title>非标准名称管理</title>
     <link rel="stylesheet" type="text/css" href="../css/queryNoMa.css">
     <link rel="stylesheet" type="text/css" href="../css/queryws.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.editable-select.min.css">
 </head>
 <body>
      <div class="container">
@@ -24,22 +25,28 @@
              </div>
              <a href="javascript:;" type="button" class="deleteAll" onclick="deleteAll()">删除</a>
              <a href="javascript:;" type="button" class="assoic" onclick="assOic()">智能关联</a>
+             <a href="javascript:;" type="button" class="omaSearch" onclick="nomaSearch()">搜索</a>
              <div class="r_search">
-                 <span>导入人</span>
-                 <input type="text" class="importPerson" value="">
                  <span>名称</span>
                  <input type="text" class="nomaName" value="">
+                 <span>导入人</span>
+                 <input type="text" class="importPerson" value="">
                  <span>时间</span>
                  <input  name="nomaName_date" class="createCode_date_start" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>--
                  <input  name="nomaName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
                  <span>批次</span>
                  <input type="text" class="nomaBatch" value="">
+                 <span>关联数</span>
+                 <select class="noMean" id="noMean">
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                 </select>
                  <span>数据来源</span>
                  <select class="source">
                      <option value="0">人工导入</option>
                      <option value="1">数据服务平台</option>
                  </select>
-                 <a href="javascript:;" type="button" class="omaSearch" onclick="nomaSearch()">搜索</a>
              </div>
              <table>
                  <thead>
@@ -50,7 +57,8 @@
                          <td>时间</td>
                          <td width="250">名称</td>
                          <td>数据来源</td>
-                         <td width="75">关联状态</td>
+                         <td width="75">关联数</td>
+                         <td width="75">操作</td>
                      </tr>
                  </thead>
                  <tbody class="noman_body">
@@ -65,16 +73,16 @@
      <div class="con hide" id="con">
          <div class="con-no-ma" id="con-no-ma">
              <div class="nor_title">
-                 <p></p>
+                 <p>数据关联</p>
                  <a href="javascript:;" onclick="nor_close()"><img src="../images/colse.png"></a>
              </div>
              <div class="catalog">
-                 <div class="catalogTile">新物资编码导入</div>
+                 <div class="catalogTile">非标准名称、别名</div>
                  <div class="catalogButton">
                      <input type="text" class="searchInput" value="">
                      <a href="javascript:;" type="button" class="searchButton" onclick="searchAdd()">添加</a>
-                     <input type="file" id="filese" style="display:none" onchange="imports();"/>
-                     <a href="javascript:;" type="button" id="imports" class="searchBus">导入</a>
+                     <!--<input type="file" id="filese" style="display:none" onchange="imports();"/>-->
+                     <!--<a href="javascript:;" type="button" id="imports" class="searchBus">导入</a>-->
                  </div>
                  <div class="catalogList">
                      <ul>
@@ -98,7 +106,7 @@
                  </div>
                  <div class="sr_con">
                      <div class="firstSelect">
-                         <div class="divTitle">请选择可能匹配的名称</div>
+                         <div class="divTitle">请选择可能匹配的标准名称</div>
                          <div  class="selectLeft" id="left">
                              <div class="selectLeftContent">
                                  <div class="selectLeftContent_select displayNo">
@@ -114,8 +122,8 @@
                          <a type="button" onclick="moveLi(document.getElementById('right'), document.getElementById('left'),false)"><<</a>
                      </div>
                      <div class="secondSelect">
-                         <div class="divTitle">匹配到的名称</div>
-                         <a href="javascript:;" type="button" class="sesButton" onclick="sesAdd()">添加</a>
+                         <div class="divTitle">匹配到的标准名称</div>
+                         <!--<a href="javascript:;" type="button" class="sesButton" onclick="sesAdd()">添加</a>-->
                          <div  class="selectRight" id="right">
                              <div class="selectRightContent">
                                  <div class="selectRightContentAdd"></div>
@@ -131,7 +139,8 @@
      <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
      <script type="text/javascript" src="../js/queryNoMa.js"></script>
      <script type="text/javascript" src="../js/WdatePicker.js"></script>
-     <script src="../js/jquery.pagination.js"></script>
+     <script type="text/javascript" src="../js/jquery.editable-select.min.js"></script>
+     <script type="text/javascript" src="../js/jquery.pagination.js"></script>
      <script type="text/javascript" src="../js/queryws.js"></script>
 </body>
 </html>
