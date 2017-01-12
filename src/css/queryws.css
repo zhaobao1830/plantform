@@ -19,43 +19,13 @@ img{border: none;margin: 0px;padding: 0px;}
 ul,ol,p{
     margin: 0px;
 }
-.con{
-    width: 100%;
-    height: 600px;
-    background-color: rgba(200, 200, 200, 0.6);
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-}
+
 .con-no-ma{
     width: 998px;
+    height: 400px;
     margin: 0 auto;
-    margin-top: 100px;
     overflow: hidden;
     background-color: white;
-    position:relative
-}
-.nor_title{
-    width: 998px;
-    height: 32px;
-    line-height: 32px;
-    background-color: #77afea;
-}
-.nor_title p{
-    color: white;
-    float: left;
-    height: 32px;
-    line-height: 32px;
-    margin-left: 10px;
-    font-size: 14px;
-}
-.nor_title a{
-    display: block;
-    float: right;
-    margin-right: 10px;
-    margin-top: 8px;
-    cursor: pointer;
 }
 .catalog{
     width: 252px;
@@ -111,7 +81,7 @@ ul,ol,p{
 }
 .catalogList{
     width: 250px;
-    height: 367px;
+    height: 342px;
     border: 1px solid #dddddd;
     overflow: auto;
 }
@@ -142,7 +112,7 @@ ul,ol,p{
 .searchResult{
     width: 724px;
     height: auto;
-    min-height: 406px;
+    min-height: 398px;
     float: left;
     border: 1px solid #dddddd;
     margin-left: 20px;
@@ -408,4 +378,24 @@ ul,ol,p{
 }
 .show{
     display: block;
+}
+
+
+.test{
+    width: 300px;
+    height: 400px;
+    float: left;
+    border: 1px solid green;
+}
+
+.layui-layer-title{
+    height: 32px !important;
+    line-height: 32px !important;
+}
+.layui-layer-setwin{
+    top:10px !important;
+}
+
+.trClick{
+    background-color: #F8F8F8;
 }

@@ -15,6 +15,7 @@ $(function () {
     $('#noMean').editableSelect({
         effects: 'slide'
     });
+
 })
 
 
@@ -149,10 +150,12 @@ function nomaSearch() {
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList += "<td>" + (nonstandard[i].source == 0 ? '人工导入' : '数据服务平台') + "</td>"
                     tbodyList += "<td>"+(nonstandard[i].mean==0 ? '未关联' : nonstandard[i].mean)+"</td>"
-                    tbodyList += "<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>显示</a></td>"
+                    tbodyList += "<td><a href='javascript:;' data-method='offset' data-type='auto' class='showMean' value='" + nonstandard[i].value + "'>显示</a></td>"
                 }
                 $(".noman_body").html("")
                 $(".noman_body").append(tbodyList)
+
+                showMean()
 
                 var pageCount=0 //总页数
                 pageCount=count/limitValue
@@ -221,10 +224,12 @@ function pageCallback(api) {
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList += "<td>" + (nonstandard[i].source == 0 ? '人工导入' : '数据服务平台') + "</td>"
                     tbodyList += "<td>"+(nonstandard[i].mean==0 ? '未关联' : nonstandard[i].mean)+"</td>"
-                    tbodyList +="<td><a href='javascript:;' class='showMean' value='" + nonstandard[i].value + "' onclick='showMean(this)'>显示</a></td>"
+                    tbodyList += "<td><a href='javascript:;' data-method='offset' data-type='auto' class='showMean' value='" + nonstandard[i].value + "'>显示</a></td>"
                 }
                 $(".noman_body").html("")
                 $(".noman_body").append(tbodyList)
+
+                showMean()
 
                 var pageCount=0 //总页数
                 pageCount=count/limitValue
@@ -268,11 +273,51 @@ function clicknoBatchId(str) {
     }
 }
 //显示关联信息
-function showMean(str) {
-    var noMan=$(str).attr('value')
-    $(".wordHidden").val(noMan)
-    nor_show()
-    standard_name_by_non(noMan)
+function showMean() {
+
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        //触发事件
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text();
+
+                layer.open({
+                    title:"数据关联",
+                    type: 1,
+                    offset: type, //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    id: 'LAY_demo'+type, //防止重复弹出
+                    content: $("#con-no-ma"),
+                    btn: '关闭全部',
+                    area: ['1000px', '500px'],
+                    btnAlign: 'c', //按钮居中
+                    shade: 0, //不显示遮罩
+                    yes: function(){
+                        layer.closeAll();
+                        othis.parent().parent().removeClass("trClick")
+                    },
+                    cancel: function(){
+                        layer.closeAll();
+                        othis.parent().parent().removeClass("trClick")
+                    }
+                });
+            }
+        };
+        $('.noman_body .showMean').on('click', function(){
+
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+
+            othis.parent().parent().addClass("trClick")
+
+            var noMan=othis.attr('value')
+            $(".wordHidden").val(noMan)
+
+            standard_name_by_non(noMan)
+        });
+    })
+
 }
 
 //智能关联
@@ -288,4 +333,10 @@ function timeStamp2String(time){
     var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
     var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
     return year + "-" + month + "-" + date;
+}
+
+function showMean1() {
+
+
+
 }
