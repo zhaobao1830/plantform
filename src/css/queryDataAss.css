@@ -141,6 +141,9 @@ tbody td {
     white-space: nowrap;
     padding: 10px 5px;
 }
+.daNum{
+    cursor: pointer;
+}
 tbody td a {
     width: 12px;
     height: 12px;
@@ -158,54 +161,7 @@ tbody td span {
     margin-left: 20px;
     margin-top: -2px;
 }
-.de{
-    width: 200px;
-    height: 100px;
-    position: absolute;
-    margin: 0px auto;
-    top: 100px;
-    left: 500px;
-    border: 1px solid #77afea;
-    background-color: white;
-}
-.de span,.de a{
-    display: block;
-}
-.de_title{
-    width: 190px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-    padding-left: 10px;
-    background-color: #77afea;
-    color: white;
-}
 
-.de_sure,.de_cancel{
-    width: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
-    float: left;
-    text-decoration: none;
-}
-.de_sure{
-    background-color: #77afea;
-    color: white;
-    margin-left: 45px;
-    margin-top: 15px;
-}
-.de_cancel{
-    background-color: #f0f0f0;
-    color: #777777;
-    border: 1px solid #bbbbbb;
-    margin-left: 20px;
-    margin-top: 15px;
-}
 /*分页*/
 .list_button{
     position: relative;
@@ -281,4 +237,11 @@ tbody td span {
 }
 .displayBlock{
     display: block;
+}
+
+.trClick{
+    background-color: #f2f2f2;
+}
+.layui-layer-content{
+    text-align: center;
 }

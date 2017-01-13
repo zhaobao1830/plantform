@@ -6,6 +6,8 @@
 $(function(){
     $(".a_nm").removeClass("aNoClick").addClass("aClick")
     daSearch()
+
+    daEx()
 })
 //通过条件搜索数据关联列表
 function daSearch() {
@@ -36,9 +38,9 @@ function daSearch() {
                 for(var i=0;i<means.length;i++){
                     bzNum=Number(startValue)+i+1
                     tbodyList+="<tr>"
-                    tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+means[i]._id.$oid+" nck="+means[i].check+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                    tbodyList+="<td>"+means[i].standard_v+"</td>"
-                    tbodyList+="<td>"+means[i].nonstandard_v+"</td>"
+                    tbodyList+="<td class='daNum' onclick='clickCodes(this)'><a class='noclickId' href='javascript:;' nid="+means[i]._id.$oid+" nck="+means[i].check+"><span>"+bzNum+"</span></td>"
+                    tbodyList+="<td title='"+means[i].standard_v+"'>"+means[i].standard_v+"</td>"
+                    tbodyList+="<td title='"+means[i].nonstandard_v+"'>"+means[i].nonstandard_v+"</td>"
                     tbodyList+="<td>"+(means[i].type=='0'?'手动':'自动')+"</td>"
                     if(means[i].check==0){
                         tbodyList+="<td>"+'未判别'+"</td>"
@@ -98,7 +100,7 @@ function pageCallback(api) {
     check=$(".check option:selected").val() //准确性:0未判别1准确2不准确
     var operator=$(".operator").val() //关联人
     var count="" //总数
-    var standard="" //保存data信息
+    var means="" //保存data信息
     var tbodyList=""
     var bzNum
     $.ajax({
@@ -113,9 +115,9 @@ function pageCallback(api) {
                 for(var i=0;i<means.length;i++){
                     bzNum=Number(startValue)+i+1
                     tbodyList+="<tr>"
-                    tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+means[i]._id.$oid+" nck="+means[i].check+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                    tbodyList+="<td>"+means[i].standard_v+"</td>"
-                    tbodyList+="<td>"+means[i].nonstandard_v+"</td>"
+                    tbodyList+="<td class='daNum' onclick='clickCodes(this)'><a class='noclickId' href='javascript:;' nid="+means[i]._id.$oid+" nck="+means[i].check+"><span>"+bzNum+"</span></td>"
+                    tbodyList+="<td title='"+means[i].standard_v+"'>"+means[i].standard_v+"</td>"
+                    tbodyList+="<td title='"+means[i].nonstandard_v+"'>"+means[i].nonstandard_v+"</td>"
                     tbodyList+="<td>"+(means[i].type=='0'?'手动':'自动')+"</td>"
                     if(means[i].check==0){
                         tbodyList+="<td>"+'未判别'+"</td>"
@@ -161,11 +163,13 @@ function pageCallback(api) {
 
 /*点击序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
 function clickCodes(str){
-    if($(str).hasClass("noclickId")){
+    if($(str).find("a").hasClass("noclickId")){
         $(".noman_body a").removeClass("clickId").addClass("noclickId")
-        $(str).removeClass("noclickId").addClass("clickId")
+        $(str).find("a").removeClass("noclickId").addClass("clickId")
+        $(str).parent().addClass("trClick")
     }else{
-        $(str).removeClass("clickId").addClass("noclickId")
+        $(str).find("a").removeClass("clickId").addClass("noclickId")
+        $(str).parent().removeClass("trClick")
     }
 }
 
@@ -181,10 +185,40 @@ function timeStamp2String(time){
 
 //审核
 function daEx(){
-    var cliList=$(".clickId")
-    if(cliList.length>0){
-        deShow()
-    }
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        //触发事件
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text();
+
+                layer.confirm('请审核选中项', {
+                    btn: ['准确',"不准确"], //按钮,
+                    title:"审核",
+                    shade: 0,
+                    offset: type,
+                    id: 'LAY_demo'+type
+                }, function(){
+                    layer.msg('选择成功',{time:1500});
+                    $(".da_body tr").removeClass("trClick")
+                    $(".da_body tr a").removeClass("clickId").addClass("noclickId")
+                }, function() {
+                    layer.msg('选择成功',{time:1500});
+                    $(".da_body tr").removeClass("trClick")
+                    $(".da_body tr a").removeClass("clickId").addClass("noclickId")
+                })
+            }
+        };
+        $('.daEx').on('click', function(){
+
+            var othis = $(this), method = othis.data('method');
+            var cliList=$(".clickId")
+            if(cliList.length>0){
+                active[method] ? active[method].call(this, othis) : '';
+            }
+        });
+    })
 }
 
 //判断是否合格
@@ -197,7 +231,7 @@ function idDaEx(str){
     }
     var mean=JSON.stringify(means)
     $.ajax({
-        url:ctx+"/check_mean",
+        url:"../json/demo_da.json",
         type:'post',
         data:mean,
         contentType:"application/json",
@@ -218,10 +252,6 @@ function deCancel(){
     idDaEx(2)
 }
 
-//审核框显示
-function deShow(){
-    $(".de").removeClass("displayNo").addClass("displayBlock")
-}
 
 //审核框隐藏
 function deHide(){

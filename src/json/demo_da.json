@@ -1,8 +1,8 @@
 ﻿{
   "count": 3,
-  "mean": [
+  "data": [
     {
-      "id":1,
+      "_id":{"$oid":1},
       "standard_v":"门式起重机",
       "nonstandard_v":"龙门吊",
       "type":0,
@@ -11,7 +11,7 @@
       "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
     },
     {
-      "id":2,
+      "_id":{"$oid":2},
       "standard_v":"门式起重机",
       "nonstandard_v":"龙门吊",
       "type":0,
@@ -20,7 +20,7 @@
       "mean_time":"ISODate('2015-09-22T10:50:00.000Z')"
     },
     {
-      "id":3,
+      "_id":{"$oid":3},
       "standard_v":"门式起重机",
       "nonstandard_v":"龙门吊",
       "type":0,
