@@ -392,3 +392,9 @@ ul,ol,p{
 .trClick{
     background-color: #f2f2f2;
 }
+.bodyP{
+    width: 1007px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}

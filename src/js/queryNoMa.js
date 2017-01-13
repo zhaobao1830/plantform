@@ -32,9 +32,11 @@ function importNoMa(){
     var dataJson=[] //把参数拼装成json样子，
     reader.onload = function(){
         list=this.result.split("\n")
+        console.log(list)
         for(var i=0;i<list.length;i++){
             dataJson.push({"importer":'admin',"value":""+list[i].trim()+""})
         }
+        console.log(dataJson)
         var dj=JSON.stringify(dataJson) //转换成json
         var str="" //传入的参数
         $.ajax({
@@ -175,7 +177,7 @@ function nomaSearch() {
                 });
             } else {
                 $(".noman_body").html("")
-                $(".noman_body").append("<p>没有相应数据</p>")
+                $(".noman_body").append("<p class='bodyP'>没有相应数据</p>")
                 $(".list_button").html("")
             }
         }

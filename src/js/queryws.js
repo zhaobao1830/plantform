@@ -25,15 +25,6 @@ $(function(){
         }
     }
 
-
-    /*给页面绑定一个click事件，点击sendList之外的地方，调用nor_close方法*/
-    $(".con").on("click",function(event){
-        event.stopPropagation();
-        var evt = event.srcElement ? event.srcElement : event.target;
-        if(evt.id=='con'){
-            nor_close()
-        }
-    });
 })
 //移动
 function moveLi(obj1, obj2,flag) {
@@ -231,10 +222,10 @@ function searchAdd(){
 
 //给catalog下的Li绑定事件
 function catalogAdd(){
-    $(".catalog ul p").on('click',function(){
+    $(".catalog ul li").on('click',function(){
         $(".catalog ul li").removeClass("clickLi")
         $(".searchInput").val("")
-        $(this).parent().addClass("clickLi")
+        $(this).addClass("clickLi")
         //获取点击的value，调用查询方法
         var str=$(this).text()
         searchCatalog(str)

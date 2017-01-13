@@ -245,3 +245,10 @@ tbody td span {
 .layui-layer-content{
     text-align: center;
 }
+
+.bodyP{
+    width: 1007px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}

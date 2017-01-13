@@ -72,7 +72,7 @@ function daSearch() {
                 });
             }else{
                 $(".da_body").html("")
-                $(".da_body").append("<p>没有相应数据</p>")
+                $(".da_body").append("<p class='bodyP'>没有相应数据</p>")
                 $('.list_button').html("")
             }
 
@@ -150,7 +150,7 @@ function pageCallback(api) {
                 });
             }else{
                 $(".da_body").html("")
-                $(".da_body").append("<p>没有相应数据</p>")
+                $(".da_body").append("<p class='bodyP'>没有相应数据</p>")
                 $('.list_button').html("")
             }
 
@@ -203,10 +203,12 @@ function daEx(){
                     layer.msg('选择成功',{time:1500});
                     $(".da_body tr").removeClass("trClick")
                     $(".da_body tr a").removeClass("clickId").addClass("noclickId")
+                    idDaEx(1)
                 }, function() {
                     layer.msg('选择成功',{time:1500});
                     $(".da_body tr").removeClass("trClick")
                     $(".da_body tr a").removeClass("clickId").addClass("noclickId")
+                    idDaEx(2)
                 })
             }
         };

@@ -307,3 +307,9 @@ tbody td span {
     background: url("../images/click_2.png") no-repeat;
 }
 
+.bodyP{
+    width: 1007px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
