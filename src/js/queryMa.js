@@ -10,18 +10,12 @@ $(function () {
     $(".con").removeClass("show").addClass("hide")
 
     maSearch()
+
+    //使用下拉框插件
+    $('#maMean').editableSelect({
+        effects: 'slide'
+    });
 })
-
-
-/*给页面绑定一个click事件，点击sendList之外的地方，调用nor_close方法*/
-$(".showMa").on("click",function(event){
-    event.stopPropagation();
-    var evt = event.srcElement ? event.srcElement : event.target;
-    if(evt.id=='showMa'){
-        sm_close()
-    }
-});
-
 
 //导入按钮，用html5的FileReader方法 导入标准名称
 function importMa(){
@@ -117,6 +111,8 @@ function maSearch() {
     batch_id=Number($(".maBatch").val())
     var source=0 //数据来源
     source=Number($(".source option:selected").val())
+    var mean=0 //关联数
+    mean=Number($(".maMean").val())
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
@@ -124,7 +120,7 @@ function maSearch() {
     $.ajax({
         url:"../json/demo_ma.json",
         type:"post",
-        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,start:startValue,limit:limitValue},
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,mean:mean,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (datas) {
             count=datas.count
@@ -133,18 +129,19 @@ function maSearch() {
                 for(var i=0;i<standard.length;i++){
                     bzNum=Number(startValue)+i+1
                     tbodyList+="<tr>"
-                    tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+standard[i].id+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                    tbodyList+="<td><a class='noBatchId' href='javascript:;' bid="+standard[i].batch_id+" onclick='clickBatchId(this)'><span>"+standard[i].batch_id+"</span></td>"
+                    tbodyList+="<td class='maNum' onclick='clickCodes(this)'><p class='noclickId'  nid="+standard[i].id+"><span>"+bzNum+"</span></p></td>"
+                    tbodyList+="<td class='maBat' onclick='clickBatchId(this)'><p class='noBatchId'  bid="+standard[i].batch_id+"><span>"+standard[i].batch_id+"</span></p></td>"
                     tbodyList+="<td>"+standard[i].importer+"</td>"
                     tbodyList+="<td>"+timeStamp2String(standard[i].imp_time.$date)+"</td>"
-                    tbodyList+="<td>"+standard[i].value+"</td>"
+                    tbodyList+="<td title='"+standard[i].value+"'>"+standard[i].value+"</td>"
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList+="<td>"+(standard[i].source==0?'人工导入':'数据服务平台')+"</td>"
-                    tbodyList+="<td><a href='javascript:;' class='showMean' value='"+standard[i].value+"' onclick='showMean(this)'>"+standard[i].mean+"</a></td>"
+                    tbodyList+="<td>"+(standard[i].mean==0 ? '未关联' : standard[i].mean)+"</td>"
+                    tbodyList+="<td><a href='javascript:;' data-method='offset' data-type='auto' class='showMean' value='"+standard[i].value+"'>显示</a></td>"
                 }
                 $(".man_body").html("")
                 $(".man_body").append(tbodyList)
-
+                showMean()
                 var pageCount=0 //总页数
                 pageCount=count/limitValue
                 $('.list_button').pagination({
@@ -186,9 +183,10 @@ function pageCallback(api) {
     var imp_time_end=$(".createCode_date_end").val() //结束日期
     var batch_id=0  //批次
     batch_id=Number($(".maBatch").val())
-
     var source=0 //数据来源
     source=Number($(".source option:selected").val())
+    var mean=0 //关联数
+    mean=Number($(".maMean").val())
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
@@ -196,7 +194,7 @@ function pageCallback(api) {
     $.ajax({
         url:"../json/demo_ma.json",
         type:"post",
-        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,start:startValue,limit:limitValue},
+        data:{importer:importer,value:value,imp_time_start:imp_time_start,imp_time_end:imp_time_end,batch_id:batch_id,source:source,mean:mean,start:startValue,limit:limitValue},
         dataType:"json",
         success:function (datas) {
             count=datas.count
@@ -205,17 +203,20 @@ function pageCallback(api) {
                 for(var i=0;i<standard.length;i++){
                     bzNum=Number(startValue)+i+1
                     tbodyList+="<tr>"
-                    tbodyList+="<td><a class='noclickId' href='javascript:;' nid="+standard[i].id+" onclick='clickCodes(this)'><span>"+bzNum+"</span></td>"
-                    tbodyList+="<td><a class='noBatchId' href='javascript:;' bid="+standard[i].batch_id+" onclick='clickBatchId(this)'><span>"+standard[i].batch_id+"</span></td>"
+                    tbodyList+="<td class='maNum' onclick='clickCodes(this)'><p class='noclickId'  nid="+standard[i].id+"><span>"+bzNum+"</span></p></td>"
+                    tbodyList+="<td class='maBat' onclick='clickBatchId(this)'><p class='noBatchId'  bid="+standard[i].batch_id+"><span>"+standard[i].batch_id+"</span></p></td>"
                     tbodyList+="<td>"+standard[i].importer+"</td>"
                     tbodyList+="<td>"+timeStamp2String(standard[i].imp_time.$date)+"</td>"
-                    tbodyList+="<td>"+standard[i].value+"</td>"
+                    tbodyList+="<td title='"+standard[i].value+"'>"+standard[i].value+"</td>"
                     //"source"数据来源:0人工导入1数据服务平台
                     tbodyList+="<td>"+(standard[i].source==0?'人工导入':'数据服务平台')+"</td>"
-                    tbodyList+="<td><a href='javascript:;' class='showMean' value='"+standard[i].value+"' onclick='showMean(this)'>"+standard[i].mean+"</a></td>"
+                    tbodyList+="<td>"+(standard[i].mean==0 ? '未关联' : standard[i].mean)+"</td>"
+                    tbodyList+="<td><a href='javascript:;' data-method='offset' data-type='auto' class='showMean' value='"+standard[i].value+"' >显示</a></td>"
                 }
                 $(".man_body").html("")
                 $(".man_body").append(tbodyList)
+
+                showMean()
 
                 var pageCount=0 //总页数
                 pageCount=count/limitValue
@@ -247,26 +248,65 @@ function pageCallback(api) {
 
 /*点击序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
 function clickCodes(str){
-    if($(str).hasClass("noclickId")){
-        $(".noman_body a").removeClass("clickId").addClass("noclickId")
-        $(str).removeClass("noclickId").addClass("clickId")
+    if($(str).find('p').hasClass("noclickId")){
+        $(str).find('p').removeClass("noclickId").addClass("clickId")
     }else{
-        $(str).removeClass("clickId").addClass("noclickId")
+        $(str).find('p').removeClass("clickId").addClass("noclickId")
     }
 }
 /*点击批次序号，如果背景是白的，就变成蓝色，如果是蓝色，就变成白色*/
 function clickBatchId(str) {
-    if($(str).hasClass("noBatchId")){
-        $(str).removeClass("noBatchId").addClass("batchId")
+    if($(str).find('p').hasClass("noBatchId")){
+        $(str).find('p').removeClass("noBatchId").addClass("batchId")
     }else{
-        $(str).removeClass("batchId").addClass("noBatchId")
+        $(str).find('p').removeClass("batchId").addClass("noBatchId")
     }
 }
 //显示关联信息
-function showMean(str) {
-    var ma=$(str).attr('value')
-    sm_show()
-    nonstandard_name_by_std(ma)
+function showMean() {
+
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        //触发事件
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text();
+
+                layer.open({
+                    title:"数据关联",
+                    type: 1,
+                    offset: type, //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    id: 'LAY_demo'+type, //防止重复弹出
+                    content: $("#sm"),
+                    btn: '关闭全部',
+                     area: ['300px','400px'],
+                    btnAlign: 'c', //按钮居中
+                    shade: 0, //不显示遮罩
+                    yes: function(){
+                        layer.closeAll();
+                        othis.parent().parent().removeClass("trClick")
+                    },
+                    cancel: function(){
+                        layer.closeAll();
+                        othis.parent().parent().removeClass("trClick")
+                    }
+                });
+            }
+        };
+        $('.man_body .showMean').on('click', function(){
+
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+
+            othis.parent().parent().addClass("trClick")
+
+            var ma=othis.attr('value')
+            sm_show()
+            nonstandard_name_by_std(ma)
+        });
+    })
+
 }
 
 //从标准页码请求过来
@@ -275,7 +315,7 @@ function nonstandard_name_by_std(str){
     var nonstandard="" //非标准名称
     var nonstandardList=""
     $.ajax({
-        url:ctx+"/query_nonstandard_name_by_std",
+        url:"../json/demo_maShow.json",
         type:"post",
         data:{standard_v:standard_v},
         dataType:'json',

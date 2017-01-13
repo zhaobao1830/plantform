@@ -214,13 +214,15 @@ tbody td {
     white-space: nowrap;
     padding: 10px 5px;
 }
+.noMaNum,.noMaBat{
+    cursor: pointer;
+}
 tbody td p {
     width: 12px;
     height: 12px;
     display: block;
     float: left;
     color: #77afea;
-    cursor: pointer;
     margin-left: 20px;
 }
 tbody td span {

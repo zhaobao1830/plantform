@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>标准名称管理</title>
     <link rel="stylesheet" type="text/css" href="../css/queryMa.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.editable-select.min.css">
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
 </head>
 <body>
      <input type="hidden" class="nowAcVal" value="1">
@@ -22,13 +24,9 @@
                  <a href="javascript:;" type="button" class="popup_sure" onclick="popupSure()">确定</a>
                  <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
              </div>
-             <div class="imSh">
-                 <span class="imSh_title">提示</span>
-                 <span class="imSh_con"></span>
-                 <a href="javascript:;" type="button" class="imSh_sure" onclick="imShSure()">确定</a>
-             </div>
              <a href="javascript:;" type="button" class="deleteAll" onclick="deleteAll()">删除</a>
              <a href="javascript:;" type="button" class="assoic" onclick="assOic()">智能关联</a>
+             <a href="javascript:;" type="button" class="maSearch" onclick="maSearch()">搜索</a>
              <div class="r_search">
                  <span>导入人</span>
                  <input type="text" class="importPerson" value="">
@@ -39,24 +37,30 @@
                  <input  name="maName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
                  <span>批次</span>
                  <input type="text" class="maBatch" value="">
+                 <span>关联数</span>
+                 <select class="maMean" id="maMean">
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                 </select>
                  <span>数据来源</span>
                  <select class="source">
                      <option value="0">人工导入</option>
                      <option value="1">数据服务平台</option>
                  </select>
-                 <a href="javascript:;" type="button" class="maSearch" onclick="maSearch()">搜索</a>
              </div>
              <table>
                  <thead>
-                     <tr>
-                         <td width="75"></td>
-                         <td width="75">批次</td>
-                         <td>导入人</td>
-                         <td>时间</td>
-                         <td width="250">名称</td>
-                         <td>数据来源</td>
-                         <td width="75">关联状态</td>
-                     </tr>
+                 <tr>
+                     <td width="75"></td>
+                     <td width="75">批次</td>
+                     <td>导入人</td>
+                     <td>时间</td>
+                     <td width="250">名称</td>
+                     <td>数据来源</td>
+                     <td width="75">关联数</td>
+                     <td width="75">操作</td>
+                 </tr>
                  </thead>
                  <tbody class="man_body">
 
@@ -67,10 +71,19 @@
              </div>
          </div>
      </div>
+     <div class="sm hide" id="sm">
+         <div class="smCon" >
+             <ul>
 
+             </ul>
+         </div>
+     </div>
+     <!--</div>-->
      <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
      <script type="text/javascript" src="../js/queryMa.js"></script>
+     <script type="text/javascript" src="../js/jquery.editable-select.min.js"></script>
      <script type="text/javascript" src="../js/WdatePicker.js"></script>
      <script type="text/javascript" src="../js/jquery.pagination.js"></script>
+     <script type="text/javascript" src="../js/layui/layui.js"></script>
 </body>
 </html>

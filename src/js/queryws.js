@@ -454,6 +454,7 @@ function standard_name_by_non(str){
         dataType:'json',
         success:function(datas){
             nor_show()
+            $(".catalogList ul").html("")
             $(".catalogList ul").prepend("<li title='"+nonstandard_v+"'>"+nonstandard_v+"</li>")
             catalogAdd()
 
