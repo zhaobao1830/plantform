@@ -46,7 +46,7 @@ $(function () {
                 for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
                     column = worksheet.rows(0).getCellText(columnIndex);
                     gridColumns.push({ headerText: column, key: column });
-                    exListHead+="<td>"+column+"</td>"
+                    exListHead+="<td class='cnCl' cn='"+column+"'>"+column+"</td>"
                 }
                 exListHead+="</tr>"
                 $(".excelTable thead").html("")
@@ -69,9 +69,7 @@ $(function () {
                 }
 
                 // we can also skip passing the gridColumns use autoGenerateColumns = true, or modify the gridColumns array
-                console.log(column)
                 console.log(data)
-                console.log(data[0][0])
                 // var exListHead=""
                 // exListHead+="<tr>"
                 // for(var j=0;j<data[0].length;j++){
@@ -80,13 +78,34 @@ $(function () {
                 // $(".excelTable thead").html("")
                 // $(".excelTable thead").html(exListHead)
 
+
+                var cnClList=$(".cnCl") //获取标题
+                console.log("cnClList:"+cnClList)
+
+                console.log("ss:"+cnClList[0])
                 var exListBody=""
-                exListBody+="</tr>"
-                for(var i=1;i<data.length;i++){
-                    exListBody+="<tr>"
-                    for(var j=0;j<data[1].length;j++){
-                        exListBody+="<td>"+data[1][j]+"</td>"
+                if(data.length<3){
+                    for(var i=0;i<data.length;i++){
+                        exListBody+="<tr>"
+                        $(".cnCl").each(function () {
+                            // console.log($(this).attr("cn"))
+                            exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                        })
+                        exListBody+="</tr>"
                     }
+                }else{
+                    for(var i=0;i<data.length&&i<2;i++){
+                        exListBody+="<tr>"
+                        $(".cnCl").each(function () {
+                            // console.log($(this).attr("cn"))
+                            exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                        })
+                        exListBody+="</tr>"
+                    }
+                    exListBody+="<tr>"
+                    $(".cnCl").each(function () {
+                        exListBody+="<td>...</td>"
+                    })
                     exListBody+="</tr>"
                 }
                 $(".excelTable tbody").html("")
