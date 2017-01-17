@@ -140,7 +140,6 @@ ul,ol,p{
 }
 .r_search{
     width: 1008px;
-    float: left;
     margin-top: 10px;
 }
 .r_search span{
@@ -185,7 +184,7 @@ table{
     width: 1008px;
     table-layout: fixed;
     border-collapse: collapse;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 thead{
     width: 1008px;
@@ -226,13 +225,11 @@ tbody td p {
     margin-left: 20px;
 }
 tbody td a {
-    width: 12px;
-    height: 12px;
+    width: 65px;
     display: block;
     float: left;
     color: #77afea;
     cursor: pointer;
-    margin-left: 20px;
 }
 tbody td span {
     width: 12px;
@@ -241,10 +238,6 @@ tbody td span {
     color: #222222;
     margin-left: 20px;
     margin-top: -2px;
-}
-
-.showMean{
-    margin-left: 28px !important;
 }
 
 .list_button{
@@ -358,7 +351,6 @@ tbody td span {
 .trClick{
     background-color: #f2f2f2;
 }
-
 .bodyP{
     width: 1007px;
     margin-top: 10px;

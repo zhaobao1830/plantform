@@ -37,7 +37,7 @@ function moveLi(obj1, obj2,flag) {
     if(flag){
         if($(".selectLeft ul li").hasClass("liClick")){
             selectLi=$(".selectLeft .liClick").html()
-            url=ctx+'/put_means'
+            url="../json/demo_remove.json"
             $.ajax({
                 url:url,
                 type:"post",
@@ -49,16 +49,17 @@ function moveLi(obj1, obj2,flag) {
             })
         }
     }else{
+        console.log("tt")
         if($(".selectRight ul li").hasClass("liClick")){
             selectLi=$(".selectRight .liClick").html()
-            url=ctx+'/remove_means'
+            url="../json/demo_remove.json"
             $.ajax({
                 url:url,
                 type:"post",
                 data:{word:wordValue,m:selectLi},
                 success:function(data){
                     if(data==0){
-                        alert("该项无法删除")
+                        $(".tip").removeClass("hide").addClass("show")
                     }else if(data==1){
                         $(".selectLeft ul li").removeClass("liClick")
                         $(".selectLeft ul").prepend($(".liClick"))
@@ -192,6 +193,7 @@ function selectLeftClick(){
 //给selectRight li 添加click方法
 function selectRightClick(){
     $(".selectRight li").on("click",function(){
+        $(".tip").removeClass("show").addClass("hide")
         $(".selectRight li").removeClass("liClick")
         $(this).addClass("liClick")
     })

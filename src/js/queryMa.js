@@ -13,7 +13,8 @@ $(function () {
 
     //使用下拉框插件
     $('#maMean').editableSelect({
-        effects: 'slide'
+        effects: 'slide',
+        filter:false
     });
 })
 
@@ -111,8 +112,17 @@ function maSearch() {
     batch_id=Number($(".maBatch").val())
     var source=0 //数据来源
     source=Number($(".source option:selected").val())
-    var mean=0 //关联数
-    mean=Number($(".maMean").val())
+    var mean=-1 //关联数
+    var meanVal=$(".maMean").val()
+    console.log("meanVal:"+meanVal)
+    if(meanVal){
+        console.log("tt")
+        mean=Number(meanVal)
+    }else{
+        console.log("ss")
+        mean=Number(-1)
+    }
+    console.log(mean)
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
@@ -186,7 +196,12 @@ function pageCallback(api) {
     var source=0 //数据来源
     source=Number($(".source option:selected").val())
     var mean=0 //关联数
-    mean=Number($(".maMean").val())
+    var meanVal=$(".maMean").val()
+    if(meanVal){
+        mean=Number(meanVal)
+    }else{
+        mean=Number(-1)
+    }
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
@@ -286,10 +301,12 @@ function showMean() {
                     yes: function(){
                         layer.closeAll();
                         othis.parent().parent().removeClass("trClick")
+                        maSearch()
                     },
                     cancel: function(){
                         layer.closeAll();
                         othis.parent().parent().removeClass("trClick")
+                        maSearch()
                     }
                 });
             }

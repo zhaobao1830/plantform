@@ -33,12 +33,16 @@
                  <span>导入人</span>
                  <input type="text" class="importPerson" value="">
                  <span>时间</span>
-                 <input  name="nomaName_date" class="createCode_date_start" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>--
-                 <input  name="nomaName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
+                 <!--<input  name="nomaName_date" class="createCode_date_start" id="prev_date" type="text" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,maxDate:'%y-%M-%d'})" value=""/>&#45;&#45;-->
+                 <!--<input  name="nomaName_date" class="createCode_date_end" id="behind_data" type="text" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')'})" value=""/>-->
+
+                 <input name="nomaName_date" type="text" class="createCode_date_start" id="prev_date" onFocus="WdatePicker({maxDate:'%y-%M-%d',alwaysUseStartDate:true});" value=""/>--
+                 <input name="nomaName_date" type="text" class="createCode_date_end" id="behind_data" onFocus="WdatePicker({maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')}',alwaysUseStartDate:true});"  />
                  <span>批次</span>
                  <input type="text" class="nomaBatch" value="">
                  <span>关联数</span>
                  <select class="noMean" id="noMean">
+                     <option value="-1"></option>
                      <option value="0">0</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
@@ -114,12 +118,13 @@
                          <!--<a href="javascript:;" type="button" class="sesButton" onclick="sesAdd()">添加</a>-->
                          <div  class="selectRight" id="right">
                              <div class="selectRightContent">
-                                 <div class="selectRightContentAdd"></div>
+                                 <div class="selectRightContentAdd">
+                                     <p class="tip hide">*该项无法删除</p>
+                                 </div>
                                  <div class="selectRightContentShow"></div>
                              </div>
                          </div>
                      </div>
-
                  </div>
              </div>
      </div>

@@ -93,6 +93,7 @@ ul,ol,p{
     padding-left: 10px;
     padding-right: 10px;
     list-style: none;
+    font-size: 14px;
     line-height: 20px;
     color: #222222;
     height: 20px;
@@ -137,7 +138,8 @@ ul,ol,p{
 }
 .sr_nm p{
     height: 17px;
-    line-height: 17px;;
+    line-height: 17px;
+    font-size: 14px;
     margin-left: -20px;
     margin-top: -10px;
     margin-bottom: 5px;
@@ -164,6 +166,7 @@ ul,ol,p{
 }
 .sr_con div{
     float: left;
+    font-size: 14px;
 }
 .firstSelect{
     width:300px;
@@ -200,7 +203,7 @@ ul,ol,p{
     font-family: 'Microsoft Yahei', 'Arial',Tahoma, 'Simsun';
     margin-left: 10px;
     margin-top: 2px;
-    font-size: 12px;
+    font-size: 14px;
     list-style:none;
     float:left;
 }
@@ -388,7 +391,6 @@ ul,ol,p{
     border: 1px solid green;
 }
 
-
 .trClick{
     background-color: #f2f2f2;
 }
@@ -397,4 +399,11 @@ ul,ol,p{
     margin-top: 10px;
     font-size: 18px;
     text-align: center;
+}
+
+.tip{
+    float: left;
+    color: red;
+    margin-left: 10px;
+    margin-top: 13px;
 }

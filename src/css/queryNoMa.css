@@ -170,10 +170,11 @@ ul,ol,p{
     width: 40px !important;
     text-align: center;
 }
-.noMean{
+.noMean,.noMean option{
     width: 50px !important;
     text-align: center;
 }
+
 .r_search  select{
     height: 29px;
     line-height: 29px;
@@ -236,7 +237,6 @@ tbody td span {
 
 .showMean{
     width: 65px;
-    height: 12px;
     display: block;
     float: left;
     color: #77afea;

@@ -20,8 +20,8 @@
                 <span>非标准名称</span>
                 <input type="text" class="nonstandard_v" value="">
                 <span>时间</span>
-                <input  name="nomaName_date" class="createCode_date_start" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>--
-                <input  name="nomaName_date" class="createCode_date_end" type="text" onFocus="var endDate=$dp.$('endDate2');WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" value=""/>
+                <input name="da_date" type="text" class="createCode_date_start" id="prev_date" onFocus="WdatePicker({maxDate:'%y-%M-%d',alwaysUseStartDate:true});" value=""/>--
+                <input name="ad_date" type="text" class="createCode_date_end" id="behind_data" onFocus="WdatePicker({maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')}',alwaysUseStartDate:true});" value="" />
                 <span>关联方式</span>
                 <select class="assoic">
                     <option value="0">手动</option>
