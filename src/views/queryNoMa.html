@@ -17,32 +17,35 @@
          </div>
          <div class="nm-r">
              <input type="file" id="files" style="display:none"/>
+             <a href='javascript:;' data-method='offset' data-type='auto' class='showExcel displayNo'></a>
              <a href="javascript:;" type="button" id="import" class="searchBu">导入</a>
              <div class="popup displayNo">
                  <span class="popup_title">提示</span>
-                 <span class="popup_con">将名称放入一列并保存为txt</span>
+                 <span class="popup_con">请选择excel表</span>
                  <a href="javascript:;" type="button" class="popup_sure" onclick="popupSure()">确定</a>
                  <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
+             </div>
+             <div class="imSh displayNo">
+                 <span class="imSh_title">提示</span>
+                 <span class="imSh_con"></span>
+                 <a href="javascript:;" type="button" class="imSh_sure" onclick="imShSure()">确定</a>
              </div>
              <a href="javascript:;" type="button" class="deleteAll" onclick="deleteAll()">删除</a>
              <a href="javascript:;" type="button" class="assoic" onclick="assOic()">智能关联</a>
              <a href="javascript:;" type="button" class="omaSearch" onclick="nomaSearch()">搜索</a>
              <div class="r_search">
-                 <span>名称</span>
-                 <input type="text" class="nomaName" value="">
                  <span>导入人</span>
                  <input type="text" class="importPerson" value="">
+                 <span>名称</span>
+                 <input type="text" class="nomaName" value="">
                  <span>时间</span>
-                 <!--<input  name="nomaName_date" class="createCode_date_start" id="prev_date" type="text" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,maxDate:'%y-%M-%d'})" value=""/>&#45;&#45;-->
-                 <!--<input  name="nomaName_date" class="createCode_date_end" id="behind_data" type="text" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')'})" value=""/>-->
-
                  <input name="nomaName_date" type="text" class="createCode_date_start" id="prev_date" onFocus="WdatePicker({maxDate:'%y-%M-%d',alwaysUseStartDate:true});" value=""/>--
-                 <input name="nomaName_date" type="text" class="createCode_date_end" id="behind_data" onFocus="WdatePicker({maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')}',alwaysUseStartDate:true});"  />
+                 <input name="nomaName_date" type="text" class="createCode_date_end" id="behind_data" onFocus="WdatePicker({maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'prev_date\')}',alwaysUseStartDate:true});" value=""/>
                  <span>批次</span>
                  <input type="text" class="nomaBatch" value="">
                  <span>关联数</span>
                  <select class="noMean" id="noMean">
-                     <option value="-1"></option>
+                     <option value="-1">所有</option>
                      <option value="0">0</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
@@ -55,33 +58,29 @@
              </div>
              <table>
                  <thead>
-                     <tr>
-                         <td width="75"></td>
-                         <td width="75">批次</td>
-                         <td>导入人</td>
-                         <td>时间</td>
-                         <td width="250">名称</td>
-                         <td>数据来源</td>
-                         <td width="75">关联数</td>
-                         <td width="75">操作</td>
-                     </tr>
+                 <tr>
+                     <td width="75"></td>
+                     <td width="75">批次</td>
+                     <td>导入人</td>
+                     <td>时间</td>
+                     <td width="250">名称</td>
+                     <td>数据来源</td>
+                     <td width="75">关联数</td>
+                     <td width="75">操作</td>
+                 </tr>
                  </thead>
                  <tbody class="noman_body">
-
                  </tbody>
              </table>
              <div class="list_button">
-
              </div>
          </div>
      </div>
-     <div class="excelTable">
+     <div class="excelTable displayNo" id="excelTable">
          <table>
              <thead>
-
              </thead>
              <tbody>
-
              </tbody>
          </table>
      </div>
@@ -147,10 +146,8 @@
      <script type="text/javascript" src="../js/layui/layui.js"></script>
      <script type="text/javascript" src="../js/modernizr-2.8.3.js"></script>
      <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
-     <!-- Ignite UI Required Combined JavaScript Files -->
      <script type="text/javascript" src="../js/infragistics.core.js"></script>
      <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/infragistics.lob.js"></script>
-     <!-- Javascript Excel Library -->
      <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/modules/infragistics.documents.core.js"></script>
      <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/modules/infragistics.excel.js"></script>
 </body>

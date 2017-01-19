@@ -29,6 +29,7 @@
                 </select>
                 <span>准确性</span>
                 <select class="check">
+                    <option value="-2">所有</option>
                     <option value="0">未判别</option>
                     <option value="1">准确</option>
                     <option value="2">不准确</option>
@@ -36,14 +37,7 @@
                 <span class="oper">关联人</span>
                 <input type="text" class="operator" value="">
                 <a href="javascript:;" type="button" class="daSearch" onclick="daSearch()">搜索</a>
-                <a href="javascript:;" type="button" data-method='offset' data-type='auto' class="daEx" onclick="daEx()">审核</a>
-            </div>
-            <div class="de displayNo" id="de">
-                <a href="javascript:;" type="button" class="de_delete" onclick="deHide()">
-                    <img src="../images/colse.png">
-                </a>
-                <a href="javascript:;" type="button" class="de_sure" onclick="deSure()">准确</a>
-                <a href="javascript:;" type="button" class="de_cancel" onclick="deCancel()">不准确</a>
+                <a href="javascript:;"  type="button" data-method='offset' data-type='auto' class="daEx" onclick="daEx()">审核</a>
             </div>
             <table>
                 <thead>
@@ -58,11 +52,9 @@
                 </tr>
                 </thead>
                 <tbody class="da_body">
-
                 </tbody>
             </table>
             <div class="list_button">
-
             </div>
         </div>
     </div>

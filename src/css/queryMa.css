@@ -19,6 +19,7 @@ img{border: none;margin: 0px;padding: 0px;}
 ul,ol,p{
     margin: 0px;
 }
+
 .container{
     width: 1200px;
     min-height:500px ;
@@ -356,4 +357,15 @@ tbody td span {
     margin-top: 10px;
     font-size: 18px;
     text-align: center;
+}
+
+.clickHead{
+    background-color: #77afea;
+    color: white;
+}
+#excelTable{
+    margin-top: -20px !important;
+}
+#excelTable tr td{
+    cursor: pointer;
 }

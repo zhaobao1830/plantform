@@ -19,8 +19,8 @@ function daSearch() {
     var mean_time_end=$(".createCode_date_end").val()
     var type=0
     type=$(".assoic option:selected").val() //关联方式:0手动1自动
-    var check=0
-    check=$(".check option:selected").val() //准确性:0未判别1准确2不准确
+    var check=-2 //准确性  -2所有:0未判别1准确2不准确
+    check=$(".check option:selected").val()
     var operator=$(".operator").val() //关联人
     var count="" //总数
     var means="" //保存data信息

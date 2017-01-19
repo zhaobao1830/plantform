@@ -17,234 +17,9 @@ $(function () {
             filter:false
         }
     );
-    $("#files").on("change", function () {
-        var excelFile,
-            fileReader = new FileReader();
-
-        $("#result").hide();
-
-        fileReader.onload = function (e) {
-            var buffer = new Uint8Array(fileReader.result);
-
-            $.ig.excel.Workbook.load(buffer, function (workbook) {
-                var column, row, newRow, cellValue, columnIndex, i,
-                    worksheet = workbook.worksheets(0),
-                    columnsNumber = 0,
-                    gridColumns = [],
-                    data = [],
-                    worksheetRowsCount;
-
-                // Both the columns and rows in the worksheet are lazily created and because of this most of the time worksheet.columns().count() will return 0
-                // So to get the number of columns we read the values in the first row and count. When value is null we stop counting columns:
-                while (worksheet.rows(0).getCellValue(columnsNumber)) {
-                    columnsNumber++;
-                }
-
-                // Iterating through cells in first row and use the cell text as key and header text for the grid columns
-                var exListHead=""
-                exListHead+="<tr>"
-                for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
-                    column = worksheet.rows(0).getCellText(columnIndex);
-                    gridColumns.push({ headerText: column, key: column });
-                    exListHead+="<td class='cnCl' cn='"+column+"'>"+column+"</td>"
-                }
-                exListHead+="</tr>"
-                $(".excelTable thead").html("")
-                $(".excelTable thead").html(exListHead)
-                // We start iterating from 1, because we already read the first row to build the gridColumns array above
-                // We use each cell value and add it to json array, which will be used as dataSource for the grid
-                for (i = 1, worksheetRowsCount = worksheet.rows().count() ; i < worksheetRowsCount; i++) {
-                    newRow = {};
-                    row = worksheet.rows(i);
-
-                    for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
-                        // console.log("columnsNumber:"+columnsNumber)
-                        cellValue = row.getCellText(columnIndex);
-                        console.log("gridColumns[columnIndex].key:"+gridColumns[columnIndex].key)
-                        newRow[gridColumns[columnIndex].key] = cellValue;
-                        // console.log("cellValue:"+cellValue)
-                    }
-
-                    data.push(newRow);
-                }
-
-                // we can also skip passing the gridColumns use autoGenerateColumns = true, or modify the gridColumns array
-                console.log(data)
-                // var exListHead=""
-                // exListHead+="<tr>"
-                // for(var j=0;j<data[0].length;j++){
-                //     exListHead+="<td>"+data[0][j]["我是1180"]+"</td>"
-                // }
-                // $(".excelTable thead").html("")
-                // $(".excelTable thead").html(exListHead)
-
-
-                var cnClList=$(".cnCl") //获取标题
-                console.log("cnClList:"+cnClList)
-
-                console.log("ss:"+cnClList[0])
-                var exListBody=""
-                if(data.length<3){
-                    for(var i=0;i<data.length;i++){
-                        exListBody+="<tr>"
-                        $(".cnCl").each(function () {
-                            // console.log($(this).attr("cn"))
-                            exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
-                        })
-                        exListBody+="</tr>"
-                    }
-                }else{
-                    for(var i=0;i<data.length&&i<2;i++){
-                        exListBody+="<tr>"
-                        $(".cnCl").each(function () {
-                            // console.log($(this).attr("cn"))
-                            exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
-                        })
-                        exListBody+="</tr>"
-                    }
-                    exListBody+="<tr>"
-                    $(".cnCl").each(function () {
-                        exListBody+="<td>...</td>"
-                    })
-                    exListBody+="</tr>"
-                }
-                $(".excelTable tbody").html("")
-                $(".excelTable tbody").html(exListBody)
-
-
-            }, function (error) {
-                $("#result").text("The excel file is corrupted.");
-                $("#result").show(1000);
-            });
-        }
-
-        if (this.files.length > 0) {
-            excelFile = this.files[0];
-            if (excelFile.type === "application/vnd.ms-excel" || excelFile.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || (excelFile.type === "" && (excelFile.name.endsWith("xls") || excelFile.name.endsWith("xlsx")))) {
-                fileReader.readAsArrayBuffer(excelFile);
-            } else {
-                $("#result").text("The format of the file you have selected is not supported. Please select a valid Excel file ('.xls, *.xlsx').");
-                $("#result").show(1000);
-            }
-        }
-
-    })
+    //给导入按钮绑定change事件
+    $("#files").on("change", fileChange)
 })
-
-
-//导入按钮，用html5的FileReader方法
-// function importNoMa(){
-//     var selectedFile = document.getElementById("files").files[0];//获取读取的File对象
-//     var name = selectedFile.name;//读取选中文件的文件名
-//     var size = selectedFile.size;//读取选中文件的大小
-//     var reader = new FileReader();//这里是核心！！！读取操作就是由它完成的。
-//     reader.readAsText(selectedFile);//读取文件的内容
-//
-//     var list=[] //txt文件里面的列表
-//     var liList=[] //保存txt文件
-//     var dataJson=[] //把参数拼装成json样子，
-//     reader.onload = function(){
-//         list=this.result.split("\n")
-//         console.log(list)
-//         for(var i=0;i<list.length;i++){
-//             dataJson.push({"importer":'admin',"value":""+list[i].trim()+""})
-//         }
-//         console.log(dataJson)
-//         var dj=JSON.stringify(dataJson) //转换成json
-//         var str="" //传入的参数
-//         $.ajax({
-//             url:"../json/demo_noma.json",
-//             type:"post",
-//             data:dj,
-//             contentType:"application/json",
-//             success:function () {
-//                 str="导入成功"
-//                 imShSure(str)
-//                 nomaSearch()
-//             },
-//             error:function(){
-//                 str="导入失败"
-//                 imShSure(str)
-//             }
-//         })
-//     };
-// }
-
-
-function importNoMa() {
-    console.log("进入importNoMa")
-        var excelFile,
-            fileReader = new FileReader();
-
-
-        fileReader.onload = function (e) {
-            var buffer = new Uint8Array(fileReader.result);
-
-            $.ig.excel.Workbook.load(buffer, function (workbook) {
-                var column, row, newRow, cellValue, columnIndex, i,
-                    worksheet = workbook.worksheets(0),
-                    columnsNumber = 0,
-                    gridColumns = [],
-                    data = [],
-                    worksheetRowsCount;
-
-                // Both the columns and rows in the worksheet are lazily created and because of this most of the time worksheet.columns().count() will return 0
-                // So to get the number of columns we read the values in the first row and count. When value is null we stop counting columns:
-                while (worksheet.rows(0).getCellValue(columnsNumber)) {
-                    columnsNumber++;
-                }
-
-                // Iterating through cells in first row and use the cell text as key and header text for the grid columns
-                for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
-                    column = worksheet.rows(0).getCellText(columnIndex);
-                    gridColumns.push({ headerText: column, key: column });
-                }
-
-                // We start iterating from 1, because we already read the first row to build the gridColumns array above
-                // We use each cell value and add it to json array, which will be used as dataSource for the grid
-                for (i = 1, worksheetRowsCount = worksheet.rows().count() ; i < worksheetRowsCount; i++) {
-                    newRow = {};
-                    row = worksheet.rows(i);
-
-                    for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
-                        cellValue = row.getCellText(columnIndex);
-                        newRow[gridColumns[columnIndex].key] = cellValue;
-                    }
-
-                    data.push(newRow);
-                }
-
-                // we can also skip passing the gridColumns use autoGenerateColumns = true, or modify the gridColumns array
-
-                console.log(data)
-                var dataJson=[] //把参数拼装成json样子，
-                for(var i=0;i<data.length;i++){
-                    dataJson.push({"importer":'admin',"value":""+data[i].trim()+""})
-                }
-                var dj=JSON.stringify(dataJson) //转换成json
-                var str="" //传入的参数
-                $.ajax({
-                    url:"../json/demo_noma.json",
-                    type:"post",
-                    data:dj,
-                    contentType:"application/json",
-                    success:function () {
-                        str="导入成功"
-                        imShSure(str)
-                        nomaSearch()
-                    },
-                    error:function(){
-                        str="导入失败"
-                        imShSure(str)
-                    }
-                })
-            }, function (error) {
-                console.log("The excel file is corrupted")
-            });
-        }
-
-}
-
 
 // 提示框 确定按钮
 function popupSure(){
@@ -560,4 +335,177 @@ function filesChange() {
             imShSure(str)
         }
     })
+}
+
+//头部的click方法
+function cnClck(str) {
+    $(str).siblings().removeClass("clickHead")
+    if($(str).hasClass("clickHead")){
+        $(str).removeClass("clickHead")
+    }else{
+        $(str).addClass("clickHead")
+    }
+}
+
+//导入按钮的change事件
+function fileChange() {
+
+    var excelFile,
+        fileReader = new FileReader();
+    fileReader.onload = function (e) {
+        var buffer = new Uint8Array(fileReader.result);
+        $.ig.excel.Workbook.load(buffer, function (workbook) {
+            var column, row, newRow, cellValue, columnIndex, i,
+                worksheet = workbook.worksheets(0),
+                columnsNumber = 0,
+                gridColumns = [],
+                data = [],
+                worksheetRowsCount;
+            while (worksheet.rows(0).getCellValue(columnsNumber)) {
+                columnsNumber++;
+            }
+            var exListHead=""
+            exListHead+="<tr>"
+            for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
+                column = worksheet.rows(0).getCellText(columnIndex);
+                gridColumns.push({ headerText: column, key: column });
+                exListHead+="<td class='cnCl' cn='"+column+"' onclick='cnClck(this)'>"+column+"</td>"
+            }
+            exListHead+="</tr>"
+            $(".excelTable thead").html("")
+            $(".excelTable thead").html(exListHead)
+            for (i = 1, worksheetRowsCount = worksheet.rows().count() ; i < worksheetRowsCount; i++) {
+                newRow = {};
+                row = worksheet.rows(i);
+                for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
+                    cellValue = row.getCellText(columnIndex);
+                    newRow[gridColumns[columnIndex].key] = cellValue;
+                }
+
+                data.push(newRow);
+            }
+            var cnClList=$(".cnCl") //获取标题
+            var exListBody=""
+            if(data.length<3){
+                for(var i=0;i<data.length;i++){
+                    exListBody+="<tr>"
+                    $(".cnCl").each(function () {
+                        exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                    })
+                    exListBody+="</tr>"
+                }
+            }else{
+                for(var i=0;i<data.length&&i<2;i++){
+                    exListBody+="<tr>"
+                    $(".cnCl").each(function () {
+                        exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                    })
+                    exListBody+="</tr>"
+                }
+                exListBody+="<tr>"
+                $(".cnCl").each(function () {
+                    exListBody+="<td>┊</td>"
+                })
+                exListBody+="</tr>"
+            }
+            $(".excelTable tbody").html("")
+            $(".excelTable tbody").html(exListBody)
+
+            showExcel(data)
+        }, function (error) {
+            $("#result").text("The excel file is corrupted.");
+            $("#result").show(1000);
+        });
+    }
+
+    if (this.files.length > 0) {
+        excelFile = this.files[0];
+        if (excelFile.type === "application/vnd.ms-excel" || excelFile.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || (excelFile.type === "" && (excelFile.name.endsWith("xls") || excelFile.name.endsWith("xlsx")))) {
+            fileReader.readAsArrayBuffer(excelFile);
+        } else {
+            $("#result").text("The format of the file you have selected is not supported. Please select a valid Excel file ('.xls, *.xlsx').");
+            $("#result").show(1000);
+        }
+    }
+
+
+
+
+
+}
+
+//显示导入的列表
+function showExcel(data) {
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        //触发事件
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text(),
+                    datas=data;
+
+                layer.open({
+                    title:"请点击标题，选择提交的列(必须选择一列)",
+                    type: 1,
+                    offset: type, //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    id: 'LAY_demo'+type, //防止重复弹出
+                    content: $("#excelTable"),
+                    btn: '确定',
+                    area: ['1008px', '250px'],
+                    btnAlign: 'c', //按钮居中
+                    shade: 0, //不显示遮罩
+                    yes: function(){
+                        layer.closeAll();
+                        addExcel(datas)
+                    },
+                    cancel: function(){
+                        layer.closeAll();
+                        addExcel(datas)
+                    }
+                });
+            }
+        };
+        $('.showExcel').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+        $('.showExcel').trigger("click");
+    })
+}
+
+//提交导入的数据
+function addExcel(data) {
+    if($(".cnCl").hasClass("clickHead")){
+        var checkIndex=$(".clickHead").index() //点击的是哪个列
+        var list=[] //悬着的这一列的值
+        var dataList=[]
+        for(var i=0;i<data.length;i++){
+            dataList.push(data[i][$(".cnCl").eq(checkIndex).attr("cn")])
+        }
+        $(".excelTable tbody tr").each(function () {
+            list.push($(this).find("td").eq(checkIndex).text().trim())
+        })
+        var dataJson=[] //把参数拼装成json样子，
+        for(var i=0;i<dataList.length;i++){
+            dataJson.push({"importer":'admin',"value":""+dataList[i]+""})
+        }
+        var dj=JSON.stringify(dataJson) //转换成json
+        var str="" //传入的参数
+        $.ajax({
+            url:ctx+'/add_nonstandard_name',
+            type:"post",
+            data:dj,
+            contentType:"application/json",
+            success:function () {
+                str="导入成功"
+                imShSure(str)
+                nomaSearch()
+            },
+            error:function(){
+                str="导入失败"
+                imShSure(str)
+            }
+        })
+    }
 }

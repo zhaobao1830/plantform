@@ -16,11 +16,12 @@
              <a href="javascript:;" class="a_nm aNoClick" onclick="jumpPage('nm')">数据关联界面</a>
          </div>
          <div class="nm-r">
-             <input type="file" id="files" style="display:none" onchange="importMa();"/>
+             <input type="file" id="files" style="display:none"/>
+             <a href='javascript:;' data-method='offset' data-type='auto' class='showExcel displayNo'></a>
              <a href="javascript:;" type="button" id="import" class="searchBu">导入</a>
              <div class="popup displayNo">
                  <span class="popup_title">提示</span>
-                 <span class="popup_con">将名称放入一列并保存为txt</span>
+                 <span class="popup_con">请选择excel表</span>
                  <a href="javascript:;" type="button" class="popup_sure" onclick="popupSure()">确定</a>
                  <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
              </div>
@@ -39,7 +40,7 @@
                  <input type="text" class="maBatch" value="">
                  <span>关联数</span>
                  <select class="maMean" id="maMean">
-                     <option value="-1"></option>
+                     <option value="-1">所有</option>
                      <option value="0">0</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
@@ -68,7 +69,6 @@
                  </tbody>
              </table>
              <div class="list_button">
-
              </div>
          </div>
      </div>
@@ -79,6 +79,14 @@
              </ul>
          </div>
      </div>
+     <div class="excelTable displayNo" id="excelTable">
+         <table>
+             <thead>
+             </thead>
+             <tbody>
+             </tbody>
+         </table>
+     </div>
      <!--</div>-->
      <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
      <script type="text/javascript" src="../js/queryMa.js"></script>
@@ -86,5 +94,11 @@
      <script type="text/javascript" src="../js/WdatePicker.js"></script>
      <script type="text/javascript" src="../js/jquery.pagination.js"></script>
      <script type="text/javascript" src="../js/layui/layui.js"></script>
+     <script type="text/javascript" src="../js/modernizr-2.8.3.js"></script>
+     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+     <script type="text/javascript" src="../js/infragistics.core.js"></script>
+     <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/infragistics.lob.js"></script>
+     <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/modules/infragistics.documents.core.js"></script>
+     <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2016.2/latest/js/modules/infragistics.excel.js"></script>
 </body>
 </html>

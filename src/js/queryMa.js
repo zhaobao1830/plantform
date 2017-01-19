@@ -16,6 +16,9 @@ $(function () {
         effects: 'slide',
         filter:false
     });
+
+    //给导入按钮绑定change事件
+    $("#files").on("change", fileChange)
 })
 
 //导入按钮，用html5的FileReader方法 导入标准名称
@@ -114,15 +117,11 @@ function maSearch() {
     source=Number($(".source option:selected").val())
     var mean=-1 //关联数
     var meanVal=$(".maMean").val()
-    console.log("meanVal:"+meanVal)
     if(meanVal){
-        console.log("tt")
         mean=Number(meanVal)
     }else{
-        console.log("ss")
         mean=Number(-1)
     }
-    console.log(mean)
     var count="" //总数
     var standard="" //保存data信息
     var tbodyList=""
@@ -373,4 +372,167 @@ function sm_show(){
     var docuHeight = $(document).height()  //页面可视区域
     $(".showMa").height(docuHeight)
 
+}
+
+//导入按钮的change事件
+function fileChange() {
+
+    var excelFile,
+        fileReader = new FileReader();
+    fileReader.onload = function (e) {
+        var buffer = new Uint8Array(fileReader.result);
+        $.ig.excel.Workbook.load(buffer, function (workbook) {
+            var column, row, newRow, cellValue, columnIndex, i,
+                worksheet = workbook.worksheets(0),
+                columnsNumber = 0,
+                gridColumns = [],
+                data = [],
+                worksheetRowsCount;
+            while (worksheet.rows(0).getCellValue(columnsNumber)) {
+                columnsNumber++;
+            }
+            var exListHead=""
+            exListHead+="<tr>"
+            for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
+                column = worksheet.rows(0).getCellText(columnIndex);
+                gridColumns.push({ headerText: column, key: column });
+                exListHead+="<td class='cnCl' cn='"+column+"' onclick='cnClck(this)'>"+column+"</td>"
+            }
+            exListHead+="</tr>"
+            $(".excelTable thead").html("")
+            $(".excelTable thead").html(exListHead)
+            for (i = 1, worksheetRowsCount = worksheet.rows().count() ; i < worksheetRowsCount; i++) {
+                newRow = {};
+                row = worksheet.rows(i);
+                for (columnIndex = 0; columnIndex < columnsNumber; columnIndex++) {
+                    cellValue = row.getCellText(columnIndex);
+                    newRow[gridColumns[columnIndex].key] = cellValue;
+                }
+
+                data.push(newRow);
+            }
+            var cnClList=$(".cnCl") //获取标题
+            var exListBody=""
+            if(data.length<3){
+                for(var i=0;i<data.length;i++){
+                    exListBody+="<tr>"
+                    $(".cnCl").each(function () {
+                        exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                    })
+                    exListBody+="</tr>"
+                }
+            }else{
+                for(var i=0;i<data.length&&i<2;i++){
+                    exListBody+="<tr>"
+                    $(".cnCl").each(function () {
+                        exListBody+="<td>"+data[i][$(this).attr("cn")]+"</td>"
+                    })
+                    exListBody+="</tr>"
+                }
+                exListBody+="<tr>"
+                $(".cnCl").each(function () {
+                    exListBody+="<td>┊</td>"
+                })
+                exListBody+="</tr>"
+            }
+            $(".excelTable tbody").html("")
+            $(".excelTable tbody").html(exListBody)
+
+            showExcel(data)
+        }, function (error) {
+            $("#result").text("The excel file is corrupted.");
+            $("#result").show(1000);
+        });
+    }
+
+    if (this.files.length > 0) {
+        excelFile = this.files[0];
+        if (excelFile.type === "application/vnd.ms-excel" || excelFile.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || (excelFile.type === "" && (excelFile.name.endsWith("xls") || excelFile.name.endsWith("xlsx")))) {
+            fileReader.readAsArrayBuffer(excelFile);
+        } else {
+            $("#result").text("The format of the file you have selected is not supported. Please select a valid Excel file ('.xls, *.xlsx').");
+            $("#result").show(1000);
+        }
+    }
+
+
+
+
+
+}
+
+//显示导入的列表
+function showExcel(data) {
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        //触发事件
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text(),
+                    datas=data;
+
+                layer.open({
+                    title:"请点击标题，选择提交的列(必须选择一列)",
+                    type: 1,
+                    offset: type, //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    id: 'LAY_demo'+type, //防止重复弹出
+                    content: $("#excelTable"),
+                    btn: '确定',
+                    area: ['1008px', '250px'],
+                    btnAlign: 'c', //按钮居中
+                    shade: 0, //不显示遮罩
+                    yes: function(){
+                        layer.closeAll();
+                        addExcel(datas)
+                    },
+                    cancel: function(){
+                        layer.closeAll();
+                        addExcel(datas)
+                    }
+                });
+            }
+        };
+        $('.showExcel').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+        $('.showExcel').trigger("click");
+    })
+}
+
+//提交导入的数据
+function addExcel(data) {
+    if($(".cnCl").hasClass("clickHead")){
+        var checkIndex=$(".clickHead").index() //点击的是哪个列
+        var list=[] //悬着的这一列的值
+        var dataList=[]
+        for(var i=0;i<data.length;i++){
+            dataList.push(data[i][$(".cnCl").eq(checkIndex).attr("cn")])
+        }
+        $(".excelTable tbody tr").each(function () {
+            list.push($(this).find("td").eq(checkIndex).text().trim())
+        })
+        var dataJson=[] //把参数拼装成json样子，
+        for(var i=0;i<dataList.length;i++){
+            dataJson.push({"importer":'admin',"value":""+dataList[i]+""})
+        }
+        var dj=JSON.stringify(dataJson) //转换成json
+        var str="" //传入的参数
+        $.ajax({
+            url:ctx+'/add_standard_name',
+            type:"post",
+            data:dj,
+            contentType:"application/json",
+            success:function () {
+                str="导入成功"
+                imShSure(str)
+                maSearch()
+            },
+            error:function(){
+                str="导入失败"
+                imShSure(str)
+            }
+        })
+    }
 }
