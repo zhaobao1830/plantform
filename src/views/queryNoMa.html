@@ -16,14 +16,18 @@
              <a href="javascript:;" class="a_nm aNoClick" onclick="jumpPage('nm')">数据关联界面</a>
          </div>
          <div class="nm-r">
-             <input type="file" id="files" style="display:none"/>
+             <input type="file" id="files" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  style="display:none"/>
+             <input type="file" id="filestext" accept="text/plain" style="display:none"/>
              <a href='javascript:;' data-method='offset' data-type='auto' class='showExcel displayNo'></a>
              <a href="javascript:;" type="button" id="import" class="searchBu">导入</a>
              <div class="popup displayNo">
                  <span class="popup_title">提示</span>
-                 <span class="popup_con">请选择excel表</span>
-                 <a href="javascript:;" type="button" class="popup_sure" onclick="popupSure()">确定</a>
-                 <a href="javascript:;" type="button" class="popup_cancel" onclick="popupCancel()">取消</a>
+                 <a href="javascript:;" type="button" class="popup_close" onclick="popupCancel()">
+                     <img src="../images/as_1.png">
+                 </a>
+                 <span class="popup_con">请选择文件类型</span>
+                 <a href="javascript:;" type="button" class="popup_excel" onclick="popupExcel()">excel表</a>
+                 <a href="javascript:;" type="button" class="popup_text" onclick="popupText()">text文件</a>
              </div>
              <div class="imSh displayNo">
                  <span class="imSh_title">提示</span>

@@ -19,12 +19,55 @@ $(function () {
     );
     //给导入按钮绑定change事件
     $("#files").on("change", fileChange)
+    //给导入按钮绑定change事件
+    $("#filestext").on("change", importNoMa)
 })
 
-// 提示框 确定按钮
-function popupSure(){
+//导入按钮，用html5的FileReader方法
+function importNoMa(){
+    var selectedFile = document.getElementById("files").files[0];//获取读取的File对象
+    var name = selectedFile.name;//读取选中文件的文件名
+    var size = selectedFile.size;//读取选中文件的大小
+    var reader = new FileReader();//这里是核心！！！读取操作就是由它完成的。
+    reader.readAsText(selectedFile);//读取文件的内容
+
+    var list=[] //txt文件里面的列表
+    var liList=[] //保存txt文件
+    var dataJson=[] //把参数拼装成json样子，
+    reader.onload = function(){
+        list=this.result.split("\n")
+        for(var i=0;i<list.length;i++){
+            dataJson.push({"importer":'admin',"value":""+list[i].trim()+""})
+        }
+        var dj=JSON.stringify(dataJson) //转换成json
+        var str="" //传入的参数
+        $.ajax({
+            url:ctx+'/add_nonstandard_name',
+            type:"post",
+            data:dj,
+            contentType:"application/json",
+            success:function () {
+                str="导入成功"
+                imShSure(str)
+                nomaSearch()
+            },
+            error:function(){
+                str="导入失败"
+                imShSure(str)
+            }
+        })
+    };
+}
+
+// 提示框 excel
+function popupExcel(){
     $(".popup").removeClass("displayBlock").addClass("displayNo")
     $("#files").click();
+}
+//提示框 text
+function popupText() {
+    $(".popup").removeClass("displayBlock").addClass("displayNo")
+    $("#filestext").click();
 }
 //提示框 取消按钮
 function popupCancel(){

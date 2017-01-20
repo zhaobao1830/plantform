@@ -111,7 +111,7 @@ ul,ol,p{
     font-size: 14px;
     margin:25px 0 25px 0;
 }
-.popup_sure,.popup_cancel,.imSh_sure{
+.popup_excel,.popup_text,.imSh_sure{
     width: auto;
     padding-left: 5px;
     padding-right: 5px;
@@ -123,16 +123,20 @@ ul,ol,p{
     float: left;
     text-decoration: none;
 }
-.popup_sure{
+.popup_excel{
     background-color: #77afea;
     color: white;
-    margin-left: 100px;
+    margin-left: 83px;
 }
-.popup_cancel{
-    background-color: #f0f0f0;
-    color: #777777;
-    border: 1px solid #bbbbbb;
+.popup_text{
+    background-color: #3cd44a;
+    color: white;
     margin-left: 20px;
+}
+.popup_close{
+    position: absolute;
+    top: 8px;
+    right: 10px;
 }
 .imSh_sure{
     background-color: #77afea;
